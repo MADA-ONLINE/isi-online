@@ -1,0 +1,258 @@
+#background{
+    width: 100%;
+    height: 67%;
+    position: absolute;
+}
+.content{
+    position: absolute;
+    background: linear-gradient(rgb(87, 90, 90),rgba(196, 123, 55, 0.733));
+    width: 100%;
+    height: 67%;
+}
+.sary{
+    position: relative;
+}
+#headImage{
+    width: 100%;
+    /* height: -12%; */
+    /* position: absolute; */
+}
+#sarykely{
+    width: 6%;
+    position: absolute;
+    margin-top: -8%;
+    margin-left: 81%;
+    /* drop-shadow: 20px 20px 50px rgba(0, 0, 0, 5); */
+}
+#maison{
+    width: 45%;
+    position: absolute;
+    margin-top: -40%;
+}
+#loginImg{
+    width: 65%;
+    position: absolute;
+    margin-top: 1%;
+    margin-left: 17%;
+}
+#isiOnline{
+    position: absolute;
+    margin-top: -5%;
+    margin-left: 75%;
+    font-family: raleway;
+    font-size: 22px;
+    color: rgb(211, 211, 211);
+}
+.slogant{
+    position: abslute;
+    margin-top: -2%;
+    margin-left: 4%;
+    font-family: raleway;
+    color: #d3d3d3;
+    font-size: 12px;    
+}
+.container{
+    position: relative;
+    margin-top: 15%;
+    margin-left: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 1200px;
+    flex-wrap: wrap;
+    z-index: 1;
+}
+.container .card1{
+    position: relative;
+    width: 250px;
+    height: 230px;
+    margin: 30px;
+    box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    background-color: rgba(56, 181, 127, 0.7);
+    overflow: hidden;
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(5px);
+    
+}
+.container .card1 .content1{
+    padding: 55px;
+    text-align: center;
+    top: 22%;
+    left: 0%;
+    position: absolute;
+    font-family: raleway;
+    font-size: 19px;
+    color: aliceblue;
+}
+.container .card1 .content2{
+    /* padding: 10px; */
+    position: absolute;
+    color: aliceblue;
+    /* padding: 20px; */
+    text-align: center;
+    background: #DC6767;
+    height: 100%;
+    padding: 60px 20px;
+    box-sizing: border-box;
+    top: -100%;
+    transition: all 0.5s;
+    font-family: raleway;
+    font-size: 19px;
+}
+.container .card1:hover .content2{
+    top: 0%;
+    z-index: 1;
+}
+.container .card2{
+    position: relative;
+    width: 250px;
+    height: 230px;
+    margin: 30px;
+    box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    background-color: rgba(220, 103, 103, 0.7);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(5px);
+    margin-left: 10%;
+}
+.container .card2 .content3{
+    padding: 30px;
+    text-align: center;
+    top: 33%;
+    left: 0%;
+    position: absolute;
+    font-family: raleway;
+    font-size: 19px;
+    color: aliceblue;
+}
+.container .card2 .content4{
+    /* padding: 10px; */
+    position: absolute;
+    color: aliceblue;
+    /* padding: 20px; */
+    text-align: center;
+    background: #38B57F;
+    height: 100%;
+    padding: 50px 20px;
+    box-sizing: border-box;
+    top: -100%;
+    transition: all 0.5s;
+    font-family: raleway;
+    font-size: 19px;
+}
+
+.container .card2:hover .content4{
+    top: 0%;
+    z-index: 1;
+}
+
+.footer{
+    position: relative;
+    margin-top: 3%;
+    margin-left: 91%;
+}
+.footer .copyLogo{
+    display: flex;
+}
+#DGI{
+    width: 20%;
+    margin-left: 75%;
+    margin-top: 12%;
+}
+#copyright{
+    position: absolute;
+    font-family: raleway;
+    font-size: 10px ;
+    margin-top: 30px;
+    margin-left: 17%;
+}
+.btn, .btn0{
+    border: 1px solid #ffffff;
+    background: none;
+    padding: 7px 70px;
+    font-size: 14px;
+    font-family: Raleway;
+    cursor: pointer;
+    transition: 0.8s;
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+}
+.btn1, .btn2{
+    color: #ffffff;
+}
+.btn1:hover{
+    color: #1f1d1d;
+}
+.btn2:hover{
+    color: #1f1d1d;
+}
+.btn::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 0%;
+    background: #38B57F;
+    z-index: -1;
+    transition: 1s;
+}
+.btn0::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 0%;
+    background: #DC6767;
+    z-index: -1;
+    transition: 1s;
+}
+.btn1::before{
+    top: 0;
+    border-radius: 0 0 50% 50%;
+}
+.btn1:hover::before{
+    height: 300%;
+}
+.btn2::before{
+    top: 0;
+    border-radius: 0 0 50% 50%;
+}
+.btn2:hover::before{
+    height: 300%;
+}
+/* ************************************* */
+.floating1{
+    animation: floating11 8s ease-in-out 0s infinite;
+}
+@keyframes floating11{
+    0%{
+        transform: translateY(0px);
+    }
+    50%{
+        transform: translateY(-8px);
+    }
+    100%{
+        transform: translateY(0px);
+    }
+}
+.floating2{
+    animation: floating22 8s ease-in-out 0s infinite;
+}
+@keyframes floating22{
+    0%{
+        transform: translateY(0px);
+    }
+    50%{
+        transform: translateY(8px);
+    }
+    100%{
+        transform: translateY(0px);
+    }
+}
