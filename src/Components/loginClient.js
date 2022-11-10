@@ -2,9 +2,9 @@ import React from "react"
 import Ravinala from "../image/ravinala.png"
 // import Sarykely from "../image/sarykely.png"
 import Login from "../image/login.png"
-import DGI from '../image/DGI.jpg'
 import headImage from '../image/head.png'
-import Saina from '../image/saina.png'
+import Saina1 from '../image/saina1.png'
+import DGI from '../image/DGI.jpg'
 // import backG from '../image/backG.jpg'
 
 
@@ -21,10 +21,10 @@ export default function LoginClient(){
                     <img src={headImage} id="headImage1"/>
                 </div>
                 <div className='saina1'>
-                        <img src={Saina} id="saina2"/>
+                        <img src={Saina1} id="saina2"/>
                         <img src={DGI} id="DGI2"/>
                 </div>
-                <p id='isiOnline1'>ISI-ONLINE</p>
+                <p id='isiOnline1'>isi-online</p>
             </nav>
             <div className="form-Bg">
                 <form className="form-header">

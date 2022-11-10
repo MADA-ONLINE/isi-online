@@ -1,6 +1,6 @@
 import React from "react";
 import headImage from '../image/head.png'
-import sarykely from '../image/sarykely.png'
+// import sarykely from '../image/sarykely.png'
 import DGI from '../image/DGI.jpg'
 import backG from '../image/backG.jpg'
 import maison from '../image/maison.png'
