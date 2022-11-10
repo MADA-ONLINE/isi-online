@@ -3,6 +3,9 @@ import Ravinala from "../image/ravinala.png"
 // import Sarykely from "../image/sarykely.png"
 import Login from "../image/login.png"
 import DGI from '../image/DGI.jpg'
+import headImage from '../image/head.png'
+import Saina from '../image/saina.png'
+// import backG from '../image/backG.jpg'
 
 
 
@@ -10,7 +13,19 @@ import DGI from '../image/DGI.jpg'
 export default function LoginClient(){
     return(
         <>
+            {/* <img src={backG} id="background1"/> */}
             <img src={Login} id="login"/>
+            {/* <img src={Login} id="login"/> */}
+            <nav className='nav'>
+                <div className='sary floating1'>
+                    <img src={headImage} id="headImage1"/>
+                </div>
+                <div className='saina1'>
+                        <img src={Saina} id="saina2"/>
+                        <img src={DGI} id="DGI2"/>
+                </div>
+                <p id='isiOnline1'>ISI-ONLINE</p>
+            </nav>
             <div className="form-Bg">
                 <form className="form-header">
                     <div className="ravinala">
@@ -26,10 +41,10 @@ export default function LoginClient(){
                         <input type="password" placeholder="Kaody miafina" required />
                     </div>
                     <div className="form-group">
-                        <button type="submit"><b>Tsindrio</b></button>
+                        <button type="submit" className='btn3 btn1'><b>Tsindrio</b></button>
                     </div>
                 </form>
-                <div className="phrase">
+                {/* <div className="phrase">
                     <p>
                         Ataovy ara-dalàna ny fidirambolanao amin'ny alalan'ny fandoavan-ketra.
                         Ary ny fanaovanao izany ihany koa no antoky ny fanatsarana ny tontolo 
@@ -38,7 +53,7 @@ export default function LoginClient(){
                         ny lalana, ny tanàna, fanampiana ireo sahirana sy ireo zokiolona ary ireo mpamboly 
                         any ambanivohitra.
                     </p>
-                </div>
+                </div> */}
                 <div className="courtephrase">
                     <p>
                         "Raiso ny adidinao, aloavy ny hetra"
@@ -46,8 +61,7 @@ export default function LoginClient(){
                 </div>
                 <footer className="footer1">
                     <div className="copyLogo1">
-                        <p id="copyright1">Copyright 2022</p>
-                        <img src={DGI} id="DGI1"/>
+                        <p id="copyright1">Copyright 2022 by Mirantsoa & Rija Andria</p>
                     </div>
                 </footer>
             </div>
