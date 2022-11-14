@@ -13,7 +13,7 @@ import { useNavigate } from 'react-router';
 
 
 
-export default function LoginClient(){
+export default function LoginAdmin(){
     let navigate = useNavigate();
     function handleClick() {
         navigate('/List')
@@ -41,7 +41,7 @@ export default function LoginClient(){
                         <p>isi-online</p>
                     </div>
                     <div className="form-group">
-                        <input type="text" placeholder="NIF" required />
+                        <input type="text" placeholder="Tarehi-marika" required />
                     </div>
                     <div className="form-group">
                         <input type="password" placeholder="Kaody miafina" required />

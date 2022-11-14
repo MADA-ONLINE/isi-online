@@ -1,0 +1,119 @@
+/* body{
+    overflow:hidden;
+} */
+.nav1{
+    margin-top: 5%;
+}
+#headImage2{
+    width: 100%;
+    filter: drop-shadow(8px 4px 4px rgba(0, 0, 0, 0.267));
+    position: absolute;
+    margin-top: -5%;
+}
+.saina3{
+    position: absolute;
+    margin-top: 0%;
+}
+#saina4{
+    width: 25%;
+    margin-left: 0.5%;
+    margin-top: -6%;
+}
+#DGI3{
+    position: absolute;
+    width: 3%;
+    margin-left: 63%;
+    margin-top: -3.5%;
+    border-radius: 24px;
+}
+#isiOnline2{
+    font-size: 24px;
+    color: #ffd700;
+    font-family: Richness Demo;
+    margin-left: 80%;
+    margin-top: -4.5%;
+    position: absolute;
+}
+.All{
+    position: relative;
+    overflow: hidden;
+}
+.info{
+    position: absolute;
+    margin-top: 65px;
+    width: 100%;
+}
+.info .infoname{
+    width: 70%;
+    margin-left: 2%;
+    margin-top: 0%;
+    position: absolute;
+    font-size: 14px;
+    font-family: Raleway;
+    font-style: italic;
+    color: rgba(10, 10, 10, 0.671);
+}
+.info .add{
+    margin-top: 4%;
+    position: absolute;
+    margin-left: 650px;
+}
+.info .add img{
+    width: 30px;
+    cursor: pointer;
+}
+.info .search{
+    margin-left: 90%;
+    margin-top: 4.3%;
+}
+.info .search input{
+    border-radius: 24px;
+    padding: 5px 3px 5px 3px;
+    text-align: center;
+    width: 100px;
+    border: 1px solid rgb(163, 159, 159);
+    font-family: Raleway;
+    font-size: 12px;
+    display: block;
+    outline: none;
+}
+.info .search img{
+    position: absolute;
+    margin-top: -22px;
+    margin-left: 84px;
+    width: 21px;
+}
+/* **************************************************** */
+
+.content-table{
+    border-collapse: collapse;
+    margin: 220px 0;
+    font-size: 0.9em;
+    min-width: 400px;
+    /* position: absolute; */
+}
+.content-table thead tr{
+    background-color: #009879;
+    color: #ffffff;
+    text-align: center;
+    font-size: 12px;
+    font-family: Raleway;
+}
+.content-table th,
+.content-table td{
+    font-family: Raleway;
+    padding: 12px 45px;
+    text-align: center;
+    font-size: 13px;
+}
+.content-table tbody tr{
+    border-bottom: 1px solid #dddddd;
+}
+.content-table tbody tr:nth-of-type(even){
+    background-color: #f3f3f3f3;
+    font-weight: bold;
+    color: #009879;
+}
+.content-table tbody tr:last-of-type{
+    border-bottom: 1px solid #009879;
+}
