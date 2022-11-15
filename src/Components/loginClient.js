@@ -19,8 +19,7 @@ export default function LoginClient(){
         navigate('/List')
     }
     return(
-        <>
-            
+        <>           
             <img src={Login} id="login"/>
             <nav className='nav'>
                 <div className='sary floating1'>

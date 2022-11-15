@@ -1,3 +1,9 @@
+/* #trace{
+    border: 1px solid black;
+    position: absolute;
+    width: 90%;
+    height: 90%;
+} */
 .nav2{
     margin-top: 5%;
 }
@@ -40,7 +46,7 @@
     /* padding: 0px 0px 0px 0px; */
     width: 500px;
     height: 450px;
-    margin-top: 45px;
+    margin-top: px;
 }
 .contact-form .form-field{
     position: relative;
@@ -78,7 +84,7 @@
     cursor: text;
     transition: transform 0.2s ease-in-out;
     width: 200px;
-    color: rgba(128, 128, 128, 0.623);
+    color: rgba(109, 108, 108, 0.801);
     font-style: oblique;
     font-family: Raleway;
 }

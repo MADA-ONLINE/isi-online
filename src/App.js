@@ -1,6 +1,8 @@
+import { BrowserRouter as Router, Route, Routes} from 'react-router-dom'
 import './css/accueil.css';
 import './css/login.css';
 import './css/List.css';
+import './css/ListAdmin.css';
 import './css/Add.css';
 import React from 'react';
 import Accueil from './Components/accueil';
@@ -8,7 +10,8 @@ import LoginClient from './Components/loginClient';
 import LoginAdmin from './Components/loginAdmin';
 import List from './Components/List';
 import Add from './Components/Add';
-import { BrowserRouter as Router, Route, Routes} from 'react-router-dom'
+import ListAdmin from './Components/ListAdmin';
+import Edit from './Components/Edit';
 
 
 function App() {
@@ -22,6 +25,8 @@ function App() {
           <Route exact path="/LoginAdmin" element={ <LoginAdmin /> } />
           <Route exact path="/List" element={ <List /> } />
           <Route exact path="/:nif/Add" element={ <Add /> } />
+          <Route exact path="/ListAdmin" element={ <ListAdmin /> } />
+          <Route exact path="/:nif/Edit" element={ <Edit /> } />
         </Routes>
     </Router>
   );

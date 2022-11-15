@@ -16,7 +16,7 @@ import { useNavigate } from 'react-router';
 export default function LoginAdmin(){
     let navigate = useNavigate();
     function handleClick() {
-        navigate('/List')
+        navigate('/ListAdmin')
     }
     return(
         <>

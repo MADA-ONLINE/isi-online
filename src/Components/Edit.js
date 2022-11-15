@@ -7,24 +7,20 @@ import Give1 from '../image/give1.png'
 import Give2 from '../image/give2.png'
 import Give3 from '../image/give3.png'
 import Give4 from '../image/give4.png'
-// import Trace from '../image/trace.png'
 
-export default function Add(){
-
+export default function Edit(){
     return(
-        <>
-            <body className="BodyAdd">
-                {/* <img scr={Trace} id='trace'/> */}
-                <nav className='nav2'>
-                    <div className='sary floating1'>
-                        <img src={headImage} id="headImage3"/>
-                    </div>
-                    <div className='saina5'>
-                        <img src={Saina1} id="saina6"/>
-                        <img src={DGI} id="DGI4"/>
-                    </div>
-                    <p id='isiOnline3'>isi-online</p>
-                </nav>
+        <body className="BodyAdd">
+                    <nav className='nav2'>
+                        <div className='sary floating1'>
+                            <img src={headImage} id="headImage3"/>
+                        </div>
+                        <div className='saina5'>
+                            <img src={Saina1} id="saina6"/>
+                            <img src={DGI} id="DGI4"/>
+                        </div>
+                        <p id='isiOnline3'>isi-online</p>
+                    </nav>
                 <section className="get_in_touch">
                     <div className="container">
                         <div className="contact-form row">
@@ -57,6 +53,10 @@ export default function Add(){
                                 <label for="date2" className="label">Daty nividianana ny entana</label>
                             </div>
                             <div className="form-field">
+                                <input id = "date2" className="input-text" type="texte" name=""/>
+                                <label for="date2" className="label">Fanamarihana</label>
+                            </div>
+                            <div className="form-field">
                                 <button type="submit" className='btn4' ><b>Tsindrio</b></button>
                             </div>
                         </div>
@@ -85,6 +85,5 @@ export default function Add(){
                     </div>
                 </footer>
             </body>
-        </>
     )
 }
