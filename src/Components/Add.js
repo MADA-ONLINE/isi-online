@@ -2,18 +2,19 @@ import React from "react";
 import headImage from '../image/head.png'
 import Saina1 from '../image/saina1.png'
 import DGI from '../image/DGI.jpg'
-import Rond from '../image/Rond.png'
 import Give1 from '../image/give1.png'
 import Give2 from '../image/give2.png'
 import Give3 from '../image/give3.png'
 import Give4 from '../image/give4.png'
-// import Trace from '../image/trace.png'
+// import { useState } from "react";
+
 
 export default function Add(){
-
+    // const [isOpen, setIsOpen] = useState(false)
     return(
         <>
             <body className="BodyAdd">
+                
                 {/* <img scr={Trace} id='trace'/> */}
                 <nav className='nav2'>
                     <div className='sary floating1'>
@@ -57,15 +58,12 @@ export default function Add(){
                                 <label for="date2" className="label">Daty nividianana ny entana</label>
                             </div>
                             <div className="form-field">
-                                <button type="submit" className='btn4' ><b>Tsindrio</b></button>
-                            </div>
+                                <button type="submit" className='btn4'><b>Tsindrio</b></button>
+                            </div>           
                         </div>
                     </div>
                 </section>
-                <div className="picture">
-                    <div className="container-rond">
-                        <img src={Rond} id='rond'/>
-                    </div>
+                <div className="picture">                   
                     <div className="container-give1 floating1">
                         <img src={Give1} id='give1'/>
                     </div>
@@ -79,12 +77,45 @@ export default function Add(){
                         <img src={Give4} id='give4'/>
                     </div>
                 </div>
+                {/* ************************************************************ */}
+                <div className="payer">
+                    <div className="Pay">
+                        <table className="tableau">
+                            <thead>
+                                <tr>
+                                    <th>Ny volanao (Ariary)</th>
+                                    <th>Ny 5% miala aminy (Ariary)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>80.000</td>
+                                    <td>4.000</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table className="Vola_aloha">
+                            <thead>
+                                <tr>
+                                    <th>Vola aloa (Ariary)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>4.000</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                {/* ************************************************************* */}
                 <footer className="footer2">
                     <div className="copyLogo2">
                         <p id="copyright2">Copyright 2022 by Mirantsoa & Rija Andria</p>
                     </div>
                 </footer>
             </body>
+            
         </>
     )
 }
