@@ -62,7 +62,7 @@ export default function Edit(){
                         </div>
                     </div>
                 </section>
-                <div className="picture">
+                <div className="picture1">
                     <div className="container-rond">
                         <img src={Rond} id='rond'/>
                     </div>

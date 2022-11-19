@@ -50,16 +50,6 @@ export default function LoginAdmin(){
                         <button type="submit" className='btn3 btn1' onClick={handleClick}><b>Tsindrio</b></button>
                     </div>
                 </form>
-                {/* <div className="phrase">
-                    <p>
-                        Ataovy ara-dalàna ny fidirambolanao amin'ny alalan'ny fandoavan-ketra.
-                        Ary ny fanaovanao izany ihany koa no antoky ny fanatsarana ny tontolo 
-                        manodidina eto amin'ny firenen-tsika. Mankaiza avokoa ireo hetra?, ny hetra 
-                        rehetra dia makany amin'ny kitapom-bola-mpanjakàna izay entina anavaozana ny sekoly, 
-                        ny lalana, ny tanàna, fanampiana ireo sahirana sy ireo zokiolona ary ireo mpamboly 
-                        any ambanivohitra.
-                    </p>
-                </div> */}
                 <div className="courtephrase">
                     <p>
                         "Raiso ny adidinao, aloavy ny hetra"

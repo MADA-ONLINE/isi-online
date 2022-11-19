@@ -5,56 +5,18 @@ import { useNavigate } from "react-router-dom";
 import headImage from '../image/head.png'
 import Saina1 from '../image/saina1.png'
 import DGI from '../image/DGI.jpg'
-import Rond from '../image/Rond.png'
 import Give1 from '../image/give1.png'
 import Give2 from '../image/give2.png'
 import Give3 from '../image/give3.png'
 import Give4 from '../image/give4.png'
-
 // import Trace from '../image/trace.png'
 
 export default function Add(){
 
-    let history = useNavigate(); //use navigate on previous
-    const [isi,setIsi] = useState( {
-         nif:"",
-         anarana_feno:"",
-         cin:"",
-         daty_androany:"",
-         anarana_entana:"",
-         vidina_entana:"",
-         daty_nividianana:""
-    })
-    
-    const {nif,anarana_feno,cin,daty_androany,anarana_entana,vidina_entana,daty_nividianana}= isi
-    const handleChange =(e)=>{
-       setIsi({...isi,[e.target.name] : e.target.value})
-    }
-
-    const submitForm = async(e)=>{
-        e.preventDefault();
-        //console.log(isi)       
-
-     await axios.post("http://localhost/ISI_online/AddIsi.php",isi)
-        .then((result) => {
-          console.log(result);
-          if(result.data.status == 'valid'){
-             history(`/List`);
-                   
-          }
-        else{   
-          /*alert(result.data.status) ;     
-          alert("There is a problem for adding,please try again");*/
-          history(`/List`);
-        }   
-    });
-    
-
-    }
-
     return(
         <>
             <body className="BodyAdd">
+                
                 {/* <img scr={Trace} id='trace'/> */}
                 <nav className='nav2'>
                     <div className='sary floating1'>
@@ -115,14 +77,12 @@ export default function Add(){
                                 <label for="date2" className="label">Daty nividianana ny entana</label>
                             </div>
                             <div className="form-field">
-                                
-                                <input type="submit" className="btn btn-Warning" name="submit" value="Add"/>
+                                <button type="submit" className='btn4' ><b>Tsindrio</b></button>
                             </div>
                         </div>
                     </div>
                     </form>   
                 </section>
-                
                 <div className="picture">
                     <div className="container-rond">
                         <img src={Rond} id='rond'/>
@@ -140,12 +100,45 @@ export default function Add(){
                         <img src={Give4} id='give4'/>
                     </div>
                 </div>
+                {/* ************************************************************ */}
+                <div className="payer">
+                    <div className="Pay">
+                        <table className="tableau">
+                            <thead>
+                                <tr>
+                                    <th>Ny volanao (Ariary)</th>
+                                    <th>Ny 5% miala aminy (Ariary)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>80.000</td>
+                                    <td>4.000</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table className="Vola_aloha">
+                            <thead>
+                                <tr>
+                                    <th>Vola aloa (Ariary)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>4.000</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                {/* ************************************************************* */}
                 <footer className="footer2">
                     <div className="copyLogo2">
                         <p id="copyright2">Copyright 2022 by Mirantsoa & Rija Andria</p>
                     </div>
                 </footer>
             </body>
+            
         </>
     )
 }

@@ -26,12 +26,14 @@ export default function List(){
                         <p id='isiOnline2'>isi-online</p>
                     </nav>
                     <div className="info">
-                        <div className="infoname">
-                            <p id="nif">NIF: <b>4001 213 456</b></p>
-                            <p id="anarana">Anarana feno:<b> Rakotomalala Lauri Vania</b></p>
-                        </div>
-                        <div className="add">
-                            <img src={Add} onClick={handleClick}/>
+                        <div>                           
+                            <div className="infoname">
+                                <p id="nif">NIF: <b>4001 213 456</b></p>
+                                <p id="anarana">Anarana feno:<b> Rakotomalala Lauri Vania</b></p>
+                            </div>
+                            <div className="add">
+                                <img src={Add} onClick={handleClick}/>
+                            </div>
                         </div>
                         <div className="search">
                             <input type="texte" placeholder="Date"/>
