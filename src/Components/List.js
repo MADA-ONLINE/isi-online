@@ -1,16 +1,37 @@
-import React from "react";
+import React, { useState, useEffect} from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { Link } from "react-router-dom";
 import Add from '../image/add.png'
 import Search from '../image/search.png'
 import headImage from '../image/head.png'
 import Saina1 from '../image/saina1.png'
 import DGI from '../image/DGI.jpg'
-import { useNavigate } from 'react-router-dom';
 
-export default function List(){
-    let navigate = useNavigate();
+
+ function List(){
+     let navigate= useNavigate();
     function handleClick() {
         navigate('/:nif/Add')
     }
+        const [infoisi,setInfoisi] = useState([]);
+
+        useEffect(()=>{
+            loadUsers();
+        },
+        [] 
+        );
+    
+         const loadUsers = async ()=>{
+         const result = await axios.get("http://localhost/ISI_online/ListIsi.php");
+         //console.log(result.data);
+          setInfoisi(result.data); 
+          console.log(typeof(result.data));   
+        };
+        console.log(infoisi);
+    
+
+    
     return (
         <>
             <body className="bodyList">
@@ -26,20 +47,27 @@ export default function List(){
                         <p id='isiOnline2'>isi-online</p>
                     </nav>
                     <div className="info">
-                        <div>                           
+
+                    {infoisi.map(infoisi=>{ return ( 
+                        <div>                                          
                             <div className="infoname">
-                                <p id="nif">NIF: <b>4001 213 456</b></p>
-                                <p id="anarana">Anarana feno:<b> Rakotomalala Lauri Vania</b></p>
+                                <p id="nif">NIF: <b>{infoisi.nif}</b></p>
+                                <p id="anarana">Anarana feno:<b> {infoisi.anarana_feno}</b></p>
                             </div>
+                        
+
                             <div className="add">
                                 <img src={Add} onClick={handleClick}/>
                             </div>
                         </div>
+                        )})}
+
                         <div className="search">
                             <input type="texte" placeholder="Date"/>
                             <img src={Search} />
                         </div>
                     </div>
+                    
                     <div className="table">
                         <table className="content-table">
                             <thead>
@@ -49,103 +77,25 @@ export default function List(){
                                     <th>Vidiny (Ariary)</th>
                                     <th>Daty novidianana azy</th>
                                     <th>Daty nisoratana ISI</th>
-                                    <th>Sazy</th>
                                     <th>Vola aloha (Ariary)</th>
+                                    <th>sazy</th>
                                     <th>Fanamarihana</th>
                                 </tr>
                             </thead>
+                           {infoisi.map(infoisi=>{ return ( 
                             <tbody>
                                 <tr>
-                                    <td>01</td>
-                                    <td>Saribao</td>
-                                    <td>20.000</td>
-                                    <td>12/11/2022</td>
-                                    <td>13/12/2022</td>
-                                    <td>0</td>
+                                    <td>{infoisi.laharana}</td>
+                                    <td>{infoisi.anarana_entana}</td>
+                                    <td>{infoisi.vidina_entana}</td>
+                                    <td>{infoisi.daty_androany}</td>
+                                    <td>{infoisi.daty_nividianana}</td>
+                                    <td>{infoisi.vola_aloa}</td>
                                     <td>1000</td>
                                     <td>Voaloha</td>
-                                </tr>
-                                <tr>
-                                    <td>06</td>
-                                    <td>Saribao</td>
-                                    <td>20.000</td>
-                                    <td>12/11/2022</td>
-                                    <td>13/12/2022</td>
-                                    <td>0</td>
-                                    <td>1000</td>
-                                    <td>Voaloha</td>
-                                </tr>
-                                <tr>
-                                    <td>07</td>
-                                    <td>Saribao</td>
-                                    <td>20.000</td>
-                                    <td>12/11/2022</td>
-                                    <td>13/12/2022</td>
-                                    <td>0</td>
-                                    <td>1000</td>
-                                    <td>Voaloha</td>
-                                </tr>
-                                <tr>
-                                    <td>07</td>
-                                    <td>Saribao</td>
-                                    <td>20.000</td>
-                                    <td>12/11/2022</td>
-                                    <td>13/12/2022</td>
-                                    <td>0</td>
-                                    <td>1000</td>
-                                    <td>Voaloha</td>
-                                </tr>
-                                <tr>
-                                    <td>07</td>
-                                    <td>Saribao</td>
-                                    <td>20.000</td>
-                                    <td>12/11/2022</td>
-                                    <td>13/12/2022</td>
-                                    <td>0</td>
-                                    <td>1000</td>
-                                    <td>Voaloha</td>
-                                </tr>
-                                <tr>
-                                    <td>07</td>
-                                    <td>Saribao</td>
-                                    <td>20.000</td>
-                                    <td>12/11/2022</td>
-                                    <td>13/12/2022</td>
-                                    <td>0</td>
-                                    <td>1000</td>
-                                    <td>Voaloha</td>
-                                </tr>
-                                <tr>
-                                    <td>07</td>
-                                    <td>Saribao</td>
-                                    <td>20.000</td>
-                                    <td>12/11/2022</td>
-                                    <td>13/12/2022</td>
-                                    <td>0</td>
-                                    <td>1000</td>
-                                    <td>Voaloha</td>
-                                </tr>
-                                <tr>
-                                    <td>07</td>
-                                    <td>Saribao</td>
-                                    <td>20.000</td>
-                                    <td>12/11/2022</td>
-                                    <td>13/12/2022</td>
-                                    <td>0</td>
-                                    <td>1000</td>
-                                    <td>Voaloha</td>
-                                </tr>
-                                <tr>
-                                    <td>07</td>
-                                    <td>Saribao</td>
-                                    <td>20.000</td>
-                                    <td>12/11/2022</td>
-                                    <td>13/12/2022</td>
-                                    <td>0</td>
-                                    <td>1000</td>
-                                    <td>Voaloha</td>
-                                </tr>
+                                </tr>                             
                             </tbody>
+                           )})}
                         </table>
                     </div>
                 </div>
@@ -153,3 +103,5 @@ export default function List(){
         </>
     )
 }
+
+export default List;

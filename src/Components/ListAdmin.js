@@ -1,15 +1,34 @@
-import React from "react";
+import React, { useState, useEffect} from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import headImage from '../image/head.png'
 import Saina1 from '../image/saina1.png'
 import DGI from '../image/DGI.jpg'
 import Search from '../image/search.png'
-import { useNavigate } from 'react-router-dom';
+
 
 export default function ListAdmin(){
     let navigate = useNavigate();
     function handleClick() {
         navigate('/:nif/Edit')
     }
+    const [infoisi,setInfoisi] = useState([]);
+
+    useEffect(()=>{
+        loadUsers();
+    },
+    [] 
+    );
+
+     const loadUsers = async ()=>{
+     const result = await axios.get("http://localhost/ISI_online/Listadmin.php");
+     //console.log(result.data);
+      setInfoisi(result.data); 
+      console.log(typeof(result.data));   
+    };
+    console.log(infoisi);
+
+
     return(
         <>
                     <nav className='navv'>
@@ -32,118 +51,33 @@ export default function ListAdmin(){
                         <table className="content-tablee">
                             <thead>
                                 <tr>
-                                    <th>Laharana</th>
-                                    <th>Anaran'ny entana</th>
+                                    <th>nif</th>
+                                    <th>Anarana</th>
+                                    <th>anarana_entana</th>
                                     <th>Vidiny (Ariary)</th>
                                     <th>Daty novidianana azy</th>
                                     <th>Daty nisoratana ISI</th>
-                                    <th>Sazy</th>
                                     <th>Vola aloha (Ariary)</th>
                                     <th>Fanamarihana</th>
                                     <th>Ovaina</th>
                                 </tr>
                             </thead>
+                            {infoisi.map(infoisi=>{ return ( 
                             <tbody>
                                 <tr>
-                                    <td>01</td>
-                                    <td>Saribao</td>
-                                    <td>20.000</td>
-                                    <td>12/11/2022</td>
-                                    <td>13/12/2022</td>
-                                    <td>0</td>
-                                    <td>1000</td>
+                                    <td>{infoisi.nif}</td>
+                                    <td>{infoisi.anarana_feno}</td>
+                                    <td>{infoisi.anarana_entana}</td>
+                                    <td>{infoisi.vidina_entana}</td>
+                                    <td>{infoisi.daty_androany}</td>
+                                    <td>{infoisi.daty_nividianana}</td>
+                                    <td>{infoisi.vola_aloa}</td>
                                     <td>Voaloha</td>
                                     <td id="ovaina" onClick={handleClick}>Ovaina</td>
-                                </tr>
-                                <tr>
-                                    <td>06</td>
-                                    <td>Saribao</td>
-                                    <td>20.000</td>
-                                    <td>12/11/2022</td>
-                                    <td>13/12/2022</td>
-                                    <td>0</td>
-                                    <td>1000</td>
-                                    <td>Voaloha</td>
-                                    <td>Ovaina</td>
-                                </tr>
-                                <tr>
-                                    <td>07</td>
-                                    <td>Saribao</td>
-                                    <td>20.000</td>
-                                    <td>12/11/2022</td>
-                                    <td>13/12/2022</td>
-                                    <td>0</td>
-                                    <td>1000</td>
-                                    <td>Voaloha</td>
-                                    <td>Ovaina</td>
-                                </tr>
-                                <tr>
-                                    <td>07</td>
-                                    <td>Saribao</td>
-                                    <td>20.000</td>
-                                    <td>12/11/2022</td>
-                                    <td>13/12/2022</td>
-                                    <td>0</td>
-                                    <td>1000</td>
-                                    <td>Voaloha</td>
-                                    <td>Ovaina</td>
-                                </tr>
-                                <tr>
-                                    <td>07</td>
-                                    <td>Saribao</td>
-                                    <td>20.000</td>
-                                    <td>12/11/2022</td>
-                                    <td>13/12/2022</td>
-                                    <td>0</td>
-                                    <td>1000</td>
-                                    <td>Voaloha</td>
-                                    <td>Ovaina</td>
-                                </tr>
-                                <tr>
-                                    <td>07</td>
-                                    <td>Saribao</td>
-                                    <td>20.000</td>
-                                    <td>12/11/2022</td>
-                                    <td>13/12/2022</td>
-                                    <td>0</td>
-                                    <td>1000</td>
-                                    <td>Voaloha</td>
-                                    <td>Ovaina</td>
-                                </tr>
-                                <tr>
-                                    <td>07</td>
-                                    <td>Saribao</td>
-                                    <td>20.000</td>
-                                    <td>12/11/2022</td>
-                                    <td>13/12/2022</td>
-                                    <td>0</td>
-                                    <td>1000</td>
-                                    <td>Voaloha</td>
-                                    <td>Ovaina</td>
-                                </tr>
-                                <tr>
-                                    <td>07</td>
-                                    <td>Saribao</td>
-                                    <td>20.000</td>
-                                    <td>12/11/2022</td>
-                                    <td>13/12/2022</td>
-                                    <td>0</td>
-                                    <td>1000</td>
-                                    <td>Voaloha</td>
-                                    <td>Ovaina</td>
-                                </tr>
-                                <tr>
-                                    <td>07</td>
-                                    <td>Saribao</td>
-                                    <td>20.000</td>
-                                    <td>12/11/2022</td>
-                                    <td>13/12/2022</td>
-                                    <td>0</td>
-                                    <td>1000</td>
-                                    <td>Voaloha</td>
-                                    <td>Ovaina</td>
-                                </tr>
+                                </tr>                            
                             </tbody>
+                            )})}
+
                         </table>
                     </div>
         </>
