@@ -1,0 +1,55 @@
+.form-field .btn4{
+    outline: none;
+    background: #EFA105;
+    width: 80%;
+    border: 0;
+    border-radius: 25px;
+    padding: 7px 20px;
+    color: aliceblue;
+    font-family: Raleway;
+    font-size: 13px;
+    cursor: pointer;
+}
+.form-field .btn5{
+    outline: none;
+    background: #1a8505de;
+    width: 80%;
+    border: 0;
+    border-radius: 25px;
+    padding: 7px 20px;
+    color: aliceblue;
+    font-family: Raleway;
+    font-size: 13px;
+    cursor: pointer;
+    margin-top: -64px;
+    margin-left: 100%;
+    position: absolute;
+}
+.bouton{
+    position: absolute;
+    margin-left: 4%;
+}
+.Paiement{
+    /* border: 1px solid black; */
+    padding: 2% 0% 3% 0%;
+    width: 30%;
+    margin-left: 50%;
+    margin-top: 7%;
+    position: absolute;
+    background-color: #165f5960;
+    backdrop-filter: blur(4px);
+    border-radius: 50px 0px;
+    z-index: -1;
+}
+.Paiement p{
+    text-align: center;
+    font-family: raleway;
+    /* font-weight: bold; */
+    font-size: 18px;
+    color: rgb(255, 0, 0);
+}
+.Paiement .Net{
+    margin-top: 10%;
+    font-weight: bold;
+    color: rgb(21, 156, 3);
+}

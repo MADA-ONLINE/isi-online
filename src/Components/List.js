@@ -1,7 +1,7 @@
 import React, { useState, useEffect} from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import Add from '../image/add.png'
 import Search from '../image/search.png'
 import headImage from '../image/head.png'
@@ -54,20 +54,20 @@ import DGI from '../image/DGI.jpg'
                         <p id='isiOnline2'>isi-online</p>
                     </nav>
                     <div className="info">
+                        {infoisi.map(infoisi=>{ return ( 
+                            <div>                                          
+                                <div className="infoname">
+                                    <p id="nif">NIF: <b>{infoisi.nif}</b></p>
+                                    <p id="anarana">Anarana feno:<b> {infoisi.anarana_feno}</b></p>
+                                </div>
+                            
 
-                    {infoisi.map(infoisi=>{ return ( 
-                        <div>                                          
-                            <div className="infoname">
-                                <p id="nif">NIF: <b>{infoisi.nif}</b></p>
-                                <p id="anarana">Anarana feno:<b> {infoisi.anarana_feno}</b></p>
+                                <div className="add">
+                                    <img src={Add} onClick={handleClick}/>
+                                </div>
                             </div>
-                        
-
-                            <div className="add">
-                                <img src={Add} onClick={handleClick}/>
-                            </div>
-                        </div>
                         )})}
+
 
                         <div className="search">
                             <input type="texte" placeholder="Date"
@@ -75,6 +75,12 @@ import DGI from '../image/DGI.jpg'
                              />
                             <img src={Search} />
                         </div>
+
+                            <div className="search">
+                                <input type="texte" placeholder="Date"/>
+                                <img src={Search} />
+                            </div>
+
                     </div>
                     
                     <div className="table">
@@ -84,6 +90,7 @@ import DGI from '../image/DGI.jpg'
                                     <th>Laharana</th>
                                     <th>Anaran'ny entana</th>
                                     <th>Vidiny (Ariary)</th>
+                                    <th>Ny isany</th>
                                     <th>Daty novidianana azy</th>
                                     <th>Daty nisoratana ISI</th>
                                     <th>Vola aloha (Ariary)</th>
@@ -92,22 +99,25 @@ import DGI from '../image/DGI.jpg'
                                 </tr>
                             </thead>
                             <tbody>
+
                            
                     {infoisi.filter((infoisi)=>{
                 return ( infoisi.laharana.includes(chercher) || infoisi.anarana_entana.includes(chercher) ||
                 infoisi.daty_nividianana.includes(chercher) || infoisi.daty_androany.includes(chercher)  )            
-                }).map(infoisi=>{ return ( 
-                                <tr>
+                }).map(infoisi=>{ return (                           
+                               <tr>
                                     <td>{infoisi.laharana}</td>
                                     <td>{infoisi.anarana_entana}</td>
                                     <td>{infoisi.vidina_entana}</td>
+                                    <td>{infoisi.isany}</td>
                                     <td>{infoisi.daty_androany}</td>
                                     <td>{infoisi.daty_nividianana}</td>
                                     <td>{infoisi.vola_aloa}</td>
                                     <td>0</td>
                                     <td>tsy voaloha</td>
                                 </tr>                             
-                           )})}
+                           )})}                                                          
+                               
                             </tbody>
                         </table>
                     </div>
