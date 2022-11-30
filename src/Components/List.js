@@ -15,6 +15,13 @@ import DGI from '../image/DGI.jpg'
         navigate('/:nif/Add')
     }
         const [infoisi,setInfoisi] = useState([]);
+        const [chercher,setChercher] = useState("");
+        const handleChange =(e)=>{
+            //setSear({...sear,[e.target.name] : e.target.value})
+            
+            let value = e.target.value;
+            setChercher(value);
+         }
 
         useEffect(()=>{
             loadUsers();
@@ -63,7 +70,9 @@ import DGI from '../image/DGI.jpg'
                         )})}
 
                         <div className="search">
-                            <input type="texte" placeholder="Date"/>
+                            <input type="texte" placeholder="Date"
+                             onChange = {handleChange}
+                             />
                             <img src={Search} />
                         </div>
                     </div>
@@ -82,8 +91,12 @@ import DGI from '../image/DGI.jpg'
                                     <th>Fanamarihana</th>
                                 </tr>
                             </thead>
-                           {infoisi.map(infoisi=>{ return ( 
                             <tbody>
+                           
+                    {infoisi.filter((infoisi)=>{
+                return ( infoisi.laharana.includes(chercher) || infoisi.anarana_entana.includes(chercher) ||
+                infoisi.daty_nividianana.includes(chercher) || infoisi.daty_androany.includes(chercher)  )            
+                }).map(infoisi=>{ return ( 
                                 <tr>
                                     <td>{infoisi.laharana}</td>
                                     <td>{infoisi.anarana_entana}</td>
@@ -91,11 +104,11 @@ import DGI from '../image/DGI.jpg'
                                     <td>{infoisi.daty_androany}</td>
                                     <td>{infoisi.daty_nividianana}</td>
                                     <td>{infoisi.vola_aloa}</td>
-                                    <td>1000</td>
-                                    <td>Voaloha</td>
+                                    <td>0</td>
+                                    <td>tsy voaloha</td>
                                 </tr>                             
-                            </tbody>
                            )})}
+                            </tbody>
                         </table>
                     </div>
                 </div>

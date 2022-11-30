@@ -110,7 +110,7 @@
     border-bottom: 1px solid #dddddd;
 }
 .content-table tbody tr:nth-of-type(even){
-    background-color: #f3f3f3f3;
+    background-color: #ebe6e6f3;
     font-weight: bold;
     color: #009879;
 }

@@ -85,7 +85,7 @@ export default function Add(){
                     <div className="container">
                         <div className="contact-form row">
                             <div className="form-field">
-                                <input id = "nif" className="input-text" required="required" type="text" name="nif" 
+                                <input id = "nif" className="input-text" required="required" type="number" name="nif" 
                                   value={nif} onChange = {e => handleChange(e) }
                                 />
                                 <label for="nif" className="label">NIF</label>
@@ -97,7 +97,7 @@ export default function Add(){
                                 <label for="name1" className="label">Anarana feno</label>
                             </div>
                             <div className="form-field">
-                                <input id = "cin" className="input-text" required="required" type="text" name="cin"
+                                <input id = "cin" className="input-text" required="required" type="number" name="cin"
                                   value={cin} onChange = {e => handleChange(e)}
                                 />
                                 <label for="cin" className="label">Laharan'ny kara-panondro</label>
@@ -115,7 +115,7 @@ export default function Add(){
                                 <label for="name2" className="label">Anaran'ny entana novidiana</label>
                             </div>
                             <div className="form-field">
-                                <input id = "price" className="input-text" required="required" type="text" name="vidina_entana"
+                                <input id = "price" className="input-text" required="required" type="number" name="vidina_entana"
                                  value={vidina_entana} onChange = {e => handleChange(e)}
                                 />
                                 <label for="price" className="label">Ny vidiny (Ariary)</label>
@@ -127,7 +127,7 @@ export default function Add(){
                                 <label for="date2" className="label">Daty nividianana ny entana</label>
                             </div>
                             <div className="form-field">
-                            <input type="submit" className="btn btn-Warning" name="submit" value="Add"/>
+                            <input type="submit" className="btn4" name="submit" value="Add"/>
                             </div>
                         </div>
                     </div>
