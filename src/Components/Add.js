@@ -15,17 +15,16 @@ export default function Add(){
       
     let history = useNavigate(); //use navigate on previous
     const [infoisi,setInfoisi] = useState( {
-        //  nif:"",
-        //  anarana_feno:"",
-        //  cin:"",
-        //  daty_androany:"",
-        //  anarana_entana:"",
-        //  vidina_entana:"",
-        //  isany:"",
-        //  daty_nividianana:"",
-        //  isi_aloha : "",
-        //  charge : ""
-        coucou: "",
+         nif:"",
+         anarana_feno:"",
+         cin:"",
+         daty_androany:"",
+         anarana_entana:"",
+         vidina_entana:"",
+         isany:"",
+         daty_nividianana:"",
+         isi_aloha : "",
+         charge : ""
     })
 
     
