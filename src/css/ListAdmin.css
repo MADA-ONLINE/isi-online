@@ -17,10 +17,15 @@
     font-size: 12px;
     font-family: Raleway;
 }
-.content-tablee th,
+.content-tablee th{
+    font-family: Raleway;
+    padding: 10px 24px 10px;
+    text-align: center;
+    font-size: 13px;
+}
 .content-tablee td{
     font-family: Raleway;
-    padding: 12px 45px;
+    padding: 10px 28px 20px;
     text-align: center;
     font-size: 13px;
 }
@@ -28,13 +33,18 @@
     border-bottom: 1px solid #dddddd;
 }
 .content-tablee tbody tr:nth-of-type(even){
-    background-color: #f3f3f3f3;
-    font-weight: bold;
+    background-color: #e4e0e0f3;
     color: #009879;
+    font-weight: bold;
 }
 .content-tablee tbody tr:last-of-type{
     border-bottom: 1px solid #009879;
 }
 #ovaina{
     cursor: pointer;
+}
+#ovaina img{
+    width: 20%;
+    display: inline;
+    padding-left: 10px;
 }

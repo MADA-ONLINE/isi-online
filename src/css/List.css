@@ -1,6 +1,11 @@
 /* body{
     overflow:hidden;
 } */
+/* .contenu{
+    position: relative;
+    margin-top: 40px;
+    border: 3px solid black;
+} */
 .nav1{
     margin-top: 5%;
 }
@@ -40,7 +45,7 @@
 }
 .info{
     position: absolute;
-    margin-top: 65px;
+    margin-top: 60px;
     width: 100%;
 }
 .info .infoname{

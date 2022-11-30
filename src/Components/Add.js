@@ -21,14 +21,16 @@ export default function Add(){
          daty_androany:"",
          anarana_entana:"",
          vidina_entana:"",
+         isany:"",
          daty_nividianana:"",
          isi_aloha : "",
          charge : ""
     })
+
     
-    const {nif,anarana_feno,cin,daty_androany,anarana_entana,vidina_entana,daty_nividianana}= infoisi
+    const {nif,anarana_feno,cin,daty_androany,anarana_entana,vidina_entana,isany,daty_nividianana}= infoisi
     const handleChange =(e)=>{
-        setInfoisi({...infoisi,[e.target.name] : e.target.value})
+        setInfoisi({...infoisi,[e.target.name] : e.target.value})        
     }
 
     const submitForm = async(e)=>{
@@ -121,18 +123,38 @@ export default function Add(){
                                 <label for="price" className="label">Ny vidiny (Ariary)</label>
                             </div>
                             <div className="form-field">
+                                <input id = "number" className="input-text" required="required" type="number" name="isany"
+                                 value={isany} onChange = {e => handleChange(e)}
+                                />
+                                <label for="price" className="label">Ny isany</label>
+                            </div>
+                            <div className="form-field">
                                 <input id = "date2" className="input-text" required="required" type="date" name="daty_nividianana"
                                   value={daty_nividianana} onChange = {e => handleChange(e)}
                                 />
                                 <label for="date2" className="label">Daty nividianana ny entana</label>
                             </div>
                             <div className="form-field">
-                            <input type="submit" className="btn btn-Warning" name="submit" value="Add"/>
+                                <input type="submit" className="btn5" name="submit" value="Add"/>
                             </div>
                         </div>
                     </div>
                     </form>   
                 </section>
+                <div className="picture">                   
+                    <div className="container-give1 floating1">
+                        <img src={Give1} id='give1'/>
+                    </div>
+                    <div className="container-give2 floating2">
+                        <img src={Give2} id='give2'/>
+                    </div>
+                    <div className="container-give3 floating2">
+                        <img src={Give3} id='give3'/>
+                    </div>
+                    <div className="container-give4 floating1">
+                        <img src={Give4} id='give4'/>
+                    </div>
+                </div>
  
                 {/* ************************************************************ */}
                 <div className="payer">

@@ -5,12 +5,18 @@ import headImage from '../image/head.png'
 import Saina1 from '../image/saina1.png'
 import DGI from '../image/DGI.jpg'
 import Search from '../image/search.png'
+import Pay from '../image/Pay.png'
+import Edit from '../image/Edit.png'
+import Delete from '../image/Delete.png'
 
 
 export default function ListAdmin(){
     let navigate = useNavigate();
     function handleClick() {
         navigate('/:nif/Edit')
+    }
+    function ClickPaiement() {
+        navigate('/:nif/Paiement')
     }
     const [infoisi,setInfoisi] = useState([]);
 
@@ -51,32 +57,38 @@ export default function ListAdmin(){
                         <table className="content-tablee">
                             <thead>
                                 <tr>
-                                    <th>nif</th>
-                                    <th>Anarana</th>
-                                    <th>anarana_entana</th>
+                                    <th>Nif</th>
+                                    <th>Anarana feno</th>
+                                    <th>Anaranan'ny entana</th>
                                     <th>Vidiny (Ariary)</th>
+                                    <th>Ny isany</th>
                                     <th>Daty novidianana azy</th>
                                     <th>Daty nisoratana ISI</th>
-                                    <th>Vola aloha (Ariary)</th>
-                                    <th>Fanamarihana</th>
-                                    <th>Ovaina</th>
+                                    <th>Vola haloa (Ariary)</th>
+                                    <th>Vola voaloa (Ariary)</th>
+                                    <th></th>
                                 </tr>
                             </thead>
-                            {infoisi.map(infoisi=>{ return ( 
                             <tbody>
-                                <tr>
-                                    <td>{infoisi.nif}</td>
-                                    <td>{infoisi.anarana_feno}</td>
-                                    <td>{infoisi.anarana_entana}</td>
-                                    <td>{infoisi.vidina_entana}</td>
-                                    <td>{infoisi.daty_androany}</td>
-                                    <td>{infoisi.daty_nividianana}</td>
-                                    <td>{infoisi.vola_aloa}</td>
-                                    <td>Voaloha</td>
-                                    <td id="ovaina" onClick={handleClick}>Ovaina</td>
-                                </tr>                            
+                                {infoisi.map(infoisi=>{ return ( 
+                                    <tr>
+                                        <td>{infoisi.nif}</td>
+                                        <td>{infoisi.anarana_feno}</td>
+                                        <td>{infoisi.anarana_entana}</td>
+                                        <td>{infoisi.vidina_entana}</td>
+                                        <td>{infoisi.isany}</td>
+                                        <td>{infoisi.daty_androany}</td>
+                                        <td>{infoisi.daty_nividianana}</td>
+                                        <td>{infoisi.vola_aloa}</td>
+                                        <td>0</td>
+                                        <td  id="ovaina">
+                                            <img src={Edit} onClick={handleClick}/>
+                                            <img src={Delete} />
+                                            <img src={Pay} onClick={ClickPaiement}/>
+                                        </td>
+                                    </tr>                            
+                                )})}
                             </tbody>
-                            )})}
 
                         </table>
                     </div>
