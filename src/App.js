@@ -25,8 +25,8 @@ function App() {
           <Route index element={ <Accueil />} />
           <Route exact path="/LoginClient" element={ <LoginClient /> } />
           <Route exact path="/LoginAdmin" element={ <LoginAdmin /> } />
-          <Route exact path="/List" element={ <List /> } />
-          <Route exact path="/:nif/Add" element={ <Add /> } />
+          <Route exact path="/List/:nif" element={ <List /> } />
+          <Route exact path="/Add" element={ <Add /> } />
           <Route exact path="/ListAdmin" element={ <ListAdmin /> } />
           <Route exact path="/Edit/:laharana" element={ <Edit /> } />
           <Route exact path="/:nif/Paiement" element={ <Paiement /> } />

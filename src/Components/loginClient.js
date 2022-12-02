@@ -1,4 +1,5 @@
-import React from "react"
+import React, { useState ,useEffect } from "react";
+import axios from "axios"
 import Ravinala from "../image/ravinala.png"
 // import Sarykely from "../image/sarykely.png"
 import Login from "../image/login.png"
@@ -15,8 +16,47 @@ import { useNavigate } from 'react-router';
 
 export default function LoginClient(){
     let navigate = useNavigate();
-    function handleClick() {
-        navigate('/List')
+    // function handleClick() {
+    //     navigate('/ListAdmin')
+    // }  
+    const [user,setUser] = useState({
+        nif:"",
+        password:""
+   })
+   
+   const {nif,password}= user
+   const handleChange =(e)=>{
+       setUser({...user,[e.target.name] : e.target.value})
+   }
+ 
+   const submitForm = (e)=>{
+       e.preventDefault();
+       const sendData = {
+        nif: user.nif,
+        password: user.password
+       }      
+       console.log(user)
+       console.log(typeof(user))
+    //    alert("coucou")
+        axios.post('http://localhost/ISI_online/LoginIsi.php',sendData)
+        .then((result) => {
+            console.log(typeof(result.data));
+             console.log(result.data);
+            console.log(result);
+            console.log("coucou")
+            if(result.status === 200){
+                window.localStorage.setItem('nif', result.data.nif)
+                // window.localStorage.setItem('first_name', (result.data.first_name+ ' ' +result.data.first_name))
+                navigate(`/List/${user.nif}`)
+                alert("valid user")
+            }
+            else{   
+            /*alert(result.data.status) ;     
+            alert("There is a problem for adding,please try again");*/
+            console.log("Invalid user")
+            // alert("Invalid user")
+            }   
+        });
     }
     return(
         <>           
@@ -32,7 +72,7 @@ export default function LoginClient(){
                 <p id='isiOnline1'>isi-online</p>
             </nav>
             <div className="form-Bg">
-                <form className="form-header">
+                <form className="form-header" onSubmit={submitForm}>
                     <div className="ravinala">
                         <img src={Ravinala} id="Ravina"/>
                     </div>
@@ -40,13 +80,17 @@ export default function LoginClient(){
                         <p>isi-online</p>
                     </div>
                     <div className="form-group">
-                        <input type="text" placeholder="NIF" required />
+                        <input type="text" placeholder="NIF" required name="nif"
+                            value={nif} onChange = {e => handleChange(e) }
+                        />
                     </div>
                     <div className="form-group">
-                        <input type="password" placeholder="Kaody miafina" required />
+                        <input type="password" placeholder="Kaody miafina" required name="password"
+                            value={password} onChange = {e => handleChange(e) }
+                        />
                     </div>
                     <div className="form-group">
-                        <button type="submit" className='btn3 btn1' onClick={handleClick}><b>Tsindrio</b></button>
+                        <button type="submit" className='btn3 btn1'><b>Tsindrio</b></button>
                     </div>
                 </form>
                 {/* <div className="phrase">

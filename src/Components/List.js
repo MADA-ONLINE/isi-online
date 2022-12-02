@@ -1,5 +1,5 @@
 import React, { useState, useEffect} from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 // import { Link } from "react-router-dom";
 import Add from '../image/add.png'
@@ -10,11 +10,13 @@ import DGI from '../image/DGI.jpg'
 
 
  function List(){
+    const {nif} =  useParams();
      let navigate= useNavigate();
     function handleClick() {
-        navigate('/:nif/Add')
+        navigate('/Add')
     }
         const [infoisi,setInfoisi] = useState([]);
+        const [infoisi_1,setInfoisi_1] = useState([]);
         const [chercher,setChercher] = useState("");
         const handleChange =(e)=>{
             //setSear({...sear,[e.target.name] : e.target.value})
@@ -28,13 +30,24 @@ import DGI from '../image/DGI.jpg'
         },
         [] 
         );
+        useEffect(()=>{
+            loadUser();
+        },
+        [] 
+        );
     
          const loadUsers = async ()=>{
-         const result = await axios.get("http://localhost/ISI_online/ListIsi.php");
+         const result = await axios.get("http://localhost/ISI_online/ListIsi.php?nif="+nif);
          //console.log(result.data);
           setInfoisi(result.data); 
-          console.log(typeof(result.data));   
+          console.log(typeof(result.data) + " ny result");
         };
+        const loadUser = async ()=>{
+            const result_1 = await axios.get("http://localhost/ISI_online/ViewNif.php?nif="+nif);
+             //console.log(result.data);
+             setInfoisi_1(result_1.data);
+             console.log(typeof(result_1.data) + " ny result_1");   
+        }
         console.log(infoisi);
     
 
@@ -54,19 +67,18 @@ import DGI from '../image/DGI.jpg'
                         <p id='isiOnline2'>isi-online</p>
                     </nav>
                     <div className="info">
-                        {infoisi.map(infoisi=>{ return ( 
+                        <div className="add">
+                            <img src={Add} onClick={handleClick}/>
+                        </div>
+                        {/* {infoisi_1.map(infoisi_1=>{ return (  */}
                             <div>                                          
                                 <div className="infoname">
-                                    <p id="nif">NIF: <b>{infoisi.nif}</b></p>
-                                    <p id="anarana">Anarana feno:<b> {infoisi.anarana_feno}</b></p>
+                                    <p id="nif">NIF: <b>{infoisi_1.nif}</b></p>
+                                    <p id="anarana">Anarana feno:<b> {infoisi_1.Nom_prenom}</b></p>
                                 </div>
-                            
-
-                                <div className="add">
-                                    <img src={Add} onClick={handleClick}/>
-                                </div>
+                   
                             </div>
-                        )})}
+                        {/* )})} */}
 
 
                         <div className="search">
@@ -95,24 +107,23 @@ import DGI from '../image/DGI.jpg'
                                 </tr>
                             </thead>
                             <tbody>
-
                            
-                    {infoisi.filter((infoisi)=>{
-                return ( infoisi.laharana.includes(chercher) || infoisi.anarana_entana.includes(chercher) ||
-                infoisi.daty_nividianana.includes(chercher) || infoisi.daty_androany.includes(chercher)  )            
-                }).map(infoisi=>{ return (                           
-                               <tr>
-                                    <td>{infoisi.laharana}</td>
-                                    <td>{infoisi.anarana_entana}</td>
-                                    <td>{infoisi.vidina_entana}</td>
-                                    <td>{infoisi.isany}</td>
-                                    <td>{infoisi.daty_androany}</td>
-                                    <td>{infoisi.daty_nividianana}</td>
-                                    <td>{infoisi.vola_aloa}</td>
-                                    <td>0</td>
-                                    <td>tsy voaloha</td>
-                                </tr>                             
-                           )})}                                                          
+                            {infoisi.filter((infoisi)=>{
+                                return (infoisi.anarana_entana.includes(chercher) ||
+                                infoisi.daty_nividianana.includes(chercher) || infoisi.daty_androany.includes(chercher)  )            
+                                }).map(infoisi=>{ return (                           
+                                <tr>
+                                        <td>{infoisi.laharana}</td>
+                                        <td>{infoisi.anarana_entana}</td>
+                                        <td>{infoisi.vidina_entana}</td>
+                                        <td>{infoisi.isany}</td>
+                                        <td>{infoisi.daty_androany}</td>
+                                        <td>{infoisi.daty_nividianana}</td>
+                                        <td>{infoisi.vola_aloa}</td>
+                                        <td>0</td>
+                                        <td>tsy voaloha</td>
+                                    </tr>                             
+                                )})}
                                
                             </tbody>
                         </table>

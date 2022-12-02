@@ -41,13 +41,13 @@ export default function Add(){
         .then((result) => {
           console.log(result);
           if(result.data.status == 'valid'){
-             history(`/List`);
+             history(`/List/${infoisi.nif}`);
              
           }
         else{   
           /*alert(result.data.status) ;     
           alert("There is a problem for adding,please try again");*/
-          history(`/List`);
+          history(`/List/${infoisi.nif}`);
         }   
     });
     }
@@ -135,11 +135,7 @@ export default function Add(){
                                 <label for="date2" className="label">Daty nividianana ny entana</label>
                             </div>
                             <div className="form-field">
-
-                            <input type="submit" className="btn4" name="submit" value="Add"/>
-
-                             
-
+                                <input type="submit" className="btn4" name="submit" value="Add"/>
                             </div>
                         </div>
                     </div>

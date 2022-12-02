@@ -20,8 +20,7 @@ export default function LoginAdmin(){
     let navigate = useNavigate();
     // function handleClick() {
     //     navigate('/ListAdmin')
-    // }
-   
+    // }  
     const [user,setUser] = useState({
         nif:"",
         password:""

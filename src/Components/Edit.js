@@ -39,7 +39,7 @@ const loadUsers = async ()=>{
      //console.log(result.data);
      setInfoisi(result.data); 
      console.log(typeof(result.data));   
-   }
+}
    /*************update******************** */
    const updateForm = async(e)=>{
     e.preventDefault();
