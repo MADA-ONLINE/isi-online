@@ -9,6 +9,7 @@ import Search from '../image/search.png'
 import Pay from '../image/Pay.png'
 import Edit from '../image/Edit.png'
 import Delete from '../image/Delete.png'
+import Pdf from '../image/Pdf.png'
 
 
 export default function ListAdmin(){
@@ -17,7 +18,7 @@ export default function ListAdmin(){
     //     navigate('/:nif/Edit/')
     // }
     // const handleClick = (laharana)=>{
-    //     navigate(`/:nif/${laharana}/Edit`)
+    //     navigate(`/Edit/${infoisi.laharana}`)
     // }
     function ClickPaiement() {
         navigate('/:nif/Paiement')
@@ -110,9 +111,12 @@ export default function ListAdmin(){
                                         <td>{infoisi.vola_aloa}</td>
                                         <td>0</td>
                                         <td  id="ovaina">
-                                        <Link className ="btn btn-success" to={`/Edit/${infoisi.laharana}`}><img src={Edit}/></Link>
-                                                <img src={Delete} onClick={() => deleteUser(infoisi.laharana)}/>
-                                                <img src={Pay} onClick={ClickPaiement}/>
+                                            <Link className ="Link" to={`/Edit/${infoisi.laharana}`}>
+                                                <img src={Edit}/>
+                                            </Link>
+                                            <img src={Delete} onClick={() => deleteUser(infoisi.laharana)}/>
+                                            <img src={Pay} onClick={ClickPaiement}/>
+                                            <img src={Pdf} onClick={ClickPaiement}/>
                                         </td>
                                     </tr>                            
                                 )})}                           

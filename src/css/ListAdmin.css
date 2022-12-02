@@ -25,7 +25,7 @@
 }
 .content-tablee td{
     font-family: Raleway;
-    padding: 10px 28px 20px;
+    padding: 10px 25px 20px;
     text-align: center;
     font-size: 13px;
 }
@@ -33,7 +33,7 @@
     border-bottom: 1px solid #dddddd;
 }
 .content-tablee tbody tr:nth-of-type(even){
-    background-color: #e4e0e0f3;
+    background-color: #f1ececf3;
     color: #009879;
     font-weight: bold;
 }
@@ -44,7 +44,9 @@
     cursor: pointer;
 }
 #ovaina img{
-    width: 20%;
-    display: inline;
+    width: 15%;
+    /* display: inline; */
     padding-left: 10px;
+    /* padding-right: 5px; */
 }
+
