@@ -28,7 +28,7 @@ function App() {
           <Route exact path="/List" element={ <List /> } />
           <Route exact path="/:nif/Add" element={ <Add /> } />
           <Route exact path="/ListAdmin" element={ <ListAdmin /> } />
-          <Route exact path="/:nif/Edit" element={ <Edit /> } />
+          <Route exact path="/Edit/:laharana" element={ <Edit /> } />
           <Route exact path="/:nif/Paiement" element={ <Paiement /> } />
         </Routes>
     </Router>

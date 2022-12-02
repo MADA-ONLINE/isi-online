@@ -138,7 +138,7 @@ export default function Add(){
 
                             <input type="submit" className="btn4" name="submit" value="Add"/>
 
-                                <input type="submit" className="btn5" name="submit" value="Add"/>
+                             
 
                             </div>
                         </div>

@@ -1,5 +1,6 @@
 import React, { useState, useEffect} from "react";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import headImage from '../image/head.png'
 import Saina1 from '../image/saina1.png'
@@ -12,13 +13,17 @@ import Delete from '../image/Delete.png'
 
 export default function ListAdmin(){
     let navigate = useNavigate();
-    function handleClick() {
-        navigate('/:nif/Edit')
-    }
+    // function handleClick() {
+    //     navigate('/:nif/Edit/')
+    // }
+    // const handleClick = (laharana)=>{
+    //     navigate(`/:nif/${laharana}/Edit`)
+    // }
     function ClickPaiement() {
         navigate('/:nif/Paiement')
     }
     const [infoisi,setInfoisi] = useState([]);
+//*****************RECHERCHE*******************/
     const [chercher,setChercher] = useState("");
     const handleChange =(e)=>{
         //setSear({...sear,[e.target.name] : e.target.value})
@@ -40,6 +45,16 @@ export default function ListAdmin(){
       console.log(typeof(result.data));   
     };
     console.log(infoisi);
+//*************DELETE************************************************/
+    const deleteUser = (laharana) =>{
+        axios.delete("http://localhost/ISI_online/DeleteIsi.php",{ data : { laharana: laharana} })
+        .then((result)=>{
+            loadUsers();
+        }).catch(()=>{
+            alert('error in the code');
+        })
+
+    }
 
 
     return(
@@ -95,8 +110,8 @@ export default function ListAdmin(){
                                     <td>{infoisi.vola_aloa}</td>
                                     <td>0</td>
                                     <td  id="ovaina">
-                                            <img src={Edit} onClick={handleClick}/>
-                                            <img src={Delete} />
+                                    <Link className ="btn btn-success" to={`/Edit/${infoisi.laharana}`}><img src={Edit}/></Link>
+                                            <img src={Delete} onClick={() => deleteUser(infoisi.laharana)}/>
                                             <img src={Pay} onClick={ClickPaiement}/>
                                     </td>
                                 </tr>                            

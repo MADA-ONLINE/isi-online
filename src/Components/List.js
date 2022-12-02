@@ -76,11 +76,7 @@ import DGI from '../image/DGI.jpg'
                             <img src={Search} />
                         </div>
 
-                            <div className="search">
-                                <input type="texte" placeholder="Date"/>
-                                <img src={Search} />
-                            </div>
-
+                           
                     </div>
                     
                     <div className="table">
