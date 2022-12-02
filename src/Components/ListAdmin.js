@@ -94,7 +94,7 @@ export default function ListAdmin(){
                                 </tr>
                             </thead>
                             <tbody>
-
+     {/* misy link ato************************ */}
                             {infoisi.filter((infoisi)=>{
                 return ( infoisi.nif.includes(chercher) || infoisi.anarana_feno.includes(chercher) || infoisi.anarana_entana.includes(chercher) ||
                 infoisi.daty_nividianana.includes(chercher) || infoisi.daty_androany.includes(chercher)  )            
