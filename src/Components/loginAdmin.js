@@ -1,4 +1,5 @@
 import React, { useState ,useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Ravinala from "../image/ravinala.png"
 // import Sarykely from "../image/sarykely.png"
@@ -6,7 +7,7 @@ import Login from "../image/login.png"
 import headImage from '../image/head.png'
 import Saina1 from '../image/saina1.png'
 import DGI from '../image/DGI.jpg'
-import { useNavigate } from 'react-router';
+// import { useNavigate } from 'react-router';
 
 
 // import backG from '../image/backG.jpg'
@@ -15,40 +16,51 @@ import { useNavigate } from 'react-router';
 
 
 export default function LoginAdmin(){
+    // alert("hello")
     let navigate = useNavigate();
-    function handleClick() {
-        navigate('/ListAdmin')
-    }
+    // function handleClick() {
+    //     navigate('/ListAdmin')
+    // }
    
-    const [infoisi,setInfoisi] = useState( {
+    const [user,setUser] = useState({
         nif:"",
         password:""
    })
    
-   const {nif,password}= infoisi
+   const {nif,password}= user
    const handleChange =(e)=>{
-       setInfoisi({...infoisi,[e.target.name] : e.target.value})
+       setUser({...user,[e.target.name] : e.target.value})
    }
-
-   const submitForm = async(e)=>{
+ 
+   const submitForm = (e)=>{
        e.preventDefault();
-       console.log(infoisi)       
-
-    await axios.post("http://localhost/ISI_online/LoginIsi.php",infoisi)
-       .then((result) => {
-         console.log(result);
-         if(result.data.status == 'valid'){
-           
-            
-         }
-       else{   
-         /*alert(result.data.status) ;     
-         alert("There is a problem for adding,please try again");*/
-         
-       }   
-   });
-   }
-    
+       const sendData = {
+        nif: user.nif,
+        password: user.password
+       }      
+       console.log(user)
+       console.log(typeof(user))
+    //    alert("coucou")
+        axios.post('http://localhost/ISI_online/LoginIsi.php',sendData)
+        .then((result) => {
+            console.log(typeof(result.data));
+             console.log(result.data);
+            console.log(result);
+            console.log("coucou")
+            if(result.status === 200){
+                window.localStorage.setItem('nif', result.data.nif)
+                // window.localStorage.setItem('first_name', (result.data.first_name+ ' ' +result.data.first_name))
+                navigate(`/ListAdmin`)
+                alert("valid user")
+            }
+            else{   
+            /*alert(result.data.status) ;     
+            alert("There is a problem for adding,please try again");*/
+            console.log("Invalid user")
+            // alert("Invalid user")
+            }   
+        });
+    }
     return(
         <>
             
@@ -64,29 +76,29 @@ export default function LoginAdmin(){
                 <p id='isiOnline1'>isi-online</p>
             </nav>
             <div className="form-Bg">
-                <form className="form-header">
+                <form className="form-header" onSubmit={submitForm}>
                     <div className="ravinala">
                         <img src={Ravinala} id="Ravina"/>
                     </div>
                     <div className="isionline">
                         <p>isi-online</p>
                     </div>
-                    <form onSubmit={e=>submitForm(e)}>
-                    <div className="form-group">
-                        <input type="text" placeholder="Tarehi-marika" required name="nif" 
-                        value={nif} onChange = {e => handleChange(e) }
-                        />
+                    {/* <form > */}
+                        <div className="form-group">
+                            <input type="text" placeholder="Tarehi-marika" required name="nif" 
+                            value={nif} onChange = {e => handleChange(e) }
+                            />
 
-                    </div>
-                    <div className="form-group">
-                        <input type="password" placeholder="Kaody miafina" required name="password"
-                        value={password} onChange = {e => handleChange(e) }
-                        />
-                    </div>
-                    <div className="form-group">
-                        <button type="submit" className='btn3 btn1' onClick={handleClick}><b>Tsindrio</b></button>
-                    </div>
-                    </form>
+                        </div>
+                        <div className="form-group">
+                            <input type="password" placeholder="Kaody miafina" required name="password"
+                            value={password} onChange = {e => handleChange(e) }
+                            />
+                        </div>
+                        <div className="form-group">
+                            <button type="submit" className='btn3 btn1'><b>Tsindrio</b></button>
+                        </div>
+                    {/* </form> */}
                 </form>
                 <div className="courtephrase">
                     <p>

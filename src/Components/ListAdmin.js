@@ -115,8 +115,7 @@ export default function ListAdmin(){
                                             <img src={Pay} onClick={ClickPaiement}/>
                                     </td>
                                 </tr>                            
-                            )})}
-                                
+                            )})}                           
                             </tbody>
 
                         </table>
