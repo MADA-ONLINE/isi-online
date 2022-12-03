@@ -12,7 +12,7 @@ import Give4 from '../image/give4.png'
 // import Trace from '../image/trace.png'
 
 export default function Add(){
-      
+    
     let history = useNavigate(); //use navigate on previous
     const [infoisi,setInfoisi] = useState( {
          nif:"",
@@ -20,15 +20,24 @@ export default function Add(){
          cin:"",
          daty_androany:"",
          anarana_entana:"",
-         vidina_entana:"",
-         isany:"",
+         vidina_entana:"0",
+         isany:"1",
          daty_nividianana:"",
          isi_aloha : "",
          charge : ""
     })
+    //**************** CALCULE ISI ********************************* */
+    var prix = infoisi.vidina_entana
+    var nombre = infoisi.isany
+    var Net_a_payer = (prix*nombre*5)/100
+    var Totaly_volanao = prix*nombre
+    console.log(Net_a_payer);
 
+    //*****************DEFAULT CURRENT DATE********************************************* */
+    // const toDay= new Date();
     
-    const {nif,anarana_feno,cin,daty_androany,anarana_entana,vidina_entana,isany,daty_nividianana}= infoisi
+
+    const {nif,anarana_feno,cin,daty_androany,anarana_entana,vidina_entana,isany,daty_nividianana} = infoisi
     const handleChange =(e)=>{
         setInfoisi({...infoisi,[e.target.name] : e.target.value})        
     }
@@ -37,26 +46,21 @@ export default function Add(){
         e.preventDefault();
         console.log(infoisi)       
 
-     await axios.post("http://localhost/ISI_online/AddIsi.php",infoisi)
-        .then((result) => {
-          console.log(result);
-          if(result.data.status == 'valid'){
-             history(`/List/${infoisi.nif}`);
-             
-          }
-        else{   
-          /*alert(result.data.status) ;     
-          alert("There is a problem for adding,please try again");*/
-          history(`/List/${infoisi.nif}`);
-        }   
+            await axios.post("http://localhost/ISI_online/AddIsi.php",infoisi)
+            .then((result) => {
+                console.log(result);
+                if(result.data.status == 'valid'){
+                    history(`/List/${infoisi.nif}`);               
+                }
+                else{   
+                history(`/List/${infoisi.nif}`);
+            }   
     });
     }
     // mampiseho n reultats ISI
     useEffect(()=>{
         loadUsers();
-    },
-    [] 
-    );
+    },[]);
 
     const loadUsers = async ()=>{
         const result = await axios.get("http://localhost/ISI_online/ListIsi.php");
@@ -105,7 +109,7 @@ export default function Add(){
                                 <label for="cin" className="label">Laharan'ny kara-panondro</label>
                             </div>
                             <div className="form-field">
-                                <input id = "date1" className="input-text" required="required" type="date" name="daty_androany"
+                                <input id = "date1" className="input-text" required="required" type="date" name="daty_androany" 
                                   value={daty_androany} onChange = {e => handleChange(e)}
                                 />
                                 <label for="date1" className="label">Daty androany</label>
@@ -162,14 +166,14 @@ export default function Add(){
                         <table className="tableau">
                             <thead>
                                 <tr>
-                                    <th>Ny volanao (Ariary)</th>
+                                    <th>Totalin'ny volanao (Ariary)</th>
                                     <th>Ny 5% miala aminy (Ariary)</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>80.000</td>
-                                    <td>4.000</td>
+                                    <td>{Totaly_volanao}</td>
+                                    <td>{Net_a_payer}</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -181,7 +185,7 @@ export default function Add(){
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>4.000</td>
+                                    <td>{Net_a_payer}</td>
                                 </tr>
                             </tbody>
                         </table>

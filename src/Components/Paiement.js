@@ -17,29 +17,30 @@ import Give4 from '../image/give4.png'
 export default function Paiement(){
     
     const [infoisi,setInfoisi] = useState( {
-        daty_androany:"",
-        vidina_entana:"",
-        daty_nividianana:"",
+        daty_paiement:"",
+        daty_isi:"",
         isi_aloha : "",
         charge : ""
    })
-   const {daty_androany,vidina_entana,daty_nividianana,isi_aloha,charge}= infoisi
+   const {daty_paiement,daty_isi,isi_aloha}= infoisi
    const handleChange =(e)=>{
         let valeur = e.target.value; 
         setInfoisi(valeur);
-        console.log(valeur);
+        var date_achat = new Date(valeur)
+        console.log(date_achat.getMonth() + 3);
     }
 
 
 
     // const {nif,anarana_feno,cin,daty_androany,anarana_entana,vidina_entana,isany,daty_nividianana}= infoisi
+    var date_achat = new Date(infoisi.daty_isi)
     // var Date_1 = new Date(date1)
     // var Date_2 = new Date(date2)
 
-    // var Limit_Date_1 = 15
-    // var Limit_Mouth_1 = Date_1.getMonth() + 2
-    // var Limit_Year_1 = Date_1.getFullYear()
-    
+    var Limit_Date= 15
+    var Limit_Mouth = date_achat.getMonth() + 2
+    var Limit_Year = date_achat.getFullYear()
+    // console.log(Limit_Year + " ny daty")
     // var Date_2 = Date_2.getDate() + 1
     // var Mouth_2 = Date_2.getMonth() + 1
     // var Year_2 = Date_2.getFullYear()
@@ -97,20 +98,20 @@ export default function Paiement(){
                                 <label for="name2" className="label">Anaran'ny entana novidiana</label>
                             </div>
                             <div className="form-field">
-                                <input id = "date1" className="input-text" required="required" type="date" name="daty_androany"
-                                  value={daty_androany} onChange = {e => handleChange(e)}
+                                <input id = "date1" className="input-text" required="required" type="date" name="daty_isi"
+                                  value={daty_isi} onChange = {e => handleChange(e)}
                                 />
                                 <label for="date1" className="label">Daty nisoratana ISI</label>
                             </div>
                             <div className="form-field">
-                                <input id = "date2" className="input-text" required="required" type="date" name="daty_androany"
-                                   value={daty_androany} onChange = {e => handleChange(e)}
+                                <input id = "date2" className="input-text" required="required" type="date" name="daty_paiement"
+                                   value={daty_paiement} onChange = {e => handleChange(e)}
                                 />
                                 <label for="date2" className="label">Daty andoavam-bola</label>
                             </div>
                             <div className="form-field">
                                 <input id = "price" className="input-text" required="required" type="text" name="vidina_entana"
-                                   value={vidina_entana} onChange = {e => handleChange(e)}
+                                   value={isi_aloha} onChange = {e => handleChange(e)}
                                 />
                                 <label for="price" className="label">Vola ISI (Ariary)</label>
                             </div>

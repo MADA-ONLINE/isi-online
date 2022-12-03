@@ -23,21 +23,21 @@ export default function ListAdmin(){
     function ClickPaiement() {
         navigate('/:nif/Paiement')
     }
+    function ClickListPaiement() {
+        navigate('/ListPaiement')
+    }
     const [infoisi,setInfoisi] = useState([]);
 //*****************RECHERCHE*****************************************************************************/
     const [chercher,setChercher] = useState("");
     const handleChange =(e)=>{
-        //setSear({...sear,[e.target.name] : e.target.value})
-        
+        //setSear({...sear,[e.target.name] : e.target.value})        
         let value = e.target.value;
         setChercher(value);
      }
 
     useEffect(()=>{
         loadUsers();
-    },
-    [] 
-    );
+    },[]);
 
      const loadUsers = async ()=>{
      const result = await axios.get("http://localhost/ISI_online/Listadmin.php");
@@ -90,8 +90,7 @@ export default function ListAdmin(){
                                     <th>Daty novidianana azy</th>
                                     <th>Daty nisoratana ISI</th>
                                     <th>Vola haloa (Ariary)</th>
-                                    <th>Vola voaloa (Ariary)</th>
-                                    <th></th>
+                                    <th>Ampiasao</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -109,14 +108,13 @@ export default function ListAdmin(){
                                         <td>{infoisi.daty_androany}</td>
                                         <td>{infoisi.daty_nividianana}</td>
                                         <td>{infoisi.vola_aloa}</td>
-                                        <td>0</td>
                                         <td  id="ovaina">
                                             <Link className ="Link" to={`/Edit/${infoisi.laharana}`}>
                                                 <img src={Edit}/>
                                             </Link>
-                                            <img src={Delete} onClick={() => deleteUser(infoisi.laharana)}/>
                                             <img src={Pay} onClick={ClickPaiement}/>
-                                            <img src={Pdf} onClick={ClickPaiement}/>
+                                            <img src={Pdf} onClick={ClickListPaiement}/>
+                                            <img src={Delete} onClick={() => deleteUser(infoisi.laharana)}/>
                                         </td>
                                     </tr>                            
                                 )})}                           

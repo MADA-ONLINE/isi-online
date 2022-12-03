@@ -19,13 +19,13 @@
 }
 .content-tablee th{
     font-family: Raleway;
-    padding: 10px 24px 10px;
+    padding: 8px 50px 8px;
     text-align: center;
     font-size: 13px;
 }
 .content-tablee td{
     font-family: Raleway;
-    padding: 10px 25px 20px;
+    padding: 10px 25px 15px;
     text-align: center;
     font-size: 13px;
 }
@@ -44,9 +44,9 @@
     cursor: pointer;
 }
 #ovaina img{
-    width: 15%;
+    width: 17%;
     /* display: inline; */
-    padding-left: 10px;
+    padding-left: 5px;
     /* padding-right: 5px; */
 }
 
