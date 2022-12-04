@@ -12,13 +12,13 @@ import Give4 from '../image/give4.png'
 // import Trace from '../image/trace.png'
 
 export default function Add(){
-    
+    const [isi_daty, setIsi_daty] = useState()
+    const setdate_isi = new Date(isi_daty)
     let history = useNavigate(); //use navigate on previous
     const [infoisi,setInfoisi] = useState( {
          nif:"",
          anarana_feno:"",
          cin:"",
-         daty_androany:"",
          anarana_entana:"",
          vidina_entana:"0",
          isany:"1",
@@ -26,18 +26,36 @@ export default function Add(){
          isi_aloha : "",
          charge : ""
     })
+    const mois_isi = setdate_isi.getMonth() + 1   
+    var Limit_Date = 15
+    var Limit_Mouth = setdate_isi.getMonth() + 2
+    var Limit_Year = setdate_isi.getFullYear()
+    var deadLine = "01" + "/" + "01" + "/" + "0001"
+    if(isi_daty){
+        if(mois_isi == 12){
+            Limit_Mouth = 1
+            Limit_Year = Limit_Year + 1
+            deadLine = Limit_Date + "/" + Limit_Mouth + "/" + Limit_Year
+        }else{
+            deadLine = Limit_Date + "/" + Limit_Mouth + "/" + Limit_Year
+        }
+    }
     //**************** CALCULE ISI ********************************* */
+    var Net_a_payer = 0
+    var Totaly_volanao = 0
     var prix = infoisi.vidina_entana
     var nombre = infoisi.isany
-    var Net_a_payer = (prix*nombre*5)/100
-    var Totaly_volanao = prix*nombre
-    console.log(Net_a_payer);
+    if (infoisi.isany && infoisi.vidina_entana){
+        Net_a_payer = (prix*nombre*5)/100
+        Totaly_volanao = prix*nombre
+        console.log(Net_a_payer);
+    }
 
     //*****************DEFAULT CURRENT DATE********************************************* */
     // const toDay= new Date();
     
 
-    const {nif,anarana_feno,cin,daty_androany,anarana_entana,vidina_entana,isany,daty_nividianana} = infoisi
+    const {nif,anarana_feno,cin,anarana_entana,vidina_entana,isany,daty_nividianana} = infoisi
     const handleChange =(e)=>{
         setInfoisi({...infoisi,[e.target.name] : e.target.value})        
     }
@@ -110,7 +128,7 @@ export default function Add(){
                             </div>
                             <div className="form-field">
                                 <input id = "date1" className="input-text" required="required" type="date" name="daty_androany" 
-                                  value={daty_androany} onChange = {e => handleChange(e)}
+                                  onChange = {e => setIsi_daty(e.target.value)}
                                 />
                                 <label for="date1" className="label">Daty androany</label>
                             </div>
@@ -181,11 +199,13 @@ export default function Add(){
                             <thead>
                                 <tr>
                                     <th>Vola aloa (Ariary)</th>
+                                    <th>Daty farary fandoavana azy</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td>{Net_a_payer}</td>
+                                    <td>{deadLine}</td>
                                 </tr>
                             </tbody>
                         </table>

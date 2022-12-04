@@ -9,84 +9,78 @@ import Give1 from '../image/give1.png'
 import Give2 from '../image/give2.png'
 import Give3 from '../image/give3.png'
 import Give4 from '../image/give4.png'
-// import Trace from '../image/trace.png'
-// const date1 = document.getElementById("date1").value
-// const date2 = document.getElementById("date2").value
-// var bouton = document.getElementById('bnt4')
-// bouton.addEventListener('click', Paiement)
+
 export default function Paiement(){
     
-    const [infoisi,setInfoisi] = useState( {
-        // daty_paiement:"",
-        // daty_isi:"",
-        isi_aloha : ""
-    })
     const [isi_daty, setIsi_daty] = useState()
     const [pay_daty, setPay_daty] = useState()
+    const [isi_vola, setIsi_vola] = useState()
 
-    const {isi_aloha, daty_isi}= infoisi
-    const handleChange =(e)=>{
-        let valeur = e.target.value;
-        // const val = valeur.split('-');
-        setInfoisi(valeur);
-        // console.log(val)
-        // var date_achat = new Date(valeur)
-        // console.log(date_achat.getMonth() + 3);
-    }
-    // console.log(isi_daty + ": date de déclaration")
-    // console.log(pay_daty + ": date de paiement")
     const setdate_isi = new Date(isi_daty)
     const setdate_pay = new Date(pay_daty)
+
     const jour_isi = setdate_isi.getDate() + 1
     const mois_isi = setdate_isi.getMonth() + 1
     const annee_isi = setdate_isi.getFullYear()
     console.log(jour_isi + "/" + mois_isi + "/" + annee_isi + ": io ny daty ISI")
-    // const {nif,anarana_feno,cin,daty_androany,anarana_entana,vidina_entana,isany,daty_nividianana}= infoisi
-    // var date_achat = new Date(infoisi.daty_isi)
-    // var Date_1 = new Date(date1)
-    // var Date_2 = new Date(date2)
-
-    var Limit_Date= 15
+    var Limit_Date = 15
     var Limit_Mouth = setdate_isi.getMonth() + 2
     var Limit_Year = setdate_isi.getFullYear()
-    var next_Year = setdate_isi.getFullYear() + 1
-    // console.log(Limit_Mouth + " ny daty")
     var jour_pay = setdate_pay.getDate() + 1
     var mois_pay = setdate_pay.getMonth() + 1
     var annee_pay = setdate_pay.getFullYear()
+
+    // ***********CONDITION SAZY + CALCULE SAZY******************************************************************
+    var msg = "Tsy misy sazy"
+    var penalite_retard = 0
+    var net_a_payer = 0
     console.log(jour_pay + "/" + mois_pay + "/" + annee_pay + ": io ny daty PAY")
-    // alert("Alohan'ny " + Limit_Date_1 + '/' + Limit_Mouth_1 + '/' + Limit_Year_1 + " ianao no mila mandoa ny hetra ISI")
+    console.log(typeof(isi_vola))
     if(mois_isi == 12){
         Limit_Mouth = 1
-        Limit_Year += Limit_Year
-        if(annee_pay <= Limit_Year && mois_pay <= Limit_Mouth && jour_pay <= 15){
-            var msg = "Tsy misy sazy // mois_isi == 12"
+        Limit_Year = Limit_Year + 1
+        if(annee_pay < Limit_Year){
+            var msg = "Tsy misy sazy"
+            penalite_retard = 0
+            net_a_payer = (Number(isi_vola) + penalite_retard)
+        }else if(annee_pay == Limit_Year && mois_pay == Limit_Mouth && jour_pay <= Limit_Date){
+            msg = "Tsy misy sazy"
+            penalite_retard = 0
+            net_a_payer = (Number(isi_vola) + penalite_retard)
         }else{
-            var msg = "Misy sazy 10% // mois_isi == 12"
+            msg = "Misy sazy 10%"
+            var sazy = 10
+            penalite_retard = (isi_vola*sazy)/100
+            net_a_payer = (Number(isi_vola) + penalite_retard)
         }
     }
     else if(mois_isi < 12){
         if(mois_pay < Limit_Mouth && annee_pay <= Limit_Year){
             if(jour_pay < 31){
-                // alert("Tsy misy sazy")
-                    var msg = "Tsy misy sazy // mois_isi < 12"
+                msg = "Tsy misy sazy"
+                penalite_retard = 0
+                net_a_payer = (Number(isi_vola) + penalite_retard)
             }
         }else if(mois_pay == Limit_Mouth && annee_pay <= Limit_Year){
             if(jour_pay < 15){
-                // alert("Tsy misy sazy")
-                    var msg = "Tsy misy sazy // mois_isi < 12"
+                msg = "Tsy misy sazy"
+                penalite_retard = 0
+                net_a_payer = (Number(isi_vola) + penalite_retard)
             }else{
-                // alert("⚠️Voasazy ianao!!!!")
-                    var msg = "Misy sazy 10% // mois_isi < 12"
+                msg = "Misy sazy 10%"
+                var sazy = 10
+                penalite_retard = (isi_vola*sazy)/100
+                net_a_payer = (Number(isi_vola) + penalite_retard)
             }
         }else{
-            // alert("⚠️Voasazy ianao!!!!")
-                var msg = "Misy sazy 10% // mois_isi < 12"
+            msg = "Misy sazy 10%"
+            var sazy = 10
+            penalite_retard = (isi_vola*sazy)/100
+            net_a_payer = (Number(isi_vola)+penalite_retard)
         }
     }
     const submitForm = async(e)=>{
-        e.preventDefault();
-        // console.log(infoisi)       
+        e.preventDefault();      
     }
     
     return(
@@ -135,16 +129,14 @@ export default function Paiement(){
                             </div>
                             <div className="form-field">
                                 <input id = "price" className="input-text" required="required" type="text" name="vidina_entana"
-                                    value={isi_aloha} onChange = {e => handleChange(e)}
+                                    onChange = {e => setIsi_vola(e.target.value)}
+                                    // onChange = {e => handleChange(e)}
                                 />
                                 <label for="price" className="label">Vola ISI (Ariary)</label>
                             </div>
                             <div className="bouton">
                                 <div className="form-field">
-                                    <input type="button" className="btn4" id="btn4" name="submit" value="Kajiana"/>
-                                </div>
-                                <div className="form-field">
-                                    <input type="submit" className="btn5" id="btn5" name="submit" value="Aloa"/>
+                                    <input type="submit" className="btn4" id="btn4" name="submit" value="Aloa"/>
                                 </div>
                             </div>
                         </div>
@@ -169,9 +161,9 @@ export default function Paiement(){
                 {/* ************************************************************ */}
                 <div className="payer">
                     <div className="Paiement">
-                        <p>⚠️ {msg}</p>
-                        <p>Miampy: 20.000 ariary</p>
-                        <p className="Net">Vola haloa: 100.000 ariary</p>
+                        <p>{msg}</p>
+                        <p>Miampy: {penalite_retard} Ariary</p>
+                        <p className="Net">Vola haloa: {net_a_payer} Ariary</p>
                     </div>
                 </div>
                 {/* ************************************************************* */}
