@@ -17,49 +17,73 @@ import Give4 from '../image/give4.png'
 export default function Paiement(){
     
     const [infoisi,setInfoisi] = useState( {
-        daty_paiement:"",
-        daty_isi:"",
-        isi_aloha : "",
-        charge : ""
-   })
-   const {daty_paiement,daty_isi,isi_aloha}= infoisi
-   const handleChange =(e)=>{
-        let valeur = e.target.value; 
+        // daty_paiement:"",
+        // daty_isi:"",
+        isi_aloha : ""
+    })
+    const [isi_daty, setIsi_daty] = useState()
+    const [pay_daty, setPay_daty] = useState()
+
+    const {isi_aloha, daty_isi}= infoisi
+    const handleChange =(e)=>{
+        let valeur = e.target.value;
+        // const val = valeur.split('-');
         setInfoisi(valeur);
-        var date_achat = new Date(valeur)
-        console.log(date_achat.getMonth() + 3);
+        // console.log(val)
+        // var date_achat = new Date(valeur)
+        // console.log(date_achat.getMonth() + 3);
     }
-
-
-
+    // console.log(isi_daty + ": date de déclaration")
+    // console.log(pay_daty + ": date de paiement")
+    const setdate_isi = new Date(isi_daty)
+    const setdate_pay = new Date(pay_daty)
+    const jour_isi = setdate_isi.getDate() + 1
+    const mois_isi = setdate_isi.getMonth() + 1
+    const annee_isi = setdate_isi.getFullYear()
+    console.log(jour_isi + "/" + mois_isi + "/" + annee_isi + ": io ny daty ISI")
     // const {nif,anarana_feno,cin,daty_androany,anarana_entana,vidina_entana,isany,daty_nividianana}= infoisi
-    var date_achat = new Date(infoisi.daty_isi)
+    // var date_achat = new Date(infoisi.daty_isi)
     // var Date_1 = new Date(date1)
     // var Date_2 = new Date(date2)
 
     var Limit_Date= 15
-    var Limit_Mouth = date_achat.getMonth() + 2
-    var Limit_Year = date_achat.getFullYear()
-    // console.log(Limit_Year + " ny daty")
-    // var Date_2 = Date_2.getDate() + 1
-    // var Mouth_2 = Date_2.getMonth() + 1
-    // var Year_2 = Date_2.getFullYear()
-
+    var Limit_Mouth = setdate_isi.getMonth() + 2
+    var Limit_Year = setdate_isi.getFullYear()
+    var next_Year = setdate_isi.getFullYear() + 1
+    // console.log(Limit_Mouth + " ny daty")
+    var jour_pay = setdate_pay.getDate() + 1
+    var mois_pay = setdate_pay.getMonth() + 1
+    var annee_pay = setdate_pay.getFullYear()
+    console.log(jour_pay + "/" + mois_pay + "/" + annee_pay + ": io ny daty PAY")
     // alert("Alohan'ny " + Limit_Date_1 + '/' + Limit_Mouth_1 + '/' + Limit_Year_1 + " ianao no mila mandoa ny hetra ISI")
-
-    //     if(Mouth_2 < Limit_Mouth_1 && Year_2 <= Limit_Year_1){
-    //         if(Date_2 < 31){
-    //             alert("Tsy misy sazy")
-    //         }
-    //     }else if(Mouth_2 == Limit_Mouth_1 && Year_2 <= Limit_Year_1){
-    //         if(Date_2 < 15){
-    //             alert("Tsy misy sazy")
-    //         }else{
-    //             alert("⚠️Voasazy ianao!!!!")
-    //         }
-    //     }else{
-    //         alert("⚠️Voasazy ianao!!!!")
-    //     }
+    if(mois_isi == 12){
+        Limit_Mouth = 1
+        Limit_Year += Limit_Year
+        if(annee_pay <= Limit_Year && mois_pay <= Limit_Mouth && jour_pay <= 15){
+            var msg = "Tsy misy sazy // mois_isi == 12"
+        }else{
+            var msg = "Misy sazy 10% // mois_isi == 12"
+        }
+    }
+    else if(mois_isi < 12){
+        if(mois_pay < Limit_Mouth && annee_pay <= Limit_Year){
+            if(jour_pay < 31){
+                // alert("Tsy misy sazy")
+                    var msg = "Tsy misy sazy // mois_isi < 12"
+            }
+        }else if(mois_pay == Limit_Mouth && annee_pay <= Limit_Year){
+            if(jour_pay < 15){
+                // alert("Tsy misy sazy")
+                    var msg = "Tsy misy sazy // mois_isi < 12"
+            }else{
+                // alert("⚠️Voasazy ianao!!!!")
+                    var msg = "Misy sazy 10% // mois_isi < 12"
+            }
+        }else{
+            // alert("⚠️Voasazy ianao!!!!")
+                var msg = "Misy sazy 10% // mois_isi < 12"
+        }
+    }
     const submitForm = async(e)=>{
         e.preventDefault();
         // console.log(infoisi)       
@@ -67,8 +91,7 @@ export default function Paiement(){
     
     return(
         <>
-            <body className="BodyAdd">
-                
+            <body className="BodyAdd">                
                 {/* <img scr={Trace} id='trace'/> */}
                 <nav className='nav2'>
                     <div className='sary floating1'>
@@ -99,19 +122,20 @@ export default function Paiement(){
                             </div>
                             <div className="form-field">
                                 <input id = "date1" className="input-text" required="required" type="date" name="daty_isi"
-                                  value={daty_isi} onChange = {e => handleChange(e)}
+                                    onChange = {e => setIsi_daty(e.target.value)}
+                                    // value={daty_isi} onChange = {e => handleChange(e)}
                                 />
                                 <label for="date1" className="label">Daty nisoratana ISI</label>
                             </div>
                             <div className="form-field">
                                 <input id = "date2" className="input-text" required="required" type="date" name="daty_paiement"
-                                   value={daty_paiement} onChange = {e => handleChange(e)}
+                                    onChange = {e => setPay_daty(e.target.value)}
                                 />
                                 <label for="date2" className="label">Daty andoavam-bola</label>
                             </div>
                             <div className="form-field">
                                 <input id = "price" className="input-text" required="required" type="text" name="vidina_entana"
-                                   value={isi_aloha} onChange = {e => handleChange(e)}
+                                    value={isi_aloha} onChange = {e => handleChange(e)}
                                 />
                                 <label for="price" className="label">Vola ISI (Ariary)</label>
                             </div>
@@ -145,7 +169,7 @@ export default function Paiement(){
                 {/* ************************************************************ */}
                 <div className="payer">
                     <div className="Paiement">
-                        <p>⚠️ Sazy: 10%</p>
+                        <p>⚠️ {msg}</p>
                         <p>Miampy: 20.000 ariary</p>
                         <p className="Net">Vola haloa: 100.000 ariary</p>
                     </div>
