@@ -26,10 +26,10 @@ function App() {
           <Route exact path="/LoginClient" element={ <LoginClient /> } />
           <Route exact path="/LoginAdmin" element={ <LoginAdmin /> } />
           <Route exact path="/List/:nif" element={ <List /> } />
-          <Route exact path="/Add" element={ <Add /> } />
+          <Route exact path="/Add/:Nif" element={ <Add /> } />
           <Route exact path="/ListAdmin" element={ <ListAdmin /> } />
           <Route exact path="/Edit/:laharana" element={ <Edit /> } />
-          <Route exact path="/:nif/Paiement" element={ <Paiement /> } />
+          <Route exact path="/Paiement/:laharana" element={ <Paiement /> } />
         </Routes>
     </Router>
   );

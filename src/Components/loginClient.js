@@ -48,12 +48,12 @@ export default function LoginClient(){
                 window.localStorage.setItem('nif', result.data.nif)
                 // window.localStorage.setItem('first_name', (result.data.first_name+ ' ' +result.data.first_name))
                 navigate(`/List/${user.nif}`)
-                alert("valid user")
+                alert("⚠️ tongasoa Ericka bisous ⚠️")
             }
             else{   
             /*alert(result.data.status) ;     
             alert("There is a problem for adding,please try again");*/
-            console.log("Invalid user")
+            alert("⚠️ Diso ny kaody miafina na ny Nif anao ⚠️")
             // alert("Invalid user")
             }   
         });

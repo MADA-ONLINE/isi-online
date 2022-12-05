@@ -23,6 +23,7 @@ export default function Edit(){
         anarana_entana:"",
         vidina_entana:"",
         daty_nividianana:"",
+        isany:""
             
    })
 
@@ -30,7 +31,7 @@ export default function Edit(){
     loadUsers();
    },[])
 
-   const {nif,anarana_feno,cin,daty_androany,anarana_entana,vidina_entana,daty_nividianana}= infoisi
+   const {nif,anarana_feno,cin,daty_androany,anarana_entana,vidina_entana,daty_nividianana,isany}= infoisi
    const handleChange =(e)=>{
     setInfoisi({...infoisi,[e.target.name] : e.target.value})        
 }
@@ -49,13 +50,13 @@ const loadUsers = async ()=>{
     .then((result) => {
       console.log(result);
       if(result.status == 201){
-        alert("updated");
+        alert("tontosa ny fanovana");
          history(`/ListAdmin`);
          
       }
     else{   
           
-      alert("There is a problem for adding,please try again");
+      alert("jereo tsara fa misi olana");
     }   
 })
 }
@@ -79,7 +80,7 @@ const loadUsers = async ()=>{
                         <div className="contact-form row">
                             <div className="form-field">
 
-                                <input id = "nif" className="input-text" type="text" name="nif"
+                                <input id = "nif" className="input-text" type="text" name="nifb"
                                 value={infoisi.nif} onChange = {e => handleChange(e)}
                                 />
                                 <label for="nif" className="label">NIF</label>
@@ -119,7 +120,7 @@ const loadUsers = async ()=>{
                             </div>
                             <div className="form-field">
 
-                                <input id = "price" className="input-text" type="text" name="vidiny"
+                                <input id = "price" className="input-text" type="text" name="vidina_entana"
                                 value={infoisi.vidina_entana} onChange = {e => handleChange(e)}
                                 />
                                 <label for="price" className="label">Ny vidiny (Ariary)</label>
@@ -135,10 +136,10 @@ const loadUsers = async ()=>{
                             </div>
                             <div className="form-field">
 
-                                <input id = "date2" className="input-text" type="texte" name="fanamarihana"
-                                value={infoisi.fanamarihana} onChange = {e => handleChange(e)}
+                                <input id = "date2" className="input-text" type="texte" name="isany"
+                                value={infoisi.isany} onChange = {e => handleChange(e)}
                                 />
-                                <label for="date2" className="label">Fanamarihana</label>
+                                <label for="date2" className="label">isan'ny entana</label>
 
                             </div>
                             <div className="form-field">

@@ -1,7 +1,7 @@
 
 import React, { useState ,useEffect } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import headImage from '../image/head.png'
 import Saina1 from '../image/saina1.png'
 import DGI from '../image/DGI.jpg'
@@ -14,6 +14,7 @@ import Give4 from '../image/give4.png'
 export default function Add(){
       
     let history = useNavigate(); //use navigate on previous
+    const {Nif} =  useParams();
     const [infoisi,setInfoisi] = useState( {
          nif:"",
          anarana_feno:"",
@@ -30,6 +31,8 @@ export default function Add(){
     
     const {nif,anarana_feno,cin,daty_androany,anarana_entana,vidina_entana,isany,daty_nividianana}= infoisi
     const handleChange =(e)=>{
+        console.log(e.target.value)
+
         setInfoisi({...infoisi,[e.target.name] : e.target.value})        
     }
 
@@ -37,17 +40,18 @@ export default function Add(){
         e.preventDefault();
         console.log(infoisi)       
 
-     await axios.post("http://localhost/ISI_online/AddIsi.php",infoisi)
+     await axios.post("http://localhost/ISI_online/AddIsi.php?Nif="+Nif,infoisi)
         .then((result) => {
           console.log(result);
-          if(result.data.status == 'valid'){
+          if(result.status == 201){
+            alert("Tontosa ny fanambarana ISI nataonao!!!")
              history(`/List/${infoisi.nif}`);
              
           }
         else{   
           /*alert(result.data.status) ;     
           alert("There is a problem for adding,please try again");*/
-          history(`/List/${infoisi.nif}`);
+          alert("Diso ny NIF nampidirinao!!!")
         }   
     });
     }
@@ -58,12 +62,19 @@ export default function Add(){
     [] 
     );
 
+    // const loadUsers = async ()=>{
+    //     const result = await axios.get("http://localhost/ISI_online/ListIsi.php");
+    //     //console.log(result.data);
+    //      setInfoisi(result.data); 
+    //      console.log(typeof(result.data));   
+    //    };
     const loadUsers = async ()=>{
-        const result = await axios.get("http://localhost/ISI_online/ListIsi.php");
-        //console.log(result.data);
+        const result = await axios.get("http://localhost/ISI_online/ViewAdd.php?Nif="+Nif);
+         //console.log(result.data);
+         console.log(result.data.nif)
          setInfoisi(result.data); 
          console.log(typeof(result.data));   
-       };
+    }
 
     return(
         <>

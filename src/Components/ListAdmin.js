@@ -89,6 +89,7 @@ export default function ListAdmin(){
                                     <th>Ny isany</th>
                                     <th>Daty novidianana azy</th>
                                     <th>Daty nisoratana ISI</th>
+                                    <th>Daty nandoavana ISI</th>
                                     <th>Vola haloa (Ariary)</th>
                                     <th>Vola voaloa (Ariary)</th>
                                     <th></th>
@@ -108,14 +109,17 @@ export default function ListAdmin(){
                                         <td>{infoisi.isany}</td>
                                         <td>{infoisi.daty_androany}</td>
                                         <td>{infoisi.daty_nividianana}</td>
-                                        <td>{infoisi.vola_aloa}</td>
-                                        <td>0</td>
+                                        <td>{infoisi.daty_fandoavana}</td>
+                                        <td>{infoisi.vola_aloa}</td> 
+                                        <td>{infoisi.vola_voaloha}</td>
                                         <td  id="ovaina">
                                             <Link className ="Link" to={`/Edit/${infoisi.laharana}`}>
                                                 <img src={Edit}/>
                                             </Link>
                                             <img src={Delete} onClick={() => deleteUser(infoisi.laharana)}/>
-                                            <img src={Pay} onClick={ClickPaiement}/>
+                                            <Link className ="Link" to={`/Paiement/${infoisi.laharana}`}>
+                                                <img src={Pay}/>
+                                            </Link>
                                             <img src={Pdf} onClick={ClickPaiement}/>
                                         </td>
                                     </tr>                            

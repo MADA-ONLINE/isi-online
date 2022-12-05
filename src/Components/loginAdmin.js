@@ -22,11 +22,11 @@ export default function LoginAdmin(){
     //     navigate('/ListAdmin')
     // }  
     const [user,setUser] = useState({
-        nif:"",
+        Matricule:"",
         password:""
    })
    
-   const {nif,password}= user
+   const {Matricule,password}= user
    const handleChange =(e)=>{
        setUser({...user,[e.target.name] : e.target.value})
    }
@@ -34,20 +34,20 @@ export default function LoginAdmin(){
    const submitForm = (e)=>{
        e.preventDefault();
        const sendData = {
-        nif: user.nif,
+        Matricule: user.Matricule,
         password: user.password
        }      
        console.log(user)
        console.log(typeof(user))
     //    alert("coucou")
-        axios.post('http://localhost/ISI_online/LoginIsi.php',sendData)
+        axios.post('http://localhost/ISI_online/LoginAdmin.php',sendData)
         .then((result) => {
-            console.log(typeof(result.data));
-             console.log(result.data);
-            console.log(result);
+            // console.log(typeof(result.data));
+            //  console.log(result.data);
+            // console.log(result);
             console.log("coucou")
-            if(result.status === 200){
-                window.localStorage.setItem('nif', result.data.nif)
+            if(result.status === 201){
+                window.localStorage.setItem('Matricule', result.data.Matricule)
                 // window.localStorage.setItem('first_name', (result.data.first_name+ ' ' +result.data.first_name))
                 navigate(`/ListAdmin`)
                 alert("valid user")
@@ -55,7 +55,8 @@ export default function LoginAdmin(){
             else{   
             /*alert(result.data.status) ;     
             alert("There is a problem for adding,please try again");*/
-            console.log("Invalid user")
+            alert("⚠️ Diso ny laharana miafina na ny matrucle anao ⚠️")
+            navigate(`/LoginAdmin`)
             // alert("Invalid user")
             }   
         });
@@ -84,8 +85,8 @@ export default function LoginAdmin(){
                     </div>
                     {/* <form > */}
                         <div className="form-group">
-                            <input type="text" placeholder="Tarehi-marika" required name="nif" 
-                            value={nif} onChange = {e => handleChange(e) }
+                            <input type="text" placeholder="Tarehi-marika" required name="Matricule" 
+                            value={Matricule} onChange = {e => handleChange(e) }
                             />
 
                         </div>

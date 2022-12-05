@@ -1,5 +1,5 @@
 import React, { useState, useEffect} from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams,Link } from "react-router-dom";
 import axios from "axios";
 // import { Link } from "react-router-dom";
 import Add from '../image/add.png'
@@ -12,9 +12,9 @@ import DGI from '../image/DGI.jpg'
  function List(){
     const {nif} =  useParams();
      let navigate= useNavigate();
-    function handleClick() {
-        navigate('/Add')
-    }
+    // function handleClick() {
+    //     navigate('/Add')
+    // }
         const [infoisi,setInfoisi] = useState([]);
         const [infoisi_1,setInfoisi_1] = useState([]);
         const [chercher,setChercher] = useState("");
@@ -68,13 +68,15 @@ import DGI from '../image/DGI.jpg'
                     </nav>
                     <div className="info">
                         <div className="add">
-                            <img src={Add} onClick={handleClick}/>
+                            <Link className ="" to={`/Add/${infoisi_1.nif}`}>
+                                <img src={Add}/>
+                            </Link>
                         </div>
                         {/* {infoisi_1.map(infoisi_1=>{ return (  */}
                             <div>                                          
                                 <div className="infoname">
                                     <p id="nif">NIF: <b>{infoisi_1.nif}</b></p>
-                                    <p id="anarana">Anarana feno:<b> {infoisi_1.Nom_prenom}</b></p>
+                                    <p id="anarana">Anarana feno:<b> {infoisi_1.anarana_feno}</b></p>
                                 </div>
                    
                             </div>
@@ -109,7 +111,7 @@ import DGI from '../image/DGI.jpg'
                             <tbody>
                            
                             {infoisi.filter((infoisi)=>{
-                                return (infoisi.anarana_entana.includes(chercher) ||
+                                return (infoisi.laharana.includes(chercher) || infoisi.anarana_entana.includes(chercher) ||
                                 infoisi.daty_nividianana.includes(chercher) || infoisi.daty_androany.includes(chercher)  )            
                                 }).map(infoisi=>{ return (                           
                                 <tr>
@@ -121,7 +123,7 @@ import DGI from '../image/DGI.jpg'
                                         <td>{infoisi.daty_nividianana}</td>
                                         <td>{infoisi.vola_aloa}</td>
                                         <td>0</td>
-                                        <td>tsy voaloha</td>
+                                        <td>{infoisi.fanamarihana}</td>
                                     </tr>                             
                                 )})}
                                

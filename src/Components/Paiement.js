@@ -1,7 +1,7 @@
 
 import React, { useState ,useEffect } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import headImage from '../image/head.png'
 import Saina1 from '../image/saina1.png'
 import DGI from '../image/DGI.jpg'
@@ -15,20 +15,32 @@ import Give4 from '../image/give4.png'
 // var bouton = document.getElementById('bnt4')
 // bouton.addEventListener('click', Paiement)
 export default function Paiement(){
-    
+    let history = useNavigate();
+    const {laharana} =  useParams();
+     
     const [infoisi,setInfoisi] = useState( {
+      
+        nif:"",
+        anarana_entana:"",
         daty_androany:"",
-        vidina_entana:"",
-        daty_nividianana:"",
-        isi_aloha : "",
-        charge : ""
+        daty_fandoavana:"",
+        vola_aloa:""          
    })
-   const {daty_androany,vidina_entana,daty_nividianana,isi_aloha,charge}= infoisi
+
+   useEffect(()=>{
+    loadUsers();
+   },[])
+
+   const {nif,anarana_entana,daty_androany,daty_fandoavana,vola_aloa}= infoisi
    const handleChange =(e)=>{
-        let valeur = e.target.value; 
-        setInfoisi(valeur);
-        console.log(valeur);
-    }
+    setInfoisi({...infoisi,[e.target.name] : e.target.value})        
+}
+const loadUsers = async ()=>{
+    const result = await axios.get("http://localhost/ISI_online/ViewIsi.php?laharana="+laharana);
+     //console.log(result.data);
+     setInfoisi(result.data); 
+     console.log(typeof(result.data));   
+}
 
 
 
@@ -59,9 +71,23 @@ export default function Paiement(){
     //     }else{
     //         alert("⚠️Voasazy ianao!!!!")
     //     }
-    const submitForm = async(e)=>{
+    const updateForm = async(e)=>{
         e.preventDefault();
-        // console.log(infoisi)       
+        //console.log(student)       
+    
+     await axios.put("http://localhost/ISI_online/payement.php",infoisi)
+        .then((result) => {
+          console.log(result);
+          if(result.status == 201){
+            alert("⚠️ voaloha ny volanao ⚠️");
+             history(`/ListAdmin`);
+             
+          }
+        else{   
+              
+          alert("There is a problem for adding,please try again");
+        }   
+    })
     }
     
     return(
@@ -81,36 +107,36 @@ export default function Paiement(){
                 </nav>
                
                 <section className="get_in_touch">
-                <form onSubmit={e=>submitForm(e)}>
+                <form onSubmit={e=>updateForm(e)}>
                     <div className="container">
                         <div className="contact-form row">
                             <div className="form-field">
-                                <input id = "nif" className="input-text" required="required" type="text" name="nif" 
-                                //   value={nif} onChange = {e => handleChange(e) }
+                                <input id = "nif" className="input-text" required="required" type="text" name="nifd" 
+                                  value={nif} onChange = {e => handleChange(e) }
                                 />
                                 <label for="nif" className="label">NIF</label>
                             </div>
                             <div className="form-field">
-                                <input id = "name2" className="input-text" required="required" type="text" name="anarana_entana"
-                                //   value={anarana_entana} onChange = {e => handleChange(e)}
+                                <input id = "name2" className="input-text" required="required" type="text" name="anarana_entanas"
+                                  value={anarana_entana} onChange = {e => handleChange(e)}
                                 />
                                 <label for="name2" className="label">Anaran'ny entana novidiana</label>
                             </div>
                             <div className="form-field">
-                                <input id = "date1" className="input-text" required="required" type="date" name="daty_androany"
+                                <input id = "date1" className="input-text" required="required" type="date" name="daty_androanys"
                                   value={daty_androany} onChange = {e => handleChange(e)}
                                 />
                                 <label for="date1" className="label">Daty nisoratana ISI</label>
                             </div>
                             <div className="form-field">
-                                <input id = "date2" className="input-text" required="required" type="date" name="daty_androany"
-                                   value={daty_androany} onChange = {e => handleChange(e)}
+                                <input id = "date2" className="input-text" required="required" type="date" name="daty_fandoavana"
+                                   value={daty_fandoavana} onChange = {e => handleChange(e)}
                                 />
                                 <label for="date2" className="label">Daty andoavam-bola</label>
                             </div>
                             <div className="form-field">
-                                <input id = "price" className="input-text" required="required" type="text" name="vidina_entana"
-                                   value={vidina_entana} onChange = {e => handleChange(e)}
+                                <input id = "price" className="input-text" required="required" type="text" name="vola_aloah"
+                                   value={infoisi.vola_aloa} onChange = {e => handleChange(e)}
                                 />
                                 <label for="price" className="label">Vola ISI (Ariary)</label>
                             </div>
