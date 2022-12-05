@@ -280,3 +280,55 @@
         transform: translateY(0px);
     }
 }
+/* ******************************** */
+.contact{
+    /* border: 1px solid rgb(255, 0, 0); */
+    width: 100%;
+    padding-top: 20%;
+    padding-bottom: 0%;
+    margin-top: 20%;
+    background: #38B57F;
+    position: relative;
+}
+.contact .sous-contact{
+    display: flex;
+    position: absolute;
+    margin-top: -250px;
+    margin-left: 25%;
+    justify-content: space-around;
+}
+.contact .sous-contact p{
+    font-family: raleway;
+    /* font-weight: bold; */
+    color: rgb(224, 224, 224);
+}
+/* .contact div{
+    margin-top: -50px;
+} */
+.DirGI{
+    /* border: 1px solid red; */
+    padding-right: 30px;
+    width: 40%;
+    margin-left: -30%;
+}
+.SSIF{
+    /* border: 1px solid red; */
+    padding-right: 30px;
+    width: 40%;
+}
+.NOTRE_SITE{
+    /* border: 1px solid red; */
+    padding-right: 30px;
+    width: 30%;
+}
+.social{
+    /* border: 1px solid red; */
+    width: 20%;
+    text-align: center;
+    margin-top: -3%;
+    margin-left: 40%;
+}
+.social p{
+    font-family: raleway;
+    color: #ffffff;
+}

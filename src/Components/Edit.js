@@ -9,6 +9,10 @@ import Give1 from '../image/give1.png'
 import Give2 from '../image/give2.png'
 import Give3 from '../image/give3.png'
 import Give4 from '../image/give4.png'
+import Facebook from '../image/facebook.png'
+import Email from '../image/email.png'
+import Google from '../image/google_plus.png'
+import Twitter from '../image/Twitter.png'
 
 export default function Edit(){
     let history = useNavigate();
@@ -167,11 +171,48 @@ const loadUsers = async ()=>{
                         <img src={Give4} id='give4'/>
                     </div>
                 </div>
-                <footer className="footer2">
+                {/* <footer className="footer2">
                     <div className="copyLogo2">
                         <p id="copyright2">Copyright 2022 by Mirantsoa & Rija Andria</p>
                     </div>
-                </footer>
+                </footer> */}
+                <div className="contact">
+                        <div className="sous-contact">
+                            <div className="DirGI">
+                                <p><b>DGI</b></p> 
+                                <p><b>D</b>irection <b>G</b>énérale des <b>I</b>mpôts</p> 
+                                <p>Immeuble MFB, Antaninarenina
+                                        Antananarivo, 101, Madagascar
+                                </p>
+                                <p> Tel: (020) xx-xxx-xx</p>
+                                <p>Email: <a href="dgimpots@moov.mg">dgimpots@moov.mg</a></p>
+                            </div>
+                            <div className="SSIF">
+                                <p><b>SSIF</b></p>
+                                <p><b>S</b>ervice Du <b>S</b>ystème d'<b>I</b>nformation <b>F</b>iscale</p>
+                                <p>Mandrosoa, Ambohijatovo
+                                    Antananarivo, 101, Madagascar
+                                </p>
+                                <p>Tél: (8h à 16h) 034 49 431 52, 032 12 011 74</p>
+                                <p>E-mail: <a href="impot.ssif.hotline@gmail.com">impot.ssif.hotline@gmail.com</a></p>
+                            </div>
+                            <div className="NOTRE_SITE">
+                                <p><b>NOTRE SITE</b></p>
+                                <a href="www.impots.mg">www.impots.mg</a>
+                                <p>Nifonline</p>
+                                <a href="nifonline.impots.mg">nifonline.impots.mg</a>
+                            </div>
+                        </div>
+                        <div className="social">
+                            <p>SOCIAL</p>
+                            <div className="icone-social">
+                                <img src={Facebook}></img>
+                                <img src={Twitter}></img>
+                                <img src={Google}></img>
+                                <img src={Email}></img>
+                            </div>
+                        </div>
+                    </div>
             </body>
     )
 }

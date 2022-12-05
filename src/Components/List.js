@@ -1,13 +1,15 @@
 import React, { useState, useEffect} from "react";
 import { useNavigate, useParams,Link } from "react-router-dom";
 import axios from "axios";
-// import { Link } from "react-router-dom";
 import Add from '../image/add.png'
 import Search from '../image/search.png'
 import headImage from '../image/head.png'
 import Saina1 from '../image/saina1.png'
 import DGI from '../image/DGI.jpg'
-
+import Facebook from '../image/facebook.png'
+import Email from '../image/email.png'
+import Google from '../image/google_plus.png'
+import Twitter from '../image/Twitter.png'
 
  function List(){
     const {nif} =  useParams();
@@ -49,9 +51,7 @@ import DGI from '../image/DGI.jpg'
              console.log(typeof(result_1.data) + " ny result_1");   
         }
         console.log(infoisi);
-    
-
-    
+       
     return (
         <>
             <body className="bodyList">
@@ -88,11 +88,8 @@ import DGI from '../image/DGI.jpg'
                              onChange = {handleChange}
                              />
                             <img src={Search} />
-                        </div>
-
-                           
-                    </div>
-                    
+                        </div>                           
+                    </div>                    
                     <div className="table">
                         <table className="content-table">
                             <thead>
@@ -109,12 +106,11 @@ import DGI from '../image/DGI.jpg'
                                 </tr>
                             </thead>
                             <tbody>
-                           
-                            {infoisi.filter((infoisi)=>{
-                                return (infoisi.laharana.includes(chercher) || infoisi.anarana_entana.includes(chercher) ||
-                                infoisi.daty_nividianana.includes(chercher) || infoisi.daty_androany.includes(chercher)  )            
-                                }).map(infoisi=>{ return (                           
-                                <tr>
+                                {infoisi.filter((infoisi)=>{
+                                    return (infoisi.anarana_entana.includes(chercher) ||
+                                    infoisi.daty_nividianana.includes(chercher) || infoisi.daty_androany.includes(chercher)  )            
+                                    }).map(infoisi=>{ return (                           
+                                    <tr>
                                         <td>{infoisi.laharana}</td>
                                         <td>{infoisi.anarana_entana}</td>
                                         <td>{infoisi.vidina_entana}</td>
@@ -125,15 +121,50 @@ import DGI from '../image/DGI.jpg'
                                         <td>0</td>
                                         <td>{infoisi.fanamarihana}</td>
                                     </tr>                             
-                                )})}
-                               
+                                )})}           
                             </tbody>
                         </table>
+                    </div>
+                    <div className="contact">
+                        <div className="sous-contact">
+                            <div className="DirGI">
+                                <p><b>DGI</b></p> 
+                                <p><b>D</b>irection <b>G</b>énérale des <b>I</b>mpôts</p> 
+                                <p>Immeuble MFB, Antaninarenina
+                                        Antananarivo, 101, Madagascar
+                                </p>
+                                <p> Tel: (020) xx-xxx-xx</p>
+                                <p>Email: <a href="dgimpots@moov.mg">dgimpots@moov.mg</a></p>
+                            </div>
+                            <div className="SSIF">
+                                <p><b>SSIF</b></p>
+                                <p><b>S</b>ervice Du <b>S</b>ystème d'<b>I</b>nformation <b>F</b>iscale</p>
+                                <p>Mandrosoa, Ambohijatovo
+                                    Antananarivo, 101, Madagascar
+                                </p>
+                                <p>Tél: (8h à 16h) 034 49 431 52, 032 12 011 74</p>
+                                <p>E-mail: <a href="impot.ssif.hotline@gmail.com">impot.ssif.hotline@gmail.com</a></p>
+                            </div>
+                            <div className="NOTRE_SITE">
+                                <p><b>NOTRE SITE</b></p>
+                                <a href="www.impots.mg">www.impots.mg</a>
+                                <p>Nifonline</p>
+                                <a href="nifonline.impots.mg">nifonline.impots.mg</a>
+                            </div>
+                        </div>
+                        <div className="social">
+                            <p>SOCIAL</p>
+                            <div className="icone-social">
+                                <img src={Facebook}></img>
+                                <img src={Twitter}></img>
+                                <img src={Google}></img>
+                                <img src={Email}></img>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </body>
         </>
     )
 }
-
 export default List;

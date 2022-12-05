@@ -45,7 +45,7 @@
 }
 .info{
     position: absolute;
-    margin-top: 60px;
+    margin-top: 10%;
     width: 100%;
 }
 .info .infoname{
@@ -89,27 +89,43 @@
     width: 21px;
 }
 /* **************************************************** */
-
+.table{
+    max-height: 360px;
+    overflow-y: scroll;
+    margin-top: 22%;
+    /* margin: 20px; */
+}
 .content-table{
     border-collapse: collapse;
-    margin: 220px 0;
     font-size: 0.9em;
     min-width: 400px;
+    margin-top: 0%;
     /* position: absolute; */
 }
 .content-table thead tr{
-    background-color: #009879;
+    /* background-color: #009879; */
     color: #ffffff;
     text-align: center;
     font-size: 12px;
     font-family: Raleway;
+    /* position: sticky; */
 }
-.content-table th,
-.content-table td{
+.content-table th{
+    background-color: #009879;
     font-family: Raleway;
     padding: 12px 45px;
     text-align: center;
     font-size: 13px;
+    position: sticky;
+    top: 0px;
+    /* z-index: 1; */
+}
+.content-table td{
+    font-family: Raleway;
+    padding: 12px 40px;
+    text-align: center;
+    font-size: 13px;
+    /* z-index: -1; */
 }
 .content-table tbody tr{
     border-bottom: 1px solid #dddddd;
@@ -121,4 +137,55 @@
 }
 .content-table tbody tr:last-of-type{
     border-bottom: 1px solid #009879;
+}
+.contact{
+    /* border: 1px solid rgb(255, 0, 0); */
+    width: 100%;
+    padding-top: 20%;
+    padding-bottom: 0%;
+    margin-top: 20%;
+    background: #38B57F;
+    position: relative;
+}
+.contact .sous-contact{
+    display: flex;
+    position: absolute;
+    margin-top: -250px;
+    margin-left: 25%;
+    justify-content: space-around;
+}
+.contact .sous-contact p{
+    font-family: raleway;
+    /* font-weight: bold; */
+    color: rgb(224, 224, 224);
+}
+/* .contact div{
+    margin-top: -50px;
+} */
+.DirGI{
+    /* border: 1px solid red; */
+    padding-right: 30px;
+    width: 40%;
+    margin-left: -30%;
+}
+.SSIF{
+    /* border: 1px solid red; */
+    padding-right: 30px;
+    width: 40%;
+}
+.NOTRE_SITE{
+    /* border: 1px solid red; */
+    padding-right: 30px;
+    width: 30%;
+}
+.social{
+    /* border: 1px solid red; */
+    width: 20%;
+    text-align: center;
+    margin-top: -3%;
+    margin-left: 40%;
+}
+.social p{
+    font-family: raleway;
+    color: #ffffff;
 }
