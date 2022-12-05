@@ -9,12 +9,9 @@ import Give1 from '../image/give1.png'
 import Give2 from '../image/give2.png'
 import Give3 from '../image/give3.png'
 import Give4 from '../image/give4.png'
-// import Trace from '../image/trace.png'
-// const date1 = document.getElementById("date1").value
-// const date2 = document.getElementById("date2").value
-// var bouton = document.getElementById('bnt4')
-// bouton.addEventListener('click', Paiement)
+
 export default function Paiement(){
+
     let history = useNavigate();
     const {laharana} =  useParams();
      
@@ -26,6 +23,7 @@ export default function Paiement(){
         daty_fandoavana:"",
         vola_aloa:""          
    })
+
 
    useEffect(()=>{
     loadUsers();
@@ -88,12 +86,83 @@ const loadUsers = async ()=>{
           alert("There is a problem for adding,please try again");
         }   
     })
+}
+    
+    // const [isi_daty, setIsi_daty] = useState()
+    // const [pay_daty, setPay_daty] = useState()
+    // const [isi_vola, setIsi_vola] = useState()
+
+    const setdate_isi = new Date(infoisi.daty_androany)
+    const setdate_pay = new Date(infoisi.daty_fandoavana)
+
+    const jour_isi = setdate_isi.getDate() + 1
+    const mois_isi = setdate_isi.getMonth() + 1
+    const annee_isi = setdate_isi.getFullYear()
+    console.log(jour_isi + "/" + mois_isi + "/" + annee_isi + ": io ny daty ISI")
+    var Limit_Date = 15
+    var Limit_Mouth = setdate_isi.getMonth() + 2
+    var Limit_Year = setdate_isi.getFullYear()
+    var jour_pay = setdate_pay.getDate() + 1
+    var mois_pay = setdate_pay.getMonth() + 1
+    var annee_pay = setdate_pay.getFullYear()
+
+    // ***********CONDITION SAZY + CALCULE SAZY******************************************************************
+    var msg = "Tsy misy sazy"
+    var penalite_retard = 0
+    var net_a_payer = 0
+    console.log(jour_pay + "/" + mois_pay + "/" + annee_pay + ": io ny daty PAY")
+    console.log(typeof(infoisi.vola_aloa))
+    if(mois_isi == 12){
+        Limit_Mouth = 1
+        Limit_Year = Limit_Year + 1
+        if(annee_pay < Limit_Year){
+            var msg = "Tsy misy sazy"
+            penalite_retard = 0
+            net_a_payer = (Number(infoisi.vola_aloa) + penalite_retard)
+        }else if(annee_pay == Limit_Year && mois_pay == Limit_Mouth && jour_pay <= Limit_Date){
+            msg = "Tsy misy sazy"
+            penalite_retard = 0
+            net_a_payer = (Number(infoisi.vola_aloa) + penalite_retard)
+        }else{
+            msg = "Misy sazy 10%"
+            var sazy = 10
+            penalite_retard = (infoisi.vola_aloa*sazy)/100
+            net_a_payer = (Number(infoisi.vola_aloa) + penalite_retard)
+        }
     }
+    else if(mois_isi < 12){
+        if(mois_pay < Limit_Mouth && annee_pay <= Limit_Year){
+            if(jour_pay < 31){
+                msg = "Tsy misy sazy"
+                penalite_retard = 0
+                net_a_payer = (Number(infoisi.vola_aloa) + penalite_retard)
+            }
+        }else if(mois_pay == Limit_Mouth && annee_pay <= Limit_Year){
+            if(jour_pay < 15){
+                msg = "Tsy misy sazy"
+                penalite_retard = 0
+                net_a_payer = (Number(infoisi.vola_aloa) + penalite_retard)
+            }else{
+                msg = "Misy sazy 10%"
+                var sazy = 10
+                penalite_retard = (infoisi.vola_aloa*sazy)/100
+                net_a_payer = (Number(infoisi.vola_aloa) + penalite_retard)
+            }
+        }else{
+            msg = "Misy sazy 10%"
+            var sazy = 10
+            penalite_retard = (infoisi.vola_aloa*sazy)/100
+            net_a_payer = (Number(infoisi.vola_aloa)+penalite_retard)
+        }
+    }
+    // const submitForm = async(e)=>{
+    //     e.preventDefault();      
+
+    // }
     
     return(
         <>
-            <body className="BodyAdd">
-                
+            <body className="BodyAdd">                
                 {/* <img scr={Trace} id='trace'/> */}
                 <nav className='nav2'>
                     <div className='sary floating1'>
@@ -123,29 +192,43 @@ const loadUsers = async ()=>{
                                 <label for="name2" className="label">Anaran'ny entana novidiana</label>
                             </div>
                             <div className="form-field">
+
                                 <input id = "date1" className="input-text" required="required" type="date" name="daty_androanys"
                                   value={daty_androany} onChange = {e => handleChange(e)}
+
+                                // // <input id = "date1" className="input-text" required="required" type="date" name="daty_isi"
+                                // //     onChange = {e => setIsi_daty(e.target.value)}
+                                // //     // value={daty_isi} onChange = {e => handleChange(e)}
+
                                 />
                                 <label for="date1" className="label">Daty nisoratana ISI</label>
                             </div>
                             <div className="form-field">
+
                                 <input id = "date2" className="input-text" required="required" type="date" name="daty_fandoavana"
                                    value={daty_fandoavana} onChange = {e => handleChange(e)}
+
+                                // <input id = "date2" className="input-text" required="required" type="date" name="daty_paiement"
+                                //     onChange = {e => setPay_daty(e.target.value)}
+
                                 />
                                 <label for="date2" className="label">Daty andoavam-bola</label>
                             </div>
                             <div className="form-field">
+
                                 <input id = "price" className="input-text" required="required" type="text" name="vola_aloah"
                                    value={infoisi.vola_aloa} onChange = {e => handleChange(e)}
+
+                                // <input id = "price" className="input-text" required="required" type="text" name="vidina_entana"
+                                //     onChange = {e => setIsi_vola(e.target.value)}
+                                //     // onChange = {e => handleChange(e)}
+
                                 />
                                 <label for="price" className="label">Vola ISI (Ariary)</label>
                             </div>
                             <div className="bouton">
                                 <div className="form-field">
-                                    <input type="button" className="btn4" id="btn4" name="submit" value="Kajiana"/>
-                                </div>
-                                <div className="form-field">
-                                    <input type="submit" className="btn5" id="btn5" name="submit" value="Aloa"/>
+                                    <input type="submit" className="btn4" id="btn4" name="submit" value="Aloa"/>
                                 </div>
                             </div>
                         </div>
@@ -170,9 +253,9 @@ const loadUsers = async ()=>{
                 {/* ************************************************************ */}
                 <div className="payer">
                     <div className="Paiement">
-                        <p>⚠️ Sazy: 10%</p>
-                        <p>Miampy: 20.000 ariary</p>
-                        <p className="Net">Vola haloa: 100.000 ariary</p>
+                        <p>{msg}</p>
+                        <p>Miampy: {penalite_retard} Ariary</p>
+                        <p className="Net">Vola haloa: {net_a_payer} Ariary</p>
                     </div>
                 </div>
                 {/* ************************************************************* */}

@@ -23,21 +23,21 @@ export default function ListAdmin(){
     function ClickPaiement() {
         navigate('/:nif/Paiement')
     }
+    function ClickListPaiement() {
+        navigate('/ListPaiement')
+    }
     const [infoisi,setInfoisi] = useState([]);
 //*****************RECHERCHE*****************************************************************************/
     const [chercher,setChercher] = useState("");
     const handleChange =(e)=>{
-        //setSear({...sear,[e.target.name] : e.target.value})
-        
+        //setSear({...sear,[e.target.name] : e.target.value})        
         let value = e.target.value;
         setChercher(value);
      }
 
     useEffect(()=>{
         loadUsers();
-    },
-    [] 
-    );
+    },[]);
 
      const loadUsers = async ()=>{
      const result = await axios.get("http://localhost/ISI_online/Listadmin.php");
@@ -91,8 +91,8 @@ export default function ListAdmin(){
                                     <th>Daty nisoratana ISI</th>
                                     <th>Daty nandoavana ISI</th>
                                     <th>Vola haloa (Ariary)</th>
-                                    <th>Vola voaloa (Ariary)</th>
-                                    <th></th>
+                                    <th>vola voaloha (Ariary) </th>
+                                    <th>Ampiasao</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -112,6 +112,7 @@ export default function ListAdmin(){
                                         <td>{infoisi.daty_fandoavana}</td>
                                         <td>{infoisi.vola_aloa}</td> 
                                         <td>{infoisi.vola_voaloha}</td>
+
                                         <td  id="ovaina">
                                             <Link className ="Link" to={`/Edit/${infoisi.laharana}`}>
                                                 <img src={Edit}/>
@@ -120,7 +121,9 @@ export default function ListAdmin(){
                                             <Link className ="Link" to={`/Paiement/${infoisi.laharana}`}>
                                                 <img src={Pay}/>
                                             </Link>
-                                            <img src={Pdf} onClick={ClickPaiement}/>
+                                            <img src={Pdf} onClick={ClickListPaiement}/>
+                                            
+
                                         </td>
                                     </tr>                            
                                 )})}                           

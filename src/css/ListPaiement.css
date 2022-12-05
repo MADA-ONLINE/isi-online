@@ -1,0 +1,124 @@
+/* body{
+    overflow:hidden;
+} */
+/* .contenu{
+    position: relative;
+    margin-top: 40px;
+    border: 3px solid black;
+} */
+.nav1_pay{
+    margin-top: 5%;
+}
+#headImage2{
+    width: 100%;
+    filter: drop-shadow(8px 4px 4px rgba(0, 0, 0, 0.267));
+    position: fixed;
+    margin-top: -5%;
+}
+.saina3{
+    position: absolute;
+    margin-top: 0%;
+}
+#saina4{
+    width: 25%;
+    margin-left: 0.5%;
+    margin-top: -6%;
+}
+#DGI3{
+    position: absolute;
+    width: 3%;
+    margin-left: 63%;
+    margin-top: -3.5%;
+    border-radius: 24px;
+}
+#isiOnline2{
+    font-size: 24px;
+    color: #ffd700;
+    font-family: Richness Demo;
+    margin-left: 80%;
+    margin-top: -4.5%;
+    position: absolute;
+}
+.All_pay{
+    position: relative;
+    overflow: hidden;
+}
+.info_pay{
+    position: absolute;
+    margin-top: 60px;
+    width: 100%;
+}
+.info_pay .infoname_pay{
+    width: 70%;
+    margin-left: 2%;
+    margin-top: 0%;
+    position: absolute;
+    font-size: 14px;
+    font-family: Raleway;
+    font-style: italic;
+    color: rgba(10, 10, 10, 0.671);
+}
+.info_pay .add{
+    margin-top: 4%;
+    position: absolute;
+    margin-left: 650px;
+}
+.info_pay .add img{
+    width: 30px;
+    cursor: pointer;
+}
+.info_pay .search{
+    margin-left: 90%;
+    margin-top: 4.3%;
+}
+.info_pay .search input{
+    border-radius: 24px;
+    padding: 5px 3px 5px 3px;
+    text-align: center;
+    width: 100px;
+    border: 1px solid rgb(163, 159, 159);
+    font-family: Raleway;
+    font-size: 12px;
+    display: block;
+    outline: none;
+}
+.info_pay .search img{
+    position: absolute;
+    margin-top: -22px;
+    margin-left: 84px;
+    width: 21px;
+}
+/* **************************************************** */
+
+.content-table_pay{
+    border-collapse: collapse;
+    margin: 220px 0;
+    font-size: 0.9em;
+    min-width: 400px;
+    /* position: absolute; */
+}
+.content-table_pay thead tr{
+    background-color: #009879;
+    color: #ffffff;
+    text-align: center;
+    font-size: 12px;
+    font-family: Raleway;
+}
+.content-table_pay th,
+.content-table_pay td{
+    font-family: Raleway;
+    padding: 12px 45px;
+    text-align: center;
+    font-size: 13px;
+}
+.content-table_pay tbody tr{
+    border-bottom: 1px solid #dddddd;
+}
+.content-table_pay tbody tr:nth-of-type(even){
+    background-color: #ebe6e6f3;
+    font-weight: bold;
+    color: #009879;
+}
+.content-table_pay tbody tr:last-of-type{
+    border-bottom: 1px solid #009879;
+}

@@ -12,7 +12,8 @@ import Give4 from '../image/give4.png'
 // import Trace from '../image/trace.png'
 
 export default function Add(){
-      
+    // const [isi_daty, setIsi_daty] = useState()
+    // const setdate_isi = new Date(isi_daty)
     let history = useNavigate(); //use navigate on previous
     const {Nif} =  useParams();
     const [infoisi,setInfoisi] = useState( {
@@ -21,15 +22,43 @@ export default function Add(){
          cin:"",
          daty_androany:"",
          anarana_entana:"",
-         vidina_entana:"",
-         isany:"",
+         vidina_entana:"0",
+         isany:"1",
          daty_nividianana:"",
          isi_aloha : "",
          charge : ""
     })
+    const setdate_isi = new Date(infoisi.daty_androany)
+    const mois_isi = setdate_isi.getMonth() + 1   
+    var Limit_Date = 15
+    var Limit_Mouth = setdate_isi.getMonth() + 2
+    var Limit_Year = setdate_isi.getFullYear()
+    var deadLine = "01" + "/" + "01" + "/" + "0001"
+    if(infoisi.daty_androany){
+        if(mois_isi == 12){
+            Limit_Mouth = 1
+            Limit_Year = Limit_Year + 1
+            deadLine = Limit_Date + "/" + Limit_Mouth + "/" + Limit_Year
+        }else{
+            deadLine = Limit_Date + "/" + Limit_Mouth + "/" + Limit_Year
+        }
+    }
+    //**************** CALCULE ISI ********************************* */
+    var Net_a_payer = 0
+    var Totaly_volanao = 0
+    var prix = infoisi.vidina_entana
+    var nombre = infoisi.isany
+    if (infoisi.isany && infoisi.vidina_entana){
+        Net_a_payer = (prix*nombre*5)/100
+        Totaly_volanao = prix*nombre
+        console.log(Net_a_payer);
+    }
 
+    //*****************DEFAULT CURRENT DATE********************************************* */
+    // const toDay= new Date();
     
-    const {nif,anarana_feno,cin,daty_androany,anarana_entana,vidina_entana,isany,daty_nividianana}= infoisi
+
+    const {nif,anarana_feno,cin,daty_androany,anarana_entana,vidina_entana,isany,daty_nividianana} = infoisi
     const handleChange =(e)=>{
         console.log(e.target.value)
 
@@ -39,6 +68,7 @@ export default function Add(){
     const submitForm = async(e)=>{
         e.preventDefault();
         console.log(infoisi)       
+
 
      await axios.post("http://localhost/ISI_online/AddIsi.php?Nif="+Nif,infoisi)
         .then((result) => {
@@ -53,14 +83,13 @@ export default function Add(){
           alert("There is a problem for adding,please try again");*/
           alert("Diso ny NIF nampidirinao!!!")
         }   
+ 
     });
     }
     // mampiseho n reultats ISI
     useEffect(()=>{
         loadUsers();
-    },
-    [] 
-    );
+    },[]);
 
     // const loadUsers = async ()=>{
     //     const result = await axios.get("http://localhost/ISI_online/ListIsi.php");
@@ -116,7 +145,7 @@ export default function Add(){
                                 <label for="cin" className="label">Laharan'ny kara-panondro</label>
                             </div>
                             <div className="form-field">
-                                <input id = "date1" className="input-text" required="required" type="date" name="daty_androany"
+                                <input id = "date1" className="input-text" required="required" type="date" name="daty_androany" 
                                   value={daty_androany} onChange = {e => handleChange(e)}
                                 />
                                 <label for="date1" className="label">Daty androany</label>
@@ -173,14 +202,14 @@ export default function Add(){
                         <table className="tableau">
                             <thead>
                                 <tr>
-                                    <th>Ny volanao (Ariary)</th>
+                                    <th>Totalin'ny volanao (Ariary)</th>
                                     <th>Ny 5% miala aminy (Ariary)</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>80.000</td>
-                                    <td>4.000</td>
+                                    <td>{Totaly_volanao}</td>
+                                    <td>{Net_a_payer}</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -188,11 +217,13 @@ export default function Add(){
                             <thead>
                                 <tr>
                                     <th>Vola aloa (Ariary)</th>
+                                    <th>Daty farary fandoavana azy</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>4.000</td>
+                                    <td>{Net_a_payer}</td>
+                                    <td>{deadLine}</td>
                                 </tr>
                             </tbody>
                         </table>
