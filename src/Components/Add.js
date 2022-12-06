@@ -9,6 +9,7 @@ import Give1 from '../image/give1.png'
 import Give2 from '../image/give2.png'
 import Give3 from '../image/give3.png'
 import Give4 from '../image/give4.png'
+import { motion } from 'framer-motion'
 // import Trace from '../image/trace.png'
 
 export default function Add(){
@@ -104,138 +105,187 @@ export default function Add(){
          setInfoisi(result.data); 
          console.log(typeof(result.data));   
     }
-
+    const PageVariants = {
+        in: {
+            opacity: 1,
+        },
+        out: {
+            opacity: 0
+        }
+    }
+    const PageVariantsForm = {
+        in_1: {
+            opacity: 1,
+            y: 0
+        },
+        out_1: {
+            opacity: 0,
+            y: "100%"
+        }
+    }
+    // const PageVariantsPrint = {
+    //     in_2: {
+    //         opacity: 1,
+    //         y: 0
+    //     },
+    //     out_2: {
+    //         opacity: 0,
+    //         y: "-200%"
+    //     }
+    // }
+    const PageTransition = {
+        type: "spring",
+        stiffness: 25
+    }
+    const PageTransition_All = {
+        type: "spring",
+        stiffness: 40
+    }
     return(
         <>
-            <body className="BodyAdd">
-                
-                {/* <img scr={Trace} id='trace'/> */}
-                <nav className='nav2'>
-                    <div className='sary floating1'>
-                        <img src={headImage} id="headImage3"/>
-                    </div>
-                    <div className='saina5'>
-                        <img src={Saina1} id="saina6"/>
-                        <img src={DGI} id="DGI4"/>
-                    </div>
-                    <p id='isiOnline3'>isi-online</p>
-                </nav>
-
-                
-                <section className="get_in_touch">
-                <form onSubmit={e=>submitForm(e)}>
-                    <div className="container">
-                        <div className="contact-form row">
-                            <div className="form-field">
-                                <input id = "nif" className="input-text" required="required" type="number" name="nif" 
-                                  value={nif} onChange = {e => handleChange(e) }
-                                />
-                                <label for="nif" className="label">NIF</label>
-                            </div>
-                            <div className="form-field">
-                                <input id = "name1" className="input-text" required="required" type="text" name="anarana_feno"
-                                  value={anarana_feno} onChange = {e => handleChange(e)}
-                                />
-                                <label for="name1" className="label">Anarana feno</label>
-                            </div>
-                            <div className="form-field">
-                                <input id = "cin" className="input-text" required="required" type="number" name="cin"
-                                  value={cin} onChange = {e => handleChange(e)}
-                                />
-                                <label for="cin" className="label">Laharan'ny kara-panondro</label>
-                            </div>
-                            <div className="form-field">
-                                <input id = "date1" className="input-text" required="required" type="date" name="daty_androany" 
-                                  value={daty_androany} onChange = {e => handleChange(e)}
-                                />
-                                <label for="date1" className="label">Daty androany</label>
-                            </div>
-                            <div className="form-field">
-                                <input id = "name2" className="input-text" required="required" type="text" name="anarana_entana"
-                                  value={anarana_entana} onChange = {e => handleChange(e)}
-                                />
-                                <label for="name2" className="label">Anaran'ny entana novidiana</label>
-                            </div>
-                            <div className="form-field">
-                                <input id = "price" className="input-text" required="required" type="number" name="vidina_entana"
-                                 value={vidina_entana} onChange = {e => handleChange(e)}
-                                />
-                                <label for="price" className="label">Ny vidiny (Ariary)</label>
-                            </div>
-                            <div className="form-field">
-                                <input id = "number" className="input-text" required="required" type="number" name="isany"
-                                 value={isany} onChange = {e => handleChange(e)}
-                                />
-                                <label for="price" className="label">Ny isany</label>
-                            </div>
-                            <div className="form-field">
-                                <input id = "date2" className="input-text" required="required" type="date" name="daty_nividianana"
-                                  value={daty_nividianana} onChange = {e => handleChange(e)}
-                                />
-                                <label for="date2" className="label">Daty nividianana ny entana</label>
-                            </div>
-                            <div className="form-field">
-                                <input type="submit" className="btn4" name="submit" value="Add"/>
-                            </div>
+            <motion.div
+                initial="out"
+                animate="in"
+                exit="out"
+                variants={PageVariants}
+                transition={PageTransition_All}
+            >
+                <body className="BodyAdd">                
+                    {/* <img scr={Trace} id='trace'/> */}
+                    <nav className='nav2'>
+                        <div className='sary floating1'>
+                            <img src={headImage} id="headImage3"/>
                         </div>
-                    </div>
-                    </form>   
-                </section>
-                <div className="picture">                   
-                    <div className="container-give1 floating1">
-                        <img src={Give1} id='give1'/>
-                    </div>
-                    <div className="container-give2 floating2">
-                        <img src={Give2} id='give2'/>
-                    </div>
-                    <div className="container-give3 floating2">
-                        <img src={Give3} id='give3'/>
-                    </div>
-                    <div className="container-give4 floating1">
-                        <img src={Give4} id='give4'/>
-                    </div>
-                </div>
- 
-                {/* ************************************************************ */}
-                <div className="payer">
-                    <div className="Pay">
-                        <table className="tableau">
-                            <thead>
-                                <tr>
-                                    <th>Totalin'ny volanao (Ariary)</th>
-                                    <th>Ny 5% miala aminy (Ariary)</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>{Totaly_volanao}</td>
-                                    <td>{Net_a_payer}</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <table className="Vola_aloha">
-                            <thead>
-                                <tr>
-                                    <th>Vola aloa (Ariary)</th>
-                                    <th>Daty farary fandoavana azy</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>{Net_a_payer}</td>
-                                    <td>{deadLine}</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                {/* ************************************************************* */}
-                <footer className="footer2">
-                    <div className="copyLogo2">
-                        <p id="copyright2">Copyright 2022 by Mirantsoa & Rija Andria</p>
-                    </div>
-                </footer>
-            </body>
+                        <div className='saina5'>
+                            <img src={Saina1} id="saina6"/>
+                            <img src={DGI} id="DGI4"/>
+                        </div>
+                        <p id='isiOnline3'>isi-online</p>
+                    </nav>
+                    <section className="get_in_touch">
+                        <motion.div
+                            initial="out_1"
+                            animate="in_1"
+                            exit="out_1"
+                            variants={PageVariantsForm}
+                            transition={PageTransition}
+                        >
+                            <form onSubmit={e=>submitForm(e)}>
+                                <div className="container">
+                                    <div className="contact-form row">
+                                        <div className="form-field">
+                                            <input id = "nif" className="input-text" required="required" type="number" name="nif" 
+                                            value={nif} onChange = {e => handleChange(e) }
+                                            />
+                                            <label for="nif" className="label">NIF</label>
+                                        </div>
+                                        <div className="form-field">
+                                            <input id = "name1" className="input-text" required="required" type="text" name="anarana_feno"
+                                            value={anarana_feno} onChange = {e => handleChange(e)}
+                                            />
+                                            <label for="name1" className="label">Anarana feno</label>
+                                        </div>
+                                        <div className="form-field">
+                                            <input id = "cin" className="input-text" required="required" type="number" name="cin"
+                                            value={cin} onChange = {e => handleChange(e)}
+                                            />
+                                            <label for="cin" className="label">Laharan'ny kara-panondro</label>
+                                        </div>
+                                        <div className="form-field">
+                                            <input id = "date1" className="input-text" required="required" type="date" name="daty_androany" 
+                                            value={daty_androany} onChange = {e => handleChange(e)}
+                                            />
+                                            <label for="date1" className="label">Daty androany</label>
+                                        </div>
+                                        <div className="form-field">
+                                            <input id = "name2" className="input-text" required="required" type="text" name="anarana_entana"
+                                            value={anarana_entana} onChange = {e => handleChange(e)}
+                                            />
+                                            <label for="name2" className="label">Anaran'ny entana novidiana</label>
+                                        </div>
+                                        <div className="form-field">
+                                            <input id = "price" className="input-text" required="required" type="number" name="vidina_entana"
+                                            value={vidina_entana} onChange = {e => handleChange(e)}
+                                            />
+                                            <label for="price" className="label">Ny vidiny (Ariary)</label>
+                                        </div>
+                                        <div className="form-field">
+                                            <input id = "number" className="input-text" required="required" type="number" name="isany"
+                                            value={isany} onChange = {e => handleChange(e)}
+                                            />
+                                            <label for="price" className="label">Ny isany</label>
+                                        </div>
+                                        <div className="form-field">
+                                            <input id = "date2" className="input-text" required="required" type="date" name="daty_nividianana"
+                                            value={daty_nividianana} onChange = {e => handleChange(e)}
+                                            />
+                                            <label for="date2" className="label">Daty nividianana ny entana</label>
+                                        </div>
+                                        <div className="form-field">
+                                            <input type="submit" className="btn4" name="submit" value="Add"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>   
+                        </motion.div> 
+                    </section>
+                        <div>
+                            <div className="picture">                   
+                                <div className="container-give1 floating1">
+                                    <img src={Give1} id='give1'/>
+                                </div>
+                                <div className="container-give2 floating2">
+                                    <img src={Give2} id='give2'/>
+                                </div>
+                                <div className="container-give3 floating2">
+                                    <img src={Give3} id='give3'/>
+                                </div>
+                                <div className="container-give4 floating1">
+                                    <img src={Give4} id='give4'/>
+                                </div>
+                            </div>
+                            {/* ************************************************************ */}
+                                <div className="payer">
+                                    <div className="Pay">
+                                        <table className="tableau">
+                                            <thead>
+                                                <tr>
+                                                    <th>Totalin'ny volanao (Ariary)</th>
+                                                    <th>Ny 5% miala aminy (Ariary)</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>{Totaly_volanao}</td>
+                                                    <td>{Net_a_payer}</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <table className="Vola_aloha">
+                                            <thead>
+                                                <tr>
+                                                    <th>Vola aloa (Ariary)</th>
+                                                    <th>Daty farary fandoavana azy</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>{Net_a_payer}</td>
+                                                    <td>{deadLine}</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                        </div>
+                    {/* ************************************************************* */}
+                    <footer className="footer2">
+                        <div className="copyLogo2">
+                            <p id="copyright2">Copyright 2022 by Mirantsoa & Rija Andria</p>
+                        </div>
+                    </footer>
+                </body>
+            </motion.div>
             
         </>
     )

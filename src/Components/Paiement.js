@@ -13,6 +13,7 @@ import Facebook from '../image/facebook.png'
 import Email from '../image/email.png'
 import Google from '../image/google_plus.png'
 import Twitter from '../image/Twitter.png'
+import { motion } from 'framer-motion'
 
 export default function Paiement(){
 
@@ -28,7 +29,6 @@ export default function Paiement(){
         vola_aloa:""          
    })
 
-
    useEffect(()=>{
     loadUsers();
    },[])
@@ -43,8 +43,6 @@ const loadUsers = async ()=>{
      setInfoisi(result.data); 
      console.log(typeof(result.data));   
 }
-
-
 
     // const {nif,anarana_feno,cin,daty_androany,anarana_entana,vidina_entana,isany,daty_nividianana}= infoisi
     // var Date_1 = new Date(date1)
@@ -163,9 +161,51 @@ const loadUsers = async ()=>{
     //     e.preventDefault();      
 
     // }
-    
+    const PageVariants = {
+        in: {
+            opacity: 1,
+        },
+        out: {
+            opacity: 0
+        }
+    }
+    const PageVariantsForm = {
+        in_1: {
+            opacity: 1,
+            y: 0
+        },
+        out_1: {
+            opacity: 0,
+            y: "100%"
+        }
+    }
+    // const PageVariantsPrint = {
+    //     in_2: {
+    //         opacity: 1,
+    //         y: 0
+    //     },
+    //     out_2: {
+    //         opacity: 0,
+    //         y: "-200%"
+    //     }
+    // }
+    const PageTransition = {
+        type: "spring",
+        stiffness: 25
+    }
+    const PageTransition_All = {
+        type: "spring",
+        stiffness: 40
+    }
     return(
         <>
+        <motion.div
+            initial="out"
+            animate="in"
+            exit="out"
+            variants={PageVariants}
+            transition={PageTransition_All}
+        >
             <body className="Body_pay">                
                 {/* <img scr={Trace} id='trace'/> */}
                 <nav className='nav_pay'>
@@ -180,6 +220,13 @@ const loadUsers = async ()=>{
                 </nav>
                 <div className="contenu">
                     <section className="get_in_touch">
+                    <motion.div
+                        initial="out_1"
+                        animate="in_1"
+                        exit="out_1"
+                        variants={PageVariantsForm}
+                        transition={PageTransition}
+                    >
                         <form onSubmit={e=>updateForm(e)}>
                             <div className="container">
                                 <div className="contact-form row">
@@ -238,6 +285,7 @@ const loadUsers = async ()=>{
                                 </div>
                             </div>
                         </form>   
+                    </motion.div>    
                     </section>
                     <div className="picture">                   
                         <div className="container-give1 floating1">
@@ -302,6 +350,7 @@ const loadUsers = async ()=>{
                         </div>
                     </div>
             </body>            
+        </motion.div>
         </>
     )
 }

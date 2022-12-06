@@ -78,9 +78,13 @@ export default function LoginClient(){
             y: "200%"
         }
     }
-    const PageTransition = {
+    const PageTransition_1 = {
         type: "spring",
         stiffness: 30
+    }
+    const PageTransition = {
+        type: "spring",
+        stiffness: 90
     }
     return(
         <> 
@@ -89,6 +93,7 @@ export default function LoginClient(){
             animate="in"
             exit="out"
             variants={PageVariants}
+            transition={PageTransition}
         >
             <img src={Login} id="login"/>
             <nav className='nav'>
@@ -106,7 +111,7 @@ export default function LoginClient(){
                 animate="in_1"
                 exit="out_1"
                 variants={PageVariants_1}
-                transition={PageTransition}
+                transition={PageTransition_1}
             >                
                 <div className="form-Bg">
                     <form className="form-header" onSubmit={submitForm}>
