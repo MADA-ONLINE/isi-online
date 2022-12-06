@@ -1,3 +1,29 @@
+.nav_pay{
+    margin-top: 15%;
+    /* position: fixed; */
+}
+#headImage_pay{
+    width: 100%;
+    filter: drop-shadow(8px 4px 4px rgba(0, 0, 0, 0.267));
+    position: absolute;
+    margin-top: -14%;
+}
+.saina_pay{
+    position: absolute;
+    margin-top: -9%;
+}
+#isiOnline_pay{
+    font-size: 24px;
+    color: #ffd700;
+    font-family: Richness Demo;
+    margin-left: 80%;
+    margin-top: -13%;
+    position: absolute;
+}
+.contenu{
+    margin-top: 14%;
+    position: relative;
+}
 .form-field .btn4{
     outline: none;
     background: #EFA105;
@@ -52,4 +78,40 @@
     margin-top: 10%;
     font-weight: bold;
     color: rgb(21, 156, 3);
+}
+.nav_pay{
+    margin-top: 5%;
+    /* position: fixed; */
+}
+.contact_pay{
+    /* border: 1px solid rgb(255, 0, 0); */
+    width: 100%;
+    padding-top: 20%;
+    padding-bottom: 0%;
+    margin-top: 55%;
+    background: #38B57F;
+    position: absolute;
+}
+.contact_pay .sous-contact_pay{
+    display: flex;
+    position: absolute;
+    margin-top: -250px;
+    margin-left: 25%;
+    justify-content: space-around;
+}
+.contact_pay .sous-contact_pay p{
+    font-family: raleway;
+    /* font-weight: bold; */
+    color: rgb(224, 224, 224);
+}
+.social_pay{
+    /* border: 1px solid red; */
+    width: 20%;
+    text-align: center;
+    margin-top: -3%;
+    margin-left: 40%;
+}
+.social_pay p{
+    font-family: raleway;
+    color: #ffffff;
 }

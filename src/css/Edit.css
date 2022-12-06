@@ -1,0 +1,36 @@
+.nav_Edit{
+    margin-top: 5%;
+    /* position: absolute; */
+}
+.contact_Edit{
+    /* border: 1px solid rgb(255, 0, 0); */
+    width: 100%;
+    padding-top: 20%;
+    padding-bottom: 0%;
+    margin-top: 70%;
+    background: #38B57F;
+    position: absolute;
+}
+.contact_Edit .sous-contact_Edit{
+    display: flex;
+    position: absolute;
+    margin-top: -250px;
+    margin-left: 25%;
+    justify-content: space-around;
+}
+.contact_Edit .sous-contact_Edit p{
+    font-family: raleway;
+    /* font-weight: bold; */
+    color: rgb(224, 224, 224);
+}
+.social_Edit{
+    /* border: 1px solid red; */
+    width: 20%;
+    text-align: center;
+    margin-top: -3%;
+    margin-left: 40%;
+}
+.social_Edit p{
+    font-family: raleway;
+    color: #ffffff;
+}

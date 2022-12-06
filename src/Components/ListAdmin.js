@@ -64,6 +64,8 @@ export default function ListAdmin(){
 
     return(
         <>
+            <body className="bodyList">
+                <div className="All">
                     <nav className='navv'>
                         <div className='sary floating1'>
                             <img src={headImage} id="headImage2"/>
@@ -77,13 +79,13 @@ export default function ListAdmin(){
                     <div className="info">
                         <div className="search">
                                 <input type="texte" placeholder="Date/Num"
-                                 onChange = {handleChange}
-                                 />
+                                    onChange = {handleChange}
+                                    />
                                 <img src={Search} />
                         </div>
                     </div>
-                    <div className="table">
-                        <table className="content-tablee">
+                    <div className="table_Admin">
+                        <table className="content-tablee_Admin">
                             <thead>
                                 <tr>
                                     <th>Nif</th>
@@ -100,7 +102,7 @@ export default function ListAdmin(){
                                 </tr>
                             </thead>
                             <tbody>
-     {/* misy link ato************************ */}
+        {/* misy link ato************************ */}
                                 {infoisi.filter((infoisi)=>{
                                     return ( infoisi.nif.includes(chercher) || infoisi.anarana_feno.includes(chercher) || infoisi.anarana_entana.includes(chercher) ||
                                     infoisi.daty_nividianana.includes(chercher) || infoisi.daty_androany.includes(chercher)  )            
@@ -134,44 +136,46 @@ export default function ListAdmin(){
                                 })}                           
                             </tbody>
                         </table>
-                        <div className="contact">
-                            <div className="sous-contact">
-                                <div className="DirGI">
-                                    <p><b>DGI</b></p> 
-                                    <p><b>D</b>irection <b>G</b>énérale des <b>I</b>mpôts</p> 
-                                    <p>Immeuble MFB, Antaninarenina
-                                            Antananarivo, 101, Madagascar
-                                    </p>
-                                    <p> Tel: (020) xx-xxx-xx</p>
-                                    <p>Email: <a href="dgimpots@moov.mg">dgimpots@moov.mg</a></p>
-                                </div>
-                                <div className="SSIF">
-                                    <p><b>SSIF</b></p>
-                                    <p><b>S</b>ervice Du <b>S</b>ystème d'<b>I</b>nformation <b>F</b>iscale</p>
-                                    <p>Mandrosoa, Ambohijatovo
+                    </div>
+                    <div className="contact">
+                        <div className="sous-contact">
+                            <div className="DirGI">
+                                <p><b>DGI</b></p> 
+                                <p><b>D</b>irection <b>G</b>énérale des <b>I</b>mpôts</p> 
+                                <p>Immeuble MFB, Antaninarenina
                                         Antananarivo, 101, Madagascar
-                                    </p>
-                                    <p>Tél: (8h à 16h) 034 49 431 52, 032 12 011 74</p>
-                                    <p>E-mail: <a href="impot.ssif.hotline@gmail.com">impot.ssif.hotline@gmail.com</a></p>
-                                </div>
-                                <div className="NOTRE_SITE">
-                                    <p><b>NOTRE SITE</b></p>
-                                    <a href="www.impots.mg">www.impots.mg</a>
-                                    <p>Nifonline</p>
-                                    <a href="nifonline.impots.mg">nifonline.impots.mg</a>
-                                </div>
+                                </p>
+                                <p> Tel: (020) xx-xxx-xx</p>
+                                <p>Email: <a href="dgimpots@moov.mg">dgimpots@moov.mg</a></p>
                             </div>
-                            <div className="social">
-                                <p>SOCIAL</p>
-                                <div className="icone-social">
-                                    <img src={Facebook}></img>
-                                    <img src={Twitter}></img>
-                                    <img src={Google}></img>
-                                    <img src={Email}></img>
-                                </div>
+                            <div className="SSIF">
+                                <p><b>SSIF</b></p>
+                                <p><b>S</b>ervice Du <b>S</b>ystème d'<b>I</b>nformation <b>F</b>iscale</p>
+                                <p>Mandrosoa, Ambohijatovo
+                                    Antananarivo, 101, Madagascar
+                                </p>
+                                <p>Tél: (8h à 16h) 034 49 431 52, 032 12 011 74</p>
+                                <p>E-mail: <a href="impot.ssif.hotline@gmail.com">impot.ssif.hotline@gmail.com</a></p>
+                            </div>
+                            <div className="NOTRE_SITE">
+                                <p><b>NOTRE SITE</b></p>
+                                <a href="www.impots.mg">www.impots.mg</a>
+                                <p>Nifonline</p>
+                                <a href="nifonline.impots.mg">nifonline.impots.mg</a>
+                            </div>
+                        </div>
+                        <div className="social">
+                            <p>SOCIAL</p>
+                            <div className="icone-social">
+                                <img src={Facebook}></img>
+                                <img src={Twitter}></img>
+                                <img src={Google}></img>
+                                <img src={Email}></img>
                             </div>
                         </div>
                     </div>
+                </div>
+            </body>
         </>
     )
 }

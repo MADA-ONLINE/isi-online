@@ -90,7 +90,7 @@ import Twitter from '../image/Twitter.png'
                             <img src={Search} />
                         </div>                           
                     </div>                    
-                    <div className="table">
+                    <div className="table1">
                         <table className="content-table">
                             <thead>
                                 <tr>
@@ -125,7 +125,7 @@ import Twitter from '../image/Twitter.png'
                             </tbody>
                         </table>
                     </div>
-                    <div className="contact">
+                    <div className="contact_List">
                         <div className="sous-contact">
                             <div className="DirGI">
                                 <p><b>DGI</b></p> 

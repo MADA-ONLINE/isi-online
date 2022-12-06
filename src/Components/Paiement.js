@@ -9,6 +9,10 @@ import Give1 from '../image/give1.png'
 import Give2 from '../image/give2.png'
 import Give3 from '../image/give3.png'
 import Give4 from '../image/give4.png'
+import Facebook from '../image/facebook.png'
+import Email from '../image/email.png'
+import Google from '../image/google_plus.png'
+import Twitter from '../image/Twitter.png'
 
 export default function Paiement(){
 
@@ -162,110 +166,142 @@ const loadUsers = async ()=>{
     
     return(
         <>
-            <body className="BodyAdd">                
+            <body className="Body_pay">                
                 {/* <img scr={Trace} id='trace'/> */}
-                <nav className='nav2'>
+                <nav className='nav_pay'>
                     <div className='sary floating1'>
-                        <img src={headImage} id="headImage3"/>
+                        <img src={headImage} id="headImage_pay"/>
                     </div>
-                    <div className='saina5'>
+                    <div className='saina_pay'>
                         <img src={Saina1} id="saina6"/>
                         <img src={DGI} id="DGI4"/>
+                        <p id='isiOnline_pay'>isi-online</p>
                     </div>
-                    <p id='isiOnline3'>isi-online</p>
                 </nav>
-               
-                <section className="get_in_touch">
-                <form onSubmit={e=>updateForm(e)}>
-                    <div className="container">
-                        <div className="contact-form row">
-                            <div className="form-field">
-                                <input id = "nif" className="input-text" required="required" type="text" name="nifd" 
-                                  value={nif} onChange = {e => handleChange(e) }
-                                />
-                                <label for="nif" className="label">NIF</label>
-                            </div>
-                            <div className="form-field">
-                                <input id = "name2" className="input-text" required="required" type="text" name="anarana_entanas"
-                                  value={anarana_entana} onChange = {e => handleChange(e)}
-                                />
-                                <label for="name2" className="label">Anaran'ny entana novidiana</label>
-                            </div>
-                            <div className="form-field">
+                <div className="contenu">
+                    <section className="get_in_touch">
+                        <form onSubmit={e=>updateForm(e)}>
+                            <div className="container">
+                                <div className="contact-form row">
+                                    <div className="form-field">
+                                        <input id = "nif" className="input-text" required="required" type="text" name="nifd" 
+                                        value={nif} onChange = {e => handleChange(e) }
+                                        />
+                                        <label for="nif" className="label">NIF</label>
+                                    </div>
+                                    <div className="form-field">
+                                        <input id = "name2" className="input-text" required="required" type="text" name="anarana_entanas"
+                                        value={anarana_entana} onChange = {e => handleChange(e)}
+                                        />
+                                        <label for="name2" className="label">Anaran'ny entana novidiana</label>
+                                    </div>
+                                    <div className="form-field">
 
-                                <input id = "date1" className="input-text" required="required" type="date" name="daty_androanys"
-                                  value={daty_androany} onChange = {e => handleChange(e)}
+                                        <input id = "date1" className="input-text" required="required" type="date" name="daty_androanys"
+                                        value={daty_androany} onChange = {e => handleChange(e)}
 
-                                // // <input id = "date1" className="input-text" required="required" type="date" name="daty_isi"
-                                // //     onChange = {e => setIsi_daty(e.target.value)}
-                                // //     // value={daty_isi} onChange = {e => handleChange(e)}
+                                        // // <input id = "date1" className="input-text" required="required" type="date" name="daty_isi"
+                                        // //     onChange = {e => setIsi_daty(e.target.value)}
+                                        // //     // value={daty_isi} onChange = {e => handleChange(e)}
 
-                                />
-                                <label for="date1" className="label">Daty nisoratana ISI</label>
-                            </div>
-                            <div className="form-field">
+                                        />
+                                        <label for="date1" className="label">Daty nisoratana ISI</label>
+                                    </div>
+                                    <div className="form-field">
 
-                                <input id = "date2" className="input-text" required="required" type="date" name="daty_fandoavana"
-                                   value={daty_fandoavana} onChange = {e => handleChange(e)}
+                                        <input id = "date2" className="input-text" required="required" type="date" name="daty_fandoavana"
+                                        value={daty_fandoavana} onChange = {e => handleChange(e)}
 
-                                // <input id = "date2" className="input-text" required="required" type="date" name="daty_paiement"
-                                //     onChange = {e => setPay_daty(e.target.value)}
+                                        // <input id = "date2" className="input-text" required="required" type="date" name="daty_paiement"
+                                        //     onChange = {e => setPay_daty(e.target.value)}
 
-                                />
-                                <label for="date2" className="label">Daty andoavam-bola</label>
-                            </div>
-                            <div className="form-field">
+                                        />
+                                        <label for="date2" className="label">Daty andoavam-bola</label>
+                                    </div>
+                                    <div className="form-field">
 
-                                <input id = "price" className="input-text" required="required" type="text" name="vola_aloah"
-                                   value={infoisi.vola_aloa} onChange = {e => handleChange(e)}
+                                        <input id = "price" className="input-text" required="required" type="text" name="vola_aloah"
+                                        value={infoisi.vola_aloa} onChange = {e => handleChange(e)}
 
-                                // <input id = "price" className="input-text" required="required" type="text" name="vidina_entana"
-                                //     onChange = {e => setIsi_vola(e.target.value)}
-                                //     // onChange = {e => handleChange(e)}
+                                        // <input id = "price" className="input-text" required="required" type="text" name="vidina_entana"
+                                        //     onChange = {e => setIsi_vola(e.target.value)}
+                                        //     // onChange = {e => handleChange(e)}
 
-                                />
-                                <label for="price" className="label">Vola ISI (Ariary)</label>
-                            </div>
-                            <div className="bouton">
-                                <div className="form-field">
-                                    <input type="submit" className="btn4" id="btn4" name="submit" value="Aloa"/>
+                                        />
+                                        <label for="price" className="label">Vola ISI (Ariary)</label>
+                                    </div>
+                                    <div className="bouton">
+                                        <div className="form-field">
+                                            <input type="submit" className="btn4" id="btn4" name="submit" value="Aloa"/>
+                                        </div>
+                                    </div>
                                 </div>
+                            </div>
+                        </form>   
+                    </section>
+                    <div className="picture">                   
+                        <div className="container-give1 floating1">
+                            <img src={Give1} id='give1'/>
+                        </div>
+                        <div className="container-give2 floating2">
+                            <img src={Give2} id='give2'/>
+                        </div>
+                        <div className="container-give3 floating2">
+                            <img src={Give3} id='give3'/>
+                        </div>
+                        <div className="container-give4 floating1">
+                            <img src={Give4} id='give4'/>
+                        </div>
+                    </div>
+ 
+                    {/* ************************************************************ */}
+                    <div className="payer">
+                        <div className="Paiement">
+                            <p>{msg}</p>
+                            <p>Miampy: {penalite_retard} Ariary</p>
+                            <p className="Net">Vola haloa: {net_a_payer} Ariary</p>
+                        </div>
+                    </div>
+                </div>
+                    {/* ************************************************************* */}
+                    <div className="contact_pay">
+                        <div className="sous-contact_pay">
+                            <div className="DirGI">
+                                <p><b>DGI</b></p> 
+                                <p><b>D</b>irection <b>G</b>énérale des <b>I</b>mpôts</p> 
+                                <p>Immeuble MFB, Antaninarenina
+                                        Antananarivo, 101, Madagascar
+                                </p>
+                                <p> Tel: (020) xx-xxx-xx</p>
+                                <p>Email: <a href="dgimpots@moov.mg">dgimpots@moov.mg</a></p>
+                            </div>
+                            <div className="SSIF">
+                                <p><b>SSIF</b></p>
+                                <p><b>S</b>ervice Du <b>S</b>ystème d'<b>I</b>nformation <b>F</b>iscale</p>
+                                <p>Mandrosoa, Ambohijatovo
+                                    Antananarivo, 101, Madagascar
+                                </p>
+                                <p>Tél: (8h à 16h) 034 49 431 52, 032 12 011 74</p>
+                                <p>E-mail: <a href="impot.ssif.hotline@gmail.com">impot.ssif.hotline@gmail.com</a></p>
+                            </div>
+                            <div className="NOTRE_SITE">
+                                <p><b>NOTRE SITE</b></p>
+                                <a href="www.impots.mg">www.impots.mg</a>
+                                <p>Nifonline</p>
+                                <a href="nifonline.impots.mg">nifonline.impots.mg</a>
+                            </div>
+                        </div>
+                        <div className="social_pay">
+                            <p>SOCIAL</p>
+                            <div className="icone-social">
+                                <img src={Facebook}></img>
+                                <img src={Twitter}></img>
+                                <img src={Google}></img>
+                                <img src={Email}></img>
                             </div>
                         </div>
                     </div>
-                    </form>   
-                </section>
-                <div className="picture">                   
-                    <div className="container-give1 floating1">
-                        <img src={Give1} id='give1'/>
-                    </div>
-                    <div className="container-give2 floating2">
-                        <img src={Give2} id='give2'/>
-                    </div>
-                    <div className="container-give3 floating2">
-                        <img src={Give3} id='give3'/>
-                    </div>
-                    <div className="container-give4 floating1">
-                        <img src={Give4} id='give4'/>
-                    </div>
-                </div>
- 
-                {/* ************************************************************ */}
-                <div className="payer">
-                    <div className="Paiement">
-                        <p>{msg}</p>
-                        <p>Miampy: {penalite_retard} Ariary</p>
-                        <p className="Net">Vola haloa: {net_a_payer} Ariary</p>
-                    </div>
-                </div>
-                {/* ************************************************************* */}
-                <footer className="footer2">
-                    <div className="copyLogo2">
-                        <p id="copyright2">Copyright 2022 by Mirantsoa & Rija Andria</p>
-                    </div>
-                </footer>
-            </body>
-            
+            </body>            
         </>
     )
 }

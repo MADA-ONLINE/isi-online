@@ -6,6 +6,7 @@ import './css/ListPaiement.css';
 import './css/ListAdmin.css';
 import './css/Add.css';
 import './css/Paiement.css';
+import './css/Edit.css';
 import React from 'react';
 import Accueil from './Components/accueil';
 import LoginClient from './Components/loginClient';
@@ -16,6 +17,7 @@ import ListAdmin from './Components/ListAdmin';
 import Edit from './Components/Edit';
 import Paiement from './Components/Paiement';
 import ListPaiement from './Components/ListPaiement';
+import {AnimatePresence} from 'framer-motion' 
 
 
 function App() {
@@ -23,6 +25,7 @@ function App() {
     <Router>
       {/* <div className='App'>       
       </div> */}
+      <AnimatePresence>
         <Routes>
           <Route index element={ <Accueil />} />
           <Route exact path="/LoginClient" element={ <LoginClient /> } />
@@ -35,6 +38,7 @@ function App() {
           {/* <Route exact path="/:nif/Paiement" element={ <Paiement /> } /> */}
           <Route exact path="/ListPaiement" element={ <ListPaiement /> } />
         </Routes>
+      </AnimatePresence>
     </Router>
   );
 }

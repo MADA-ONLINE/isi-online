@@ -7,7 +7,7 @@ import headImage from '../image/head.png'
 import Saina1 from '../image/saina1.png'
 import DGI from '../image/DGI.jpg'
 import { useNavigate } from 'react-router';
-
+import { motion } from 'framer-motion'
 
 // import backG from '../image/backG.jpg'
 
@@ -22,14 +22,14 @@ export default function LoginClient(){
     const [user,setUser] = useState({
         nif:"",
         password:""
-   })
+    })
    
-   const {nif,password}= user
-   const handleChange =(e)=>{
-       setUser({...user,[e.target.name] : e.target.value})
-   }
- 
-   const submitForm = (e)=>{
+    const {nif,password}= user
+    const handleChange =(e)=>{
+        setUser({...user,[e.target.name] : e.target.value})
+    }
+    
+    const submitForm = (e)=>{
        e.preventDefault();
        const sendData = {
         nif: user.nif,
@@ -58,8 +58,38 @@ export default function LoginClient(){
             }   
         });
     }
+    const PageVariants = {
+        in: {
+            opacity: 1,
+            y: 0
+        },
+        out: {
+            opacity: 0,
+            y: "-100%"
+        }
+    }
+    const PageVariants_1 = {
+        in_1: {
+            opacity: 1,
+            y: 0
+        },
+        out_1: {
+            opacity: 0,
+            y: "200%"
+        }
+    }
+    const PageTransition = {
+        type: "spring",
+        stiffness: 30
+    }
     return(
-        <>           
+        <> 
+        <motion.div
+            initial="out"
+            animate="in"
+            exit="out"
+            variants={PageVariants}
+        >
             <img src={Login} id="login"/>
             <nav className='nav'>
                 <div className='sary floating1'>
@@ -71,49 +101,58 @@ export default function LoginClient(){
                 </div>
                 <p id='isiOnline1'>isi-online</p>
             </nav>
-            <div className="form-Bg">
-                <form className="form-header" onSubmit={submitForm}>
-                    <div className="ravinala">
-                        <img src={Ravinala} id="Ravina"/>
+            <motion.div
+                initial="out_1"
+                animate="in_1"
+                exit="out_1"
+                variants={PageVariants_1}
+                transition={PageTransition}
+            >                
+                <div className="form-Bg">
+                    <form className="form-header" onSubmit={submitForm}>
+                        <div className="ravinala">
+                            <img src={Ravinala} id="Ravina"/>
+                        </div>
+                        <div className="isionline">
+                            <p>isi-online</p>
+                        </div>
+                        <div className="form-group">
+                            <input type="text" placeholder="NIF" required name="nif"
+                                value={nif} onChange = {e => handleChange(e) }
+                            />
+                        </div>
+                        <div className="form-group">
+                            <input type="password" placeholder="Kaody miafina" required name="password"
+                                value={password} onChange = {e => handleChange(e) }
+                            />
+                        </div>
+                        <div className="form-group">
+                            <button type="submit" className='btn3 btn1'><b>Tsindrio</b></button>
+                        </div>
+                    </form>
+                    {/* <div className="phrase">
+                        <p>
+                            Ataovy ara-dalàna ny fidirambolanao amin'ny alalan'ny fandoavan-ketra.
+                            Ary ny fanaovanao izany ihany koa no antoky ny fanatsarana ny tontolo 
+                            manodidina eto amin'ny firenen-tsika. Mankaiza avokoa ireo hetra?, ny hetra 
+                            rehetra dia makany amin'ny kitapom-bola-mpanjakàna izay entina anavaozana ny sekoly, 
+                            ny lalana, ny tanàna, fanampiana ireo sahirana sy ireo zokiolona ary ireo mpamboly 
+                            any ambanivohitra.
+                        </p>
+                    </div> */}
+                    <div className="courtephrase">
+                        <p>
+                            "Raiso ny adidinao, aloavy ny hetra"
+                        </p>
                     </div>
-                    <div className="isionline">
-                        <p>isi-online</p>
-                    </div>
-                    <div className="form-group">
-                        <input type="text" placeholder="NIF" required name="nif"
-                            value={nif} onChange = {e => handleChange(e) }
-                        />
-                    </div>
-                    <div className="form-group">
-                        <input type="password" placeholder="Kaody miafina" required name="password"
-                            value={password} onChange = {e => handleChange(e) }
-                        />
-                    </div>
-                    <div className="form-group">
-                        <button type="submit" className='btn3 btn1'><b>Tsindrio</b></button>
-                    </div>
-                </form>
-                {/* <div className="phrase">
-                    <p>
-                        Ataovy ara-dalàna ny fidirambolanao amin'ny alalan'ny fandoavan-ketra.
-                        Ary ny fanaovanao izany ihany koa no antoky ny fanatsarana ny tontolo 
-                        manodidina eto amin'ny firenen-tsika. Mankaiza avokoa ireo hetra?, ny hetra 
-                        rehetra dia makany amin'ny kitapom-bola-mpanjakàna izay entina anavaozana ny sekoly, 
-                        ny lalana, ny tanàna, fanampiana ireo sahirana sy ireo zokiolona ary ireo mpamboly 
-                        any ambanivohitra.
-                    </p>
-                </div> */}
-                <div className="courtephrase">
-                    <p>
-                        "Raiso ny adidinao, aloavy ny hetra"
-                    </p>
+                    <footer className="footer1">
+                        <div className="copyLogo1">
+                            <p id="copyright1">Copyright 2022 by Mirantsoa & Rija Andria</p>
+                        </div>
+                    </footer>
                 </div>
-                <footer className="footer1">
-                    <div className="copyLogo1">
-                        <p id="copyright1">Copyright 2022 by Mirantsoa & Rija Andria</p>
-                    </div>
-                </footer>
-            </div>
+            </motion.div>
+        </motion.div>          
         </>
     )
 }

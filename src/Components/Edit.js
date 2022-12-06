@@ -67,7 +67,7 @@ const loadUsers = async ()=>{
   
     return(
         <body className="BodyAdd">
-                    <nav className='nav2'>
+                    <nav className='nav_Edit'>
                         <div className='sary floating1'>
                             <img src={headImage} id="headImage3"/>
                         </div>
@@ -176,8 +176,8 @@ const loadUsers = async ()=>{
                         <p id="copyright2">Copyright 2022 by Mirantsoa & Rija Andria</p>
                     </div>
                 </footer> */}
-                <div className="contact">
-                        <div className="sous-contact">
+                <div className="contact_Edit">
+                        <div className="sous-contact_Edit">
                             <div className="DirGI">
                                 <p><b>DGI</b></p> 
                                 <p><b>D</b>irection <b>G</b>énérale des <b>I</b>mpôts</p> 
@@ -203,7 +203,7 @@ const loadUsers = async ()=>{
                                 <a href="nifonline.impots.mg">nifonline.impots.mg</a>
                             </div>
                         </div>
-                        <div className="social">
+                        <div className="social_Edit">
                             <p>SOCIAL</p>
                             <div className="icone-social">
                                 <img src={Facebook}></img>
