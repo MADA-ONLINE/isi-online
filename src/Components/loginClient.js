@@ -1,5 +1,6 @@
 import React, { useState ,useEffect } from "react";
 import axios from "axios"
+import {input} from "antd";
 import Ravinala from "../image/ravinala.png"
 // import Sarykely from "../image/sarykely.png"
 import Login from "../image/login.png"

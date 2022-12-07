@@ -151,8 +151,8 @@ export default function ListAdmin(){
                                                     <td>{infoisi.anarana_entana}</td>
                                                     <td>{infoisi.vidina_entana}</td>
                                                     <td>{infoisi.isany}</td>
-                                                    <td>{infoisi.daty_androany}</td>
                                                     <td>{infoisi.daty_nividianana}</td>
+                                                    <td>{infoisi.daty_androany}</td>
                                                     <td>{infoisi.daty_fandoavana}</td>
                                                     <td>{infoisi.vola_aloa}</td> 
                                                     <td>{infoisi.vola_voaloha}</td>
