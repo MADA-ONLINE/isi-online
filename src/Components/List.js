@@ -164,7 +164,7 @@ import Logout from '../image/logout.png'
                                                 <td>{infoisi.daty_nividianana}</td>
                                                 <td>{infoisi.daty_androany}</td>
                                                 <td>{infoisi.vola_aloa}</td>
-                                                <td>0</td>
+                                                <td>{infoisi.sazy}</td>
                                                 <td>{infoisi.fanamarihana}</td>
                                             </tr>                             
                                         )})}           
