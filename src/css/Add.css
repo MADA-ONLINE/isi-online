@@ -48,12 +48,12 @@
     height: 450px;
     margin-top: 15px;
 }
-.contact-form .form-field{
+.contact-form_add .form-field_add{
     position: relative;
     margin-top: 35px;
     margin-left: -200px;
 }
-.contact-form .input-text{
+.contact-form_add .input-text{
     display: block;
     width: 200%;
     height: 15px;
@@ -68,28 +68,28 @@
     margin-top: 18px;
     color: rgba(0, 0, 0, 0.829);
 }
-.contact-form .input-text:focus + .label,
-.contact-form .input-text.not-empty + .label{
+.contact-form_add .input-text:focus + .label_add,
+.contact-form_add .input-text.not-empty + .label_add{
     transform: translateY(-10px);
 }
-.contact-form .input-text:focus{
+.contact-form_add .input-text:focus{
     outline: none;
 }
-.contact-form .label{
+.contact-form_add .label_add{
     position: absolute;
     left: 2px;
     bottom: 16px;
-    font-size: 13px;
+    font-size: 15px;
     line-height: 25px;
     cursor: text;
     transition: transform 0.2s ease-in-out;
     width: 200px;
-    color: rgba(109, 108, 108, 0.801);
+    color: rgba(0, 0, 0, 0.699);
     font-style: oblique;
     font-family: Raleway;
 }
 
-.form-field .btn5{
+.form-field_add .btn4{
     outline: none;
     background: #1a8505de;
     width: 100%;
@@ -112,45 +112,59 @@
     margin-left: 87%;
     color: rgba(163, 163, 163, 0.562);
 }
-.picture{
+.picture_add{
     position: absolute;
     margin-left: 15%;
+    /* border: 1px solid black; */
 }
 .picture1{
     position: absolute;
     margin-left: 12%;
 }
-.picture .container-rond{
+.picture_add .container-rond{
     position: absolute;
 }
 .picture1 .container-rond{
     position: absolute;
 }
-.picture .container-give1{
+.picture_add .container-give1{
     position: absolute;
+    /* border: 1px solid black; */
+    /* padding-left: 70%; */
+    width: 1%;
+    /* margin-left: 50px; */
 }
 .picture1 .container-give1{
     position: absolute;
 }
-.picture .container-give2{
+.picture_add .container-give2{
     position: absolute;
+    /* border: 1px solid black; */
+    width: 1%;
+
 }
 .picture1 .container-give2{
     position: absolute;
 }
-.picture .container-give3{
+.picture_add .container-give3{
     position: absolute;
+    /* border: 1px solid black; */
+    width: 1%;
+
 }
 .picture1 .container-give3{
     position: absolute;
 }
-.picture .container-give4{
+.picture_add .container-give4{
     position: absolute;
+    /* border: 1px solid black; */
+    width: 1%;
+
 }
 .picture1 .container-give4{
     position: absolute;
 }
-.picture .container-rond #rond{
+.picture_add .container-rond #rond{
     width: 450px;
     margin-left: 580px;
     margin-top: 80px;
@@ -162,11 +176,12 @@
     margin-top: 80px;
     opacity: 50%;
 }
-.picture .container-give1 #give1{
+.picture_add .container-give1 #give1{
     width: 100px;
     margin-left: 450px;
     margin-top: 280px;
     filter: drop-shadow(8px 4px 4px rgba(0, 0, 0, 0.1));
+    /* border: 1px solid black; */
 }
 .picture1 .container-give1 #give1{
     width: 100px;
@@ -174,7 +189,8 @@
     margin-top: 400px;
     filter: drop-shadow(8px 4px 4px rgba(0, 0, 0, 0.1));
 }
-.picture .container-give2 #give2{
+.picture_add .container-give2 #give2{
+    /* border: 1px solid black; */
     width: 270px;
     margin-left: 800px;
     margin-top: 210px;
@@ -186,7 +202,8 @@
     margin-top: 160px;
     filter: drop-shadow(8px 4px 4px rgba(0, 0, 0, 0.1));
 }
-.picture .container-give3 #give3{
+.picture_add .container-give3 #give3{
+    /* border: 1px solid black; */
     width: 110px;
     margin-left: 950px;
     margin-top: 40px;
@@ -198,11 +215,12 @@
     margin-top: 70px;
     filter: drop-shadow(8px 4px 4px rgba(0, 0, 0, 0.1));
 }
-.picture .container-give4 #give4{
+.picture_add .container-give4 #give4{
     width: 100px;
     margin-left: 350px;
     margin-top: 40px;
     filter: drop-shadow(8px 4px 4px rgba(0, 0, 0, 0.1));
+    /* border: 1px solid black; */
 }
 .picture1 .container-give4 #give4{
     width: 100px;
@@ -211,44 +229,46 @@
     filter: drop-shadow(8px 4px 4px rgba(0, 0, 0, 0.1));
 }
 /* ************************************************************************* */
-.tableau{
+.tableau_add{
     border-collapse: collapse;
     margin: 220px 0;
     font-size: 0.9em;
     min-width: 400px;
     position: absolute;
     margin-left: 0%;
-    margin-top: -11.8%;
+    margin-top: -15%;
     font-weight: bold;
+    /* border: 1px solid black; */
+
 }
-.tableau thead tr{
+.tableau_add thead tr{
     background-color: #009879;
     color: #ffffff;
     text-align: center;
     font-size: 12px;
     font-family: Raleway;
 }
-.tableau th{
+.tableau_add th{
     font-family: Raleway;
     padding: 12px 45px;
     text-align: center;
     font-size: 13px;
 }
-.tableau td{
+.tableau_add td{
     font-family: Raleway;
     padding: 12px 45px;
     text-align: center;
     font-size: 17px;
 }
-.tableau tbody tr{
+.tableau_add tbody tr{
     border-bottom: 1px solid #dddddd;
 }
-.tableau tbody tr:nth-of-type(even){
+.tableau_add tbody tr:nth-of-type(even){
     background-color: #f3f3f3f3;
     font-weight: bold;
     color: #009879;
 }
-.tableau tbody tr:last-of-type{
+.tableau_add tbody tr:last-of-type{
     border-bottom: 1px solid #009879;
 }
 /* ******************************************************* */
@@ -256,10 +276,10 @@
     border-collapse: collapse;
     margin: 220px 0;
     font-size: 0.9em;
-    min-width: 458px;
+    min-width: 400px;
     position: absolute;
     margin-left: 0%;
-    margin-top: 9.5%;
+    margin-top: 11%;
     font-weight: bold;
 }
 .Vola_aloha thead tr{
@@ -291,9 +311,14 @@
 /* .Vola_aloha tbody tr:last-of-type{
     border-bottom: 1px solid #009879;
 } */
+/* .payer{
+    border: 1px solid black;
+    padding-left: 25px;
+    position: absolute;
+} */
 .Pay{
     /* border: 1px solid black; */
-    padding: 4% 3.5% 10% 0%;
+    padding: 4% 3.5% 12% 0%;
     width: 30%;
     margin-left: 50%;
     margin-top: 10%;
@@ -302,4 +327,25 @@
     backdrop-filter: blur(4px);
     border-radius: 30px;
     z-index: -1;
+    /* border: 1px solid black; */
+}
+.container_add{
+    position: relative;
+    margin-top: 15%;
+    margin-left: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 1200px;
+    flex-wrap: wrap;
+    z-index: 1;
+}
+.deconnexion_Add{
+    position: absolute;
+    margin-left: 97%;
+    margin-top: 40%;
+}
+.deconnexion_Add img{
+    cursor: pointer;
+    width: 75%;
 }

@@ -34,7 +34,7 @@
     margin-top: -4.5%;
     position: absolute;
 }
-.form-Bg{
+.form-Bg_login{
     margin-bottom: 60px;
     z-index: 15;
     width: 340px;
@@ -42,7 +42,7 @@
     overflow: hidden;
     margin-top: 5%;
 }
-.form-header{
+.form-header_login{
     margin: 0 0 40px;
     text-align: center;
     position: absolute;
@@ -53,7 +53,7 @@
     padding: 13.7% 2% 1% 2%;
     border-radius: 12px;
 }
-.form-header .isionline p{
+.form-header_login .isionline p{
     color: #707070;
     font-size: 25px;
     font-weight: 700;
@@ -66,7 +66,7 @@
     margin-left: 80px;
     backdrop-filter: blur(4px);
 }
-.form-group{
+.form-group_login{
     display: -webkit-box;
     display: flex;
     flex-wrap: wrap;
@@ -74,7 +74,7 @@
     justify-content: space-between;
     margin: 0 0 15px;
 }
-.form-group input{
+.form-group_login input{
     outline: none;
     display: block;
     background: rgb(255, 255, 255);
@@ -88,7 +88,7 @@
     transition: 0.3s ease;
     color: rgb(139, 137, 137);
 }
-.form-group .btn3{
+.form-group_login .btn3{
     outline: none;
     background: #EFA105;
     width: 100%;
@@ -139,7 +139,7 @@
 
 /* *********************************************** */
 
-.form-header:hover{
+.form-header_login:hover{
     animation: form-header1 6s ease-in-out 0s infinite;
     transition: 4s;
 }
@@ -153,4 +153,14 @@
     100%{
         transform: translateY(0px);
     }
+}
+.return_home{
+    position: absolute;
+    margin-left: 97%;
+    margin-top: 2%;
+}
+.return_home img{
+    /* position: absolute; */
+    cursor: pointer;
+    width: 110%;
 }

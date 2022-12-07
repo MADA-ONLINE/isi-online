@@ -80,8 +80,7 @@ const loadUsers = async ()=>{
           console.log(result);
           if(result.status == 201){
             alert("⚠️ voaloha ny volanao ⚠️");
-             history(`/ListAdmin`);
-             
+             history(`/ListAdmin`);            
           }
         else{   
               
@@ -228,21 +227,21 @@ const loadUsers = async ()=>{
                         transition={PageTransition}
                     >
                         <form onSubmit={e=>updateForm(e)}>
-                            <div className="container">
-                                <div className="contact-form row">
-                                    <div className="form-field">
+                            <div className="container_add">
+                                <div className="contact-form_add rowww">
+                                    <div className="form-field_add">
                                         <input id = "nif" className="input-text" required="required" type="text" name="nifd" 
                                         value={nif} onChange = {e => handleChange(e) }
                                         />
-                                        <label for="nif" className="label">NIF</label>
+                                        <label for="nif" className="label_add">NIF</label>
                                     </div>
-                                    <div className="form-field">
+                                    <div className="form-field_add">
                                         <input id = "name2" className="input-text" required="required" type="text" name="anarana_entanas"
                                         value={anarana_entana} onChange = {e => handleChange(e)}
                                         />
-                                        <label for="name2" className="label">Anaran'ny entana novidiana</label>
+                                        <label for="name2" className="label_add">Anaran'ny entana novidiana</label>
                                     </div>
-                                    <div className="form-field">
+                                    <div className="form-field_add">
 
                                         <input id = "date1" className="input-text" required="required" type="date" name="daty_androanys"
                                         value={daty_androany} onChange = {e => handleChange(e)}
@@ -252,9 +251,9 @@ const loadUsers = async ()=>{
                                         // //     // value={daty_isi} onChange = {e => handleChange(e)}
 
                                         />
-                                        <label for="date1" className="label">Daty nisoratana ISI</label>
+                                        <label for="date1" className="label_add">Daty nisoratana ISI</label>
                                     </div>
-                                    <div className="form-field">
+                                    <div className="form-field_add">
 
                                         <input id = "date2" className="input-text" required="required" type="date" name="daty_fandoavana"
                                         value={daty_fandoavana} onChange = {e => handleChange(e)}
@@ -263,9 +262,9 @@ const loadUsers = async ()=>{
                                         //     onChange = {e => setPay_daty(e.target.value)}
 
                                         />
-                                        <label for="date2" className="label">Daty andoavam-bola</label>
+                                        <label for="date2" className="label_add">Daty andoavam-bola</label>
                                     </div>
-                                    <div className="form-field">
+                                    <div className="form-field_add">
 
                                         <input id = "price" className="input-text" required="required" type="text" name="vola_aloah"
                                         value={infoisi.vola_aloa} onChange = {e => handleChange(e)}
@@ -278,7 +277,7 @@ const loadUsers = async ()=>{
                                         <label for="price" className="label">Vola ISI (Ariary)</label>
                                     </div>
                                     <div className="bouton">
-                                        <div className="form-field">
+                                        <div className="form-field_add">
                                             <input type="submit" className="btn4" id="btn4" name="submit" value="Aloa"/>
                                         </div>
                                     </div>
@@ -287,7 +286,7 @@ const loadUsers = async ()=>{
                         </form>   
                     </motion.div>    
                     </section>
-                    <div className="picture">                   
+                    <div className="picture_add">                   
                         <div className="container-give1 floating1">
                             <img src={Give1} id='give1'/>
                         </div>
@@ -312,7 +311,9 @@ const loadUsers = async ()=>{
                     </div>
                 </div>
                     {/* ************************************************************* */}
-                    <div className="contact_pay">
+                    <div className="contact_pay" data-aos="fade-up"
+                            data-aos-anchor-placement="center-bottom"
+                            data-aos-duration="2000">
                         <div className="sous-contact_pay">
                             <div className="DirGI">
                                 <p><b>DGI</b></p> 

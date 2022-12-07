@@ -48,15 +48,28 @@
     margin-top: 10%;
     width: 100%;
 }
+.info-info{
+    /* border: 1px solid black; */
+    width: 43%;
+    /* border-radius: 0px 24px 24px 0px; */
+    padding-top: 0.5%;
+    padding-bottom: 5%;
+    /* background: #EFA105; */
+}
 .info .infoname{
     width: 70%;
     margin-left: 2%;
     margin-top: 0%;
     position: absolute;
-    font-size: 14px;
+    font-size: 14.5px;
     font-family: Raleway;
     font-style: italic;
     color: rgba(10, 10, 10, 0.671);
+}
+.info hr{
+    width: 20%;
+    margin-top: -2%;
+    margin-left: 40%;
 }
 .info .add{
     margin-top: 4%;
@@ -67,11 +80,11 @@
     width: 30px;
     cursor: pointer;
 }
-.info .search{
+.info .search_list{
     margin-left: 90%;
-    margin-top: 4.3%;
+    margin-top: -1%;
 }
-.info .search input{
+.info .search_list input{
     border-radius: 24px;
     padding: 5px 3px 5px 3px;
     text-align: center;
@@ -82,10 +95,10 @@
     display: block;
     outline: none;
 }
-.info .search img{
+.info .search_list img{
     position: absolute;
-    margin-top: -22px;
-    margin-left: 84px;
+    margin-top: -24px;
+    margin-left: 75px;
     width: 21px;
 }
 /* **************************************************** */
@@ -188,4 +201,13 @@
 .social p{
     font-family: raleway;
     color: #ffffff;
+}
+.deconnexion{
+    position: absolute;
+    margin-left: 97%;
+    margin-top: -13%;
+}
+.deconnexion img{
+    cursor: pointer;
+    width: 75%;
 }

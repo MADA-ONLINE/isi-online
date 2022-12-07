@@ -8,13 +8,9 @@ import headImage from '../image/head.png'
 import Saina1 from '../image/saina1.png'
 import DGI from '../image/DGI.jpg'
 import { motion } from 'framer-motion'
+import Home from '../image/home.png'
 // import { useNavigate } from 'react-router';
-
-
 // import backG from '../image/backG.jpg'
-
-
-
 
 export default function LoginAdmin(){
     // alert("hello")
@@ -30,8 +26,7 @@ export default function LoginAdmin(){
     const {Matricule,password}= user
     const handleChange =(e)=>{
         setUser({...user,[e.target.name] : e.target.value})
-    }
-    
+    }    
     const submitForm = (e)=>{
        e.preventDefault();
        const sendData = {
@@ -90,6 +85,9 @@ export default function LoginAdmin(){
         type: "spring",
         stiffness: 30
     }
+    function return_home() {
+        navigate('/')
+    }
     return(
         <>
             <motion.div
@@ -100,7 +98,7 @@ export default function LoginAdmin(){
                 transition={PageTransition}
             >
                 <img src={Login} id="login"/>
-                <nav className='nav'>
+                <nav className='navv'>
                     <div className='sary floating1'>
                         <img src={headImage} id="headImage1"/>
                     </div>
@@ -110,6 +108,9 @@ export default function LoginAdmin(){
                     </div>
                     <p id='isiOnline1'>isi-online</p>
                 </nav>
+                <div className="return_home">
+                    <img src={Home} onClick={return_home}/>
+                </div>
                 <motion.div
                     initial="out_1"
                     animate="in_1"
@@ -117,42 +118,39 @@ export default function LoginAdmin(){
                     variants={PageVariants_1}
                     transition={PageTransition_1}
                 >               
-                    <div className="form-Bg">
-                        <form className="form-header" onSubmit={submitForm}>
-                            <div className="ravinala">
-                                <img src={Ravinala} id="Ravina"/>
-                            </div>
-                            <div className="isionline">
-                                <p>isi-online</p>
-                            </div>
-                            {/* <form > */}
-                                <div className="form-group">
-                                    <input type="text" placeholder="Tarehi-marika" required name="Matricule" 
-                                    value={Matricule} onChange = {e => handleChange(e) }
-                                    />
-
-                                </div>
-                                <div className="form-group">
-                                    <input type="password" placeholder="Kaody miafina" required name="password"
-                                    value={password} onChange = {e => handleChange(e) }
-                                    />
-                                </div>
-                                <div className="form-group">
-                                    <button type="submit" className='btn3 btn1'><b>Tsindrio</b></button>
-                                </div>
-                            {/* </form> */}
-                        </form>
-                        <div className="courtephrase">
-                            <p>
-                                "Raiso ny adidinao, aloavy ny hetra"
-                            </p>
+                    <div className="form-Bg_login">
+                    <form className="form-header_login" onSubmit={submitForm}>
+                        <div className="ravinala">
+                            <img src={Ravinala} id="Ravina"/>
                         </div>
-                        <footer className="footer1">
-                            <div className="copyLogo1">
-                                <p id="copyright1">Copyright 2022 by Mirantsoa & Rija Andria</p>
-                            </div>
-                        </footer>
+                        <div className="isionline">
+                            <p>isi-online</p>
+                        </div>
+                        <div className="form-group_login">
+                            <input type="text" placeholder="Tarehi-marika" required name="Matricule"
+                                value={Matricule} onChange = {e => handleChange(e) }
+                            />
+                        </div>
+                        <div className="form-group_login">
+                            <input type="password" placeholder="Kaody miafina" required name="password"
+                                value={password} onChange = {e => handleChange(e) }
+                            />
+                        </div>
+                        <div className="form-group_login">
+                            <button type="submit" className='btn3 btn1'><b>Tsindrio</b></button>
+                        </div>
+                    </form>
+                    <div className="courtephrase">
+                        <p>
+                            "Raiso ny adidinao, aloavy ny hetra"
+                        </p>
                     </div>
+                    <footer className="footer1">
+                        <div className="copyLogo1">
+                            <p id="copyright1">Copyright 2022 by Mirantsoa & Rija Andria</p>
+                        </div>
+                    </footer>
+                </div>
                 </motion.div>
             </motion.div>    
         </>

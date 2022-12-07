@@ -22,10 +22,11 @@
     filter: drop-shadow(8px 4px 4px rgba(0, 0, 0, 0.267));
     /* height: -12%; */
     position: absolute;
-    margin-top: 0%;
+    margin-top: -5%;
 }
 .saina{
     position: absolute;
+    margin-top: -5%;
 }
 #saina1{
     /* position: absolute; */
@@ -61,7 +62,7 @@
 }
 #isiOnline{
     position: absolute;
-    margin-top: 0.5%;
+    margin-top: -4%;
     margin-left: 80%;
     font-family: Richness Demo;
     font-size: 22px;
@@ -196,7 +197,7 @@
     margin-left: -30%;
     color: rgba(163, 163, 163, 0.562);
 }
-.btn, .btn0{
+.btn_accueil, .btn0{
     border: 1px solid #ffffff;
     background: none;
     padding: 7px 70px;
@@ -217,7 +218,7 @@
 .btn2:hover{
     color: #1f1d1d;
 }
-.btn::before{
+.btn_accueil::before{
     content: "";
     position: absolute;
     left: 0;
@@ -286,9 +287,9 @@
     width: 100%;
     padding-top: 20%;
     padding-bottom: 0%;
-    margin-top: 20%;
-    background: #38B57F;
-    position: relative;
+    margin-top: 5%;
+    background: #38b568;
+    position: absolute;
 }
 .contact .sous-contact{
     display: flex;
@@ -331,4 +332,65 @@
 .social p{
     font-family: raleway;
     color: #ffffff;
+}
+.containerbox {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    font-family: raleway;
+    margin-top: 8%;
+    /* border: 1px solid black; */
+}
+.boxfirst {
+    background-color: #FFFFFF;
+    margin-top: 30px;
+    padding-left: 25px;
+    padding-right: 25px;
+    margin-bottom: 0px;
+}
+.roww {
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.boxwelcome {
+    margin: 50px 0 20px;
+    background: #f5f5f5;
+    /* padding: 0; */
+    overflow: hidden;
+    padding: 20px 0 20px 20p;
+}
+article{
+    display: block;
+}
+h4, .h4 {
+    font-size: 1.5em;
+    font-weight: 600;
+    line-height: 1.2em;
+}
+.box_debut {
+    padding-bottom: 50px;
+}
+.col-md-8{
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-left: 20%;
+    margin-top: 3%;
+}
+.text-centerr {
+    text-align: center;
+}
+.soratra{
+    /* border: 1px solid black; */
+    width: 30%;
+    margin-left: 2%;
+    margin-top: 3%;
+}
+.soratra .soratra1 p{
+    font-family: Spy Agency;
+    color:rgba(0, 0, 0, 0.432);
+    font-size: 13px;
 }

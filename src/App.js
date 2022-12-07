@@ -17,7 +17,11 @@ import ListAdmin from './Components/ListAdmin';
 import Edit from './Components/Edit';
 import Paiement from './Components/Paiement';
 import ListPaiement from './Components/ListPaiement';
-import {AnimatePresence} from 'framer-motion' 
+import {AnimatePresence} from 'framer-motion'
+import 'bootstrap/dist/css/bootstrap.css';
+import 'aos/dist/aos.css';
+import AOS from 'aos';
+AOS.init()
 
 
 function App() {

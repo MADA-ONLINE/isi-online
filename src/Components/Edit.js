@@ -126,72 +126,72 @@ export default function Edit(){
                                 transition={PageTransition}
                             >                            
                                 <form onSubmit={e=>updateForm(e)}>
-                                    <div className="contact-form row">
-                                        <div className="form-field">
+                                    <div className="contact-form_add rowww">
+                                        <div className="form-field_add">
 
                                             <input id = "nif" className="input-text" type="text" name="nifb"
                                             value={infoisi.nif} onChange = {e => handleChange(e)}
                                             />
-                                            <label for="nif" className="label">NIF</label>
+                                            <label for="nif" className="label_add">NIF</label>
 
                                         </div>
-                                        <div className="form-field">
+                                        <div className="form-field_add">
 
                                             <input id = "name1" className="input-text" type="text" name="anarana_feno"
                                             value={infoisi.anarana_feno} onChange = {e => handleChange(e)}
                                             />
-                                            <label for="name1" className="label">Anarana feno</label>
+                                            <label for="name1" className="label_add">Anarana feno</label>
 
                                         </div>
-                                        <div className="form-field">
+                                        <div className="form-field_add">
 
                                             <input id = "cin" className="input-text" type="text" name="cin"
                                             value={infoisi.cin} onChange = {e => handleChange(e)}
                                             />
-                                            <label for="cin" className="label">Laharan'ny kara-panondro</label>
+                                            <label for="cin" className="label_add">Laharan'ny kara-panondro</label>
 
                                         </div>
-                                        <div className="form-field">
+                                        <div className="form-field_add">
 
                                             <input id = "date1" className="input-text" type="date" name="daty_androany"
                                             value={infoisi.daty_androany} onChange = {e => handleChange(e)}
                                             />
-                                            <label for="date1" className="label">Daty androany</label>
+                                            <label for="date1" className="label_add">Daty androany</label>
 
                                         </div>
-                                        <div className="form-field">
+                                        <div className="form-field_add">
 
                                             <input id = "name2" className="input-text" type="text" name="anarana_entana"
                                             value={infoisi.anarana_entana} onChange = {e => handleChange(e)}
                                             />
-                                            <label for="name2" className="label">Anaran'ny entana novidiana</label>
+                                            <label for="name2" className="label_add">Anaran'ny entana novidiana</label>
 
                                         </div>
-                                        <div className="form-field">
+                                        <div className="form-field_add">
 
                                             <input id = "price" className="input-text" type="text" name="vidina_entana"
                                             value={infoisi.vidina_entana} onChange = {e => handleChange(e)}
                                             />
-                                            <label for="price" className="label">Ny vidiny (Ariary)</label>
+                                            <label for="price" className="label_add">Ny vidiny (Ariary)</label>
 
                                         </div>
-                                        <div className="form-field">
+                                        <div className="form-field_add">
 
                                             <input id = "date2" className="input-text" type="date" name="daty_nividianana"
                                             value={infoisi.daty_nividianana} onChange = {e => handleChange(e)}
                                             />
-                                            <label for="date2" className="label">Daty nividianana ny entana</label>
+                                            <label for="date2" className="label_add">Daty nividianana ny entana</label>
 
                                         </div>
-                                        <div className="form-field">
+                                        <div className="form-field_add">
 
                                             <input id = "date2" className="input-text" type="texte" name="isany"
                                             value={infoisi.isany} onChange = {e => handleChange(e)}
                                             />
-                                            <label for="date2" className="label">isan'ny entana</label>
+                                            <label for="date2" className="label_add">isan'ny entana</label>
 
                                         </div>
-                                        <div className="form-field">
+                                        <div className="form-field_add">
                                             <button type="submit" className='btn4' ><b>Tsindrio</b></button>
                                         </div>
                                     </div>
@@ -221,7 +221,9 @@ export default function Edit(){
                             <p id="copyright2">Copyright 2022 by Mirantsoa & Rija Andria</p>
                         </div>
                     </footer> */}
-                    <div className="contact_Edit">
+                    <div className="contact_Edit" data-aos="fade-up"
+                            data-aos-anchor-placement="center-bottom"
+                            data-aos-duration="2000">
                             <div className="sous-contact_Edit">
                                 <div className="DirGI">
                                     <p><b>DGI</b></p> 

@@ -15,6 +15,7 @@ import Email from '../image/email.png'
 import Google from '../image/google_plus.png'
 import Twitter from '../image/Twitter.png'
 import { motion } from 'framer-motion'
+import Logout from '../image/logout.png'
 
 
 export default function ListAdmin(){
@@ -25,8 +26,8 @@ export default function ListAdmin(){
     // const handleClick = (laharana)=>{
     //     navigate(`/Edit/${infoisi.laharana}`)
     // }
-    function ClickPaiement() {
-        navigate('/:nif/Paiement')
+    function Logout_List_Admin() {
+        navigate('/LoginAdmin')
     }
     function ClickListPaiement() {
         navigate('/ListPaiement')
@@ -108,7 +109,10 @@ export default function ListAdmin(){
                             <p id='isiOnline2'>isi-online</p>
                         </nav>
                         <div className="info">
-                            <div className="search">
+                            <div className="deconnexion_List_Admin">
+                                <img src={Logout} onClick={Logout_List_Admin}/>
+                            </div>
+                            <div className="search_Admin">
                                     <input type="texte" placeholder="Date/Num"
                                         onChange = {handleChange}
                                         />
@@ -151,8 +155,8 @@ export default function ListAdmin(){
                                                     <td>{infoisi.anarana_entana}</td>
                                                     <td>{infoisi.vidina_entana}</td>
                                                     <td>{infoisi.isany}</td>
-                                                    <td>{infoisi.daty_nividianana}</td>
                                                     <td>{infoisi.daty_androany}</td>
+                                                    <td>{infoisi.daty_nividianana}</td>
                                                     <td>{infoisi.daty_fandoavana}</td>
                                                     <td>{infoisi.vola_aloa}</td> 
                                                     <td>{infoisi.vola_voaloha}</td>
@@ -177,7 +181,9 @@ export default function ListAdmin(){
                             </div>
                         </motion.div>
                         
-                        <div className="contact">
+                        <div className="contact_admin" data-aos="fade-up"
+                            data-aos-anchor-placement="center-bottom"
+                            data-aos-duration="2000">
                             <div className="sous-contact">
                                 <div className="DirGI">
                                     <p><b>DGI</b></p> 

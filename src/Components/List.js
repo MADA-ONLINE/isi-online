@@ -11,6 +11,7 @@ import Email from '../image/email.png'
 import Google from '../image/google_plus.png'
 import Twitter from '../image/Twitter.png'
 import { motion } from 'framer-motion'
+import Logout from '../image/logout.png'
 
  function List(){
     const {nif} =  useParams();
@@ -26,8 +27,10 @@ import { motion } from 'framer-motion'
             
             let value = e.target.value;
             setChercher(value);
-         }
-
+        }
+        function Lougout() {
+            navigate('/LoginClient')
+        }
         useEffect(()=>{
             loadUsers();
         },
@@ -107,15 +110,19 @@ import { motion } from 'framer-motion'
                                 </Link>
                             </div>
                             {/* {infoisi_1.map(infoisi_1=>{ return (  */}
-                                <div>                                          
-                                    <div className="infoname">
-                                        <p id="nif">NIF: <b>{infoisi_1.nif}</b></p>
-                                        <p id="anarana">Anarana feno:<b> {infoisi_1.anarana_feno}</b></p>
-                                    </div>
-                    
+                                    <hr></hr>
+                            <div className="info-info">                                          
+                                <div className="infoname">
+                                    <p id="nif">NIF: <b>{infoisi_1.nif}</b></p>
+                                    {/* <hr></hr> */}
+                                    <p id="anarana">Anarana feno:<b> {infoisi_1.anarana_feno}</b></p>
                                 </div>
+                            </div>
                             {/* )})} */}
-                            <div className="search">
+                            <div className="deconnexion">
+                                    <img src={Logout} onClick={Lougout}/>
+                            </div>
+                            <div className="search_list">
                                 <input type="texte" placeholder="Date"
                                 onChange = {handleChange}
                                 />
@@ -157,7 +164,7 @@ import { motion } from 'framer-motion'
                                                 <td>{infoisi.daty_nividianana}</td>
                                                 <td>{infoisi.daty_androany}</td>
                                                 <td>{infoisi.vola_aloa}</td>
-                                                <td>{infoisi.sazy}</td>
+                                                <td>0</td>
                                                 <td>{infoisi.fanamarihana}</td>
                                             </tr>                             
                                         )})}           
@@ -165,7 +172,9 @@ import { motion } from 'framer-motion'
                                 </table>
                             </div>
                         </motion.div>                   
-                        <div className="contact_List">
+                        <div className="contact_List" data-aos="fade-up"
+                            data-aos-anchor-placement="center-bottom"
+                            data-aos-duration="2000">
                             <div className="sous-contact">
                                 <div className="DirGI">
                                     <p><b>DGI</b></p> 
