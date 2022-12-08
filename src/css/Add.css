@@ -179,7 +179,7 @@
 .picture_add .container-give1 #give1{
     width: 100px;
     margin-left: 450px;
-    margin-top: 280px;
+    margin-top: 320px;
     filter: drop-shadow(8px 4px 4px rgba(0, 0, 0, 0.1));
     /* border: 1px solid black; */
 }
@@ -193,7 +193,7 @@
     /* border: 1px solid black; */
     width: 270px;
     margin-left: 800px;
-    margin-top: 210px;
+    margin-top: 208px;
     filter: drop-shadow(8px 4px 4px rgba(0, 0, 0, 0.1));
 }
 .picture1 .container-give2 #give2{

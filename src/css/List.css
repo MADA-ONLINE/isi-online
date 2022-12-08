@@ -6,6 +6,51 @@
     margin-top: 40px;
     border: 3px solid black;
 } */
+#back{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    /* z-index: -1; */
+}
+.titre{
+    /* border: 1px solid black; */
+    width: 60%;
+    padding-top: -5%;
+    padding-bottom: 0%;
+    margin-left: 19%;
+    display: flex;
+    position: absolute;
+    margin-top: 0%;
+    justify-content: space-evenly;
+}
+.titre p{
+    text-align: center;
+    font-family: Spy Agency;
+    font-size: 35px;
+    margin-top: 9%;
+    color: rgba(0, 0, 0, 0.459);
+    position: absolute;
+}
+/* .titre hr{
+    height: 9vh;
+    width:.1vw;
+    border-width:0;
+    background-color: black;
+    
+}
+.titre #hr1{
+    margin-left: 19%;
+}
+.titre #hr2{
+    margin-left: -6%;
+}
+.titre #hr3{
+    margin-right: 14%;
+}
+.titre #hr2{
+    margin-right: 16%;
+} */
+
 .nav1{
     margin-top: 5%;
 }
@@ -42,6 +87,7 @@
 .All{
     position: relative;
     overflow: hidden;
+    backdrop-filter: blur(2px);
 }
 .info{
     position: absolute;
@@ -50,27 +96,30 @@
 }
 .info-info{
     /* border: 1px solid black; */
-    width: 43%;
+    max-width: 43%;
     /* border-radius: 0px 24px 24px 0px; */
+    /* backdrop-filter: blur(15px); */
     padding-top: 0.5%;
     padding-bottom: 5%;
+    position: relative;
     /* background: #EFA105; */
 }
 .info .infoname{
-    width: 70%;
+    width: 45%;
     margin-left: 2%;
     margin-top: 0%;
-    position: absolute;
-    font-size: 14.5px;
-    font-family: Raleway;
+    position: relative;
+    font-size: 19px;
+    font-family: roboto;
     font-style: italic;
+    /* border: 1px solid black; */
     color: rgba(10, 10, 10, 0.671);
 }
-.info hr{
+/* .info hr{
     width: 20%;
     margin-top: -2%;
     margin-left: 40%;
-}
+} */
 .info .add{
     margin-top: 4%;
     position: absolute;
@@ -86,7 +135,7 @@
 }
 .info .search_list input{
     border-radius: 24px;
-    padding: 5px 3px 5px 3px;
+    padding: 5px 12px 5px 12px;
     text-align: center;
     width: 100px;
     border: 1px solid rgb(163, 159, 159);
@@ -103,7 +152,7 @@
 }
 /* **************************************************** */
 .table1{
-    max-height: 330px;
+    max-height: 380px;
     overflow-y: scroll;
     margin-top: 22%;
     /* padding-bottom: 15%; */
@@ -113,6 +162,7 @@
     border-collapse: collapse;
     font-size: 0.9em;
     min-width: 400px;
+    background: rgb(240, 238, 238);
     /* margin-top: 0%; */
 }
 .content-table thead tr{
@@ -143,14 +193,14 @@
 .content-table tbody tr{
     border-bottom: 1px solid #dddddd;
 }
-.content-table tbody tr:nth-of-type(even){
+/* .content-table tbody tr:nth-of-type(even){
     background-color: #ebe6e6f3;
     font-weight: bold;
     color: #009879;
 }
 .content-table tbody tr:last-of-type{
     border-bottom: 1px solid #009879;
-}
+} */
 .contact_List{
     /* border: 1px solid rgb(255, 0, 0); */
     width: 100%;
@@ -204,10 +254,11 @@
 }
 .deconnexion{
     position: absolute;
-    margin-left: 97%;
-    margin-top: -13%;
+    margin-left: 92%;
+    margin-top: -20%;
 }
 .deconnexion img{
+    margin-left: 36%;
     cursor: pointer;
-    width: 75%;
+    width: 30%;
 }

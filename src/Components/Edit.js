@@ -221,7 +221,7 @@ export default function Edit(){
                             <p id="copyright2">Copyright 2022 by Mirantsoa & Rija Andria</p>
                         </div>
                     </footer> */}
-                    <div className="contact_Edit" data-aos="fade-up"
+                    {/* <div className="contact_Edit" data-aos="fade-up"
                             data-aos-anchor-placement="center-bottom"
                             data-aos-duration="2000">
                             <div className="sous-contact_Edit">
@@ -259,7 +259,7 @@ export default function Edit(){
                                     <img src={Email}></img>
                                 </div>
                             </div>
-                    </div>
+                    </div> */}
             </body>
         </motion.div>
     )

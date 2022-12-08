@@ -16,6 +16,8 @@ import Google from '../image/google_plus.png'
 import Twitter from '../image/Twitter.png'
 import { motion } from 'framer-motion'
 import Logout from '../image/logout.png'
+import Back from '../image/back.jpg'
+
 
 
 export default function ListAdmin(){
@@ -97,6 +99,7 @@ export default function ListAdmin(){
                     transition={PageTransition}
             >
                 <body className="bodyList">
+                    <img src={Back} id="back"/>
                     <div className="All">
                         <nav className='navv'>
                             <div className='sary floating1'>
@@ -108,9 +111,16 @@ export default function ListAdmin(){
                             </div>
                             <p id='isiOnline2'>isi-online</p>
                         </nav>
+                        <div className="titre" data-aos="zoom-in" data-aos-duration="1900">
+                            {/* <hr id="hr1"/>
+                            <hr id="hr2"/> */}
+                            <p>Lisitr'ireo ISI rehetra</p>
+                            <hr></hr>
+                        </div>
                         <div className="info">
                             <div className="deconnexion_List_Admin">
                                 <img src={Logout} onClick={Logout_List_Admin}/>
+                                <p>Déconnexion</p>
                             </div>
                             <div className="search_Admin">
                                     <input type="texte" placeholder="Date/Num"
@@ -155,8 +165,8 @@ export default function ListAdmin(){
                                                     <td>{infoisi.anarana_entana}</td>
                                                     <td>{infoisi.vidina_entana}</td>
                                                     <td>{infoisi.isany}</td>
-                                                    <td>{infoisi.daty_androany}</td>
                                                     <td>{infoisi.daty_nividianana}</td>
+                                                    <td>{infoisi.daty_androany}</td>
                                                     <td>{infoisi.daty_fandoavana}</td>
                                                     <td>{infoisi.vola_aloa}</td> 
                                                     <td>{infoisi.vola_voaloha}</td>

@@ -12,6 +12,7 @@ import Google from '../image/google_plus.png'
 import Twitter from '../image/Twitter.png'
 import { motion } from 'framer-motion'
 import Logout from '../image/logout.png'
+import Back from '../image/back.jpg'
 
  function List(){
     const {nif} =  useParams();
@@ -92,6 +93,7 @@ import Logout from '../image/logout.png'
                 transition={PageTransition}
             >
                 <body className="bodyList">
+                    <img src={Back} id="back"/>
                     <div className="All">
                         <nav className='nav1'>
                             <div className='sary floating1'>
@@ -103,14 +105,19 @@ import Logout from '../image/logout.png'
                             </div>
                             <p id='isiOnline2'>isi-online</p>
                         </nav>
+                        <div className="titre" data-aos="zoom-in" data-aos-duration="1900">
+                            {/* <hr id="hr1"/>
+                            <hr id="hr2"/> */}
+                            <p>Lisitr'ireo ISI anao</p>
+                            {/* <hr id="hr3"/>
+                            <hr id="hr4"/> */}
+                        </div>
                         <div className="info">
                             <div className="add">
                                 <Link className ="" to={`/Add/${infoisi_1.nif}`}>
                                     <img src={Add}/>
                                 </Link>
                             </div>
-                            {/* {infoisi_1.map(infoisi_1=>{ return (  */}
-                                    <hr></hr>
                             <div className="info-info">                                          
                                 <div className="infoname">
                                     <p id="nif">NIF: <b>{infoisi_1.nif}</b></p>
@@ -121,6 +128,7 @@ import Logout from '../image/logout.png'
                             {/* )})} */}
                             <div className="deconnexion">
                                     <img src={Logout} onClick={Lougout}/>
+                                    <p>Déconnexion</p>
                             </div>
                             <div className="search_list">
                                 <input type="texte" placeholder="Date"

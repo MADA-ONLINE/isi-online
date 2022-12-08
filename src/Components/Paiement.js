@@ -20,30 +20,32 @@ export default function Paiement(){
     let history = useNavigate();
     const {laharana} =  useParams();
      
-    const [infoisi,setInfoisi] = useState( {
-      
+    const [infoisi,setInfoisi] = useState({      
         nif:"",
         anarana_entana:"",
         daty_androany:"",
         daty_fandoavana:"",
-        vola_aloa:""          
-   })
-
-   useEffect(()=>{
+        vola_aloa:"",
+        mode_pay_esp:"",       
+        mode_pay_vir:""         
+    })
+    const [Select, setSelect] = useState()
+    useEffect(()=>{
     loadUsers();
-   },[])
+    },[])
 
-   const {nif,anarana_entana,daty_androany,daty_fandoavana,vola_aloa}= infoisi
-   const handleChange =(e)=>{
-    setInfoisi({...infoisi,[e.target.name] : e.target.value})        
-}
-const loadUsers = async ()=>{
-    const result = await axios.get("http://localhost/ISI_online/ViewIsi.php?laharana="+laharana);
-     //console.log(result.data);
-     setInfoisi(result.data); 
-     console.log(typeof(result.data));   
-}
-
+    const {nif,anarana_entana,daty_androany,daty_fandoavana,vola_aloa,mode_pay_esp,mode_pay_vir}= infoisi
+    const handleChange =(e)=>{
+        setInfoisi({...infoisi,[e.target.name] : e.target.value})
+        // console.log(infoisi.mode_pay_esp)      
+    }
+    console.log(Select)
+    const loadUsers = async ()=>{
+        const result = await axios.get("http://localhost/ISI_online/ViewIsi.php?laharana="+laharana);
+        //console.log(result.data);
+        setInfoisi(result.data); 
+        console.log(typeof(result.data));   
+    }
     // const {nif,anarana_feno,cin,daty_androany,anarana_entana,vidina_entana,isany,daty_nividianana}= infoisi
     // var Date_1 = new Date(date1)
     // var Date_2 = new Date(date2)
@@ -75,7 +77,7 @@ const loadUsers = async ()=>{
         e.preventDefault();
         //console.log(student)       
     
-     await axios.put("http://localhost/ISI_online/payement.php",infoisi)
+     await axios.put("http://localhost/ISI_online/payement.php",infoisi,Select)
         .then((result) => {
           console.log(result);
           if(result.status == 201){
@@ -218,7 +220,15 @@ const loadUsers = async ()=>{
                     </div>
                 </nav>
                 <div className="contenu">
-                    <section className="get_in_touch">
+                    <div className="consigne">
+                        <div data-aos="fade-down" data-aos-duration="2000">
+                            <p>Fandoavam-bola</p>
+                        </div>
+                        <div data-aos="flip-left" data-aos-duration="3000">
+                            <hr></hr>
+                        </div>
+                    </div>
+                    <section className="get_in_touch_pay">
                     <motion.div
                         initial="out_1"
                         animate="in_1"
@@ -244,37 +254,31 @@ const loadUsers = async ()=>{
                                     <div className="form-field_add">
 
                                         <input id = "date1" className="input-text" required="required" type="date" name="daty_androanys"
-                                        value={daty_androany} onChange = {e => handleChange(e)}
-
-                                        // // <input id = "date1" className="input-text" required="required" type="date" name="daty_isi"
-                                        // //     onChange = {e => setIsi_daty(e.target.value)}
-                                        // //     // value={daty_isi} onChange = {e => handleChange(e)}
-
+                                            value={daty_androany} onChange = {e => handleChange(e)}
                                         />
                                         <label for="date1" className="label_add">Daty nisoratana ISI</label>
                                     </div>
                                     <div className="form-field_add">
 
-                                        <input id = "date2" className="input-text" required="required" type="date" name="daty_fandoavana"
-                                        value={daty_fandoavana} onChange = {e => handleChange(e)}
-
-                                        // <input id = "date2" className="input-text" required="required" type="date" name="daty_paiement"
-                                        //     onChange = {e => setPay_daty(e.target.value)}
-
+                                    <input id = "date2" className="input-text" required="required" type="date" name="daty_fandoavana"
+                                            value={daty_fandoavana} onChange = {e => handleChange(e)}
                                         />
                                         <label for="date2" className="label_add">Daty andoavam-bola</label>
                                     </div>
                                     <div className="form-field_add">
 
                                         <input id = "price" className="input-text" required="required" type="text" name="vola_aloah"
-                                        value={infoisi.vola_aloa} onChange = {e => handleChange(e)}
-
-                                        // <input id = "price" className="input-text" required="required" type="text" name="vidina_entana"
-                                        //     onChange = {e => setIsi_vola(e.target.value)}
-                                        //     // onChange = {e => handleChange(e)}
-
+                                            value={vola_aloa} onChange = {e => handleChange(e)}
                                         />
-                                        <label for="price" className="label">Vola ISI (Ariary)</label>
+                                        <label for="price" className="label_add">Vola ISI (Ariary)</label>
+                                    </div>
+                                    <div className="form-field_add">
+                                        <select name="pets" className="input-text" value={Select} onChange = {e => setSelect(e.target.value)}>
+                                            <option></option>
+                                            <option>Espèce</option>
+                                            <option>Virement</option>
+                                        </select>
+                                        <label for="price" className="label_add">Fomba fandoavanao vola</label>
                                     </div>
                                     <div className="bouton">
                                         <div className="form-field_add">
@@ -311,45 +315,93 @@ const loadUsers = async ()=>{
                     </div>
                 </div>
                     {/* ************************************************************* */}
-                    <div className="contact_pay" data-aos="fade-up"
-                            data-aos-anchor-placement="center-bottom"
-                            data-aos-duration="2000">
-                        <div className="sous-contact_pay">
-                            <div className="DirGI">
-                                <p><b>DGI</b></p> 
-                                <p><b>D</b>irection <b>G</b>énérale des <b>I</b>mpôts</p> 
-                                <p>Immeuble MFB, Antaninarenina
-                                        Antananarivo, 101, Madagascar
-                                </p>
-                                <p> Tel: (020) xx-xxx-xx</p>
-                                <p>Email: <a href="dgimpots@moov.mg">dgimpots@moov.mg</a></p>
+                    {/* <div className="containerbox">
+                            <div className="boxfirst">
+                                <div className=" roww boxwelcome" data-aos="zoom-in" data-aos-duration="2000">
+                                    <article className="text-centerr">
+                                        <p></p>
+                                        <h4 id="h4">Bienvenue sur "ISI-ONLINE"</h4>
+                                        Ce site regroupe en un seul espace les
+                                        différentes fonctionnalités (Télédéclaration,
+                                        Paiement virtuel, Consultation
+                                        de situation fiscale).
+                                        <p></p>
+                                    </article>
+                                </div>
+                                <div className="box_debut">
+                                    <div className="roww" data-aos="fade-up"
+                                        data-aos-anchor-placement="bottom-bottom"
+                                        data-aos-duration="1500"
+                                    >
+                                        <article className="col-md-8 col-md-offset-2">
+                                            <hr></hr>
+                                            <h4>
+                                                <span className="fa fa-clipboard">
+                                                </span>
+                                                Droit de communication
+                                            </h4>
+                                            <p>Le droit de communication est le droit reconnu à l'administration 
+                                                fiscale de prendre connaissance et, au besoin,
+                                                copie de documents détenus par des tiers 
+                                                (entreprises privées, administrations, etc...).
+                                                Les renseignements recueillis à cette occasion peuvent être 
+                                                utilisés pour l'assiette et le contrôle de tous impôts et taxes 
+                                                à la charge, soit de la personne physique ou morale auprès de laquelle
+                                                il est exercé, soit de tiers à cette personne.
+                                            </p>
+                                            <ul className="list-inline">
+                                                <li>
+                                                    <a href="https://entreprises.impots.mg/dconline/">
+                                                        <span className="glyphicon glyphicon-edit"></span>
+                                                        Acceder au service
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </article>
+                                    </div>
+                                </div>
                             </div>
-                            <div className="SSIF">
-                                <p><b>SSIF</b></p>
-                                <p><b>S</b>ervice Du <b>S</b>ystème d'<b>I</b>nformation <b>F</b>iscale</p>
-                                <p>Mandrosoa, Ambohijatovo
+                    </div> */}
+                    {/* ************************************************************** */}
+                {/* <div className="contact_pay" data-aos="fade-up"
+                        data-aos-anchor-placement="center-bottom"
+                        data-aos-duration="2000">
+                    <div className="sous-contact_pay">
+                        <div className="DirGI">
+                            <p><b>DGI</b></p> 
+                            <p><b>D</b>irection <b>G</b>énérale des <b>I</b>mpôts</p> 
+                            <p>Immeuble MFB, Antaninarenina
                                     Antananarivo, 101, Madagascar
-                                </p>
-                                <p>Tél: (8h à 16h) 034 49 431 52, 032 12 011 74</p>
-                                <p>E-mail: <a href="impot.ssif.hotline@gmail.com">impot.ssif.hotline@gmail.com</a></p>
-                            </div>
-                            <div className="NOTRE_SITE">
-                                <p><b>NOTRE SITE</b></p>
-                                <a href="www.impots.mg">www.impots.mg</a>
-                                <p>Nifonline</p>
-                                <a href="nifonline.impots.mg">nifonline.impots.mg</a>
-                            </div>
+                            </p>
+                            <p> Tel: (020) xx-xxx-xx</p>
+                            <p>Email: <a href="dgimpots@moov.mg">dgimpots@moov.mg</a></p>
                         </div>
-                        <div className="social_pay">
-                            <p>SOCIAL</p>
-                            <div className="icone-social">
-                                <img src={Facebook}></img>
-                                <img src={Twitter}></img>
-                                <img src={Google}></img>
-                                <img src={Email}></img>
-                            </div>
+                        <div className="SSIF">
+                            <p><b>SSIF</b></p>
+                            <p><b>S</b>ervice Du <b>S</b>ystème d'<b>I</b>nformation <b>F</b>iscale</p>
+                            <p>Mandrosoa, Ambohijatovo
+                                Antananarivo, 101, Madagascar
+                            </p>
+                            <p>Tél: (8h à 16h) 034 49 431 52, 032 12 011 74</p>
+                            <p>E-mail: <a href="impot.ssif.hotline@gmail.com">impot.ssif.hotline@gmail.com</a></p>
+                        </div>
+                        <div className="NOTRE_SITE">
+                            <p><b>NOTRE SITE</b></p>
+                            <a href="www.impots.mg">www.impots.mg</a>
+                            <p>Nifonline</p>
+                            <a href="nifonline.impots.mg">nifonline.impots.mg</a>
                         </div>
                     </div>
+                    <div className="social_pay">
+                        <p>SOCIAL</p>
+                        <div className="icone-social">
+                            <img src={Facebook}></img>
+                            <img src={Twitter}></img>
+                            <img src={Google}></img>
+                            <img src={Email}></img>
+                        </div>
+                    </div>
+                </div> */}
             </body>            
         </motion.div>
         </>

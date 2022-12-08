@@ -1,3 +1,35 @@
+.consigne{
+    position: absolute;
+    margin-left: 5%;
+
+}
+.consigne p{
+    font-family: Spy Agency;
+    font-size: 40px;
+    margin-top: -10%;
+    color:rgba(0, 0, 0, 0.603);
+}
+.consigne hr{
+    height:1vh;
+    width:18vw;
+    border-width:0;
+    color:#000;
+    background-color:#000;
+    margin-top: -4%;
+}
+
+.get_in_touch_pay{
+    max-width: 800px;
+    /* margin: 20px auto; */
+    /* position: relative; */
+    position: absolute;
+    /* box-shadow: 0 10px 30px 0px rgba(0, 0, 0, 0.1); */
+    /* padding: 0px 0px 0px 0px; */
+    width: 500px;
+    height: 450px;
+    margin-top: -10px;
+}
+
 .nav_pay{
     margin-top: 15%;
     /* position: fixed; */
@@ -81,10 +113,8 @@
 }
 .nav_pay{
     margin-top: 5%;
-    /* position: fixed; */
 }
-.contact_pay{
-    /* border: 1px solid rgb(255, 0, 0); */
+/* .contact_pay{
     width: 100%;
     padding-top: 20%;
     padding-bottom: 0%;
@@ -101,11 +131,9 @@
 }
 .contact_pay .sous-contact_pay p{
     font-family: raleway;
-    /* font-weight: bold; */
     color: rgb(224, 224, 224);
 }
 .social_pay{
-    /* border: 1px solid red; */
     width: 20%;
     text-align: center;
     margin-top: -3%;
@@ -114,4 +142,4 @@
 .social_pay p{
     font-family: raleway;
     color: #ffffff;
-}
+} */
