@@ -1,5 +1,6 @@
 import React, { useState ,useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import {toast} from "react-toastify";
 import axios from "axios";
 import Ravinala from "../image/ravinala.png"
 // import Sarykely from "../image/sarykely.png"
@@ -46,12 +47,20 @@ export default function LoginAdmin(){
                 window.localStorage.setItem('Matricule', result.data.Matricule)
                 // window.localStorage.setItem('first_name', (result.data.first_name+ ' ' +result.data.first_name))
                 navigate(`/ListAdmin`)
-                alert("valid user")
+                toast.success(' Tongasoa',{
+                    position: toast.POSITION.TOP_CENTER,
+                    autoClose:2500,
+                    // innerWidth: 10
+                })
             }
             else{   
             /*alert(result.data.status) ;     
             alert("There is a problem for adding,please try again");*/
-            alert("⚠️ Diso ny laharana miafina na ny matrucle anao ⚠️")
+            toast.error(' Diso ny laharana miafina na ny matricule',{
+                    position: toast.POSITION.TOP_CENTER,
+                    autoClose:2500,
+                    // innerWidth: 10
+                })
             navigate(`/LoginAdmin`)
             // alert("Invalid user")
             }   

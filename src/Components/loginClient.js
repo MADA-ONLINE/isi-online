@@ -1,5 +1,6 @@
 import React, { useState ,useEffect } from "react";
 import axios from "axios"
+import {toast} from "react-toastify";
 import Ravinala from "../image/ravinala.png"
 // import Sarykely from "../image/sarykely.png"
 import Login from "../image/login.png"
@@ -9,6 +10,7 @@ import DGI from '../image/DGI.jpg'
 import { useNavigate } from 'react-router'
 import { motion } from 'framer-motion'
 import Home from '../image/home.png'
+import { Toast } from "bootstrap";
 
 // import backG from '../image/backG.jpg'
 
@@ -52,12 +54,21 @@ export default function LoginClient(){
                 window.localStorage.setItem('nif', result.data.nif)
                 // window.localStorage.setItem('first_name', (result.data.first_name+ ' ' +result.data.first_name))
                 navigate(`/List/${user.nif}`)
-                alert("⚠️ tongasoa Ericka bisous ⚠️")
-            }
+                toast.error(' Tongasoa',{
+                    position: toast.POSITION.TOP_CENTER,
+                    autoClose:2500,
+                    // innerWidth: 10
+                })
+            } 
             else{   
             /*alert(result.data.status) ;     
             alert("There is a problem for adding,please try again");*/
-            alert("⚠️ Diso ny kaody miafina na ny Nif anao ⚠️")
+            toast.success(' ⚠️ Diso ny kaody miafina na ny Nif anao ⚠️',{
+                position: toast.POSITION.TOP_RIGHT,
+                autoClose:4000,
+                // innerWidth: 100         
+
+            })
             // alert("Invalid user")
             }   
         });

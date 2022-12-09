@@ -2,6 +2,7 @@
 import React, { useState ,useEffect } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
+import {toast} from "react-toastify";
 import headImage from '../image/head.png'
 import Saina1 from '../image/saina1.png'
 import DGI from '../image/DGI.jpg'
@@ -42,8 +43,9 @@ export default function Add(){
     var deadLine = "01" + "/" + "01" + "/" + "0001"
     if(infoisi.daty_androany){
         if(mois_isi == 12){
-            Limit_Mouth = 1
-            Limit_Year = Limit_Year + 1
+            Limit_Date = 31
+            Limit_Mouth = setdate_isi.getMonth()+1
+            Limit_Year = setdate_isi.getFullYear()
             deadLine = Limit_Date + "/" + Limit_Mouth + "/" + Limit_Year
         }else{
             deadLine = Limit_Date + "/" + Limit_Mouth + "/" + Limit_Year
@@ -80,14 +82,23 @@ export default function Add(){
         .then((result) => {
           console.log(result);
           if(result.status == 201){
-            alert("Tontosa ny fanambarana ISI nataonao!!!")
+            // alert("Tontosa ny fanambarana ISI nataonao!!!")
+            toast.success('Tontosa ny fanambarana ISI nataonao!!!',{
+                position: toast.POSITION.TOP_LEFT,
+                autoClose:2500,
+                // innerWidth: 10
+            })
              history(`/List/${infoisi.nif}`);
              
           }
         else{   
           /*alert(result.data.status) ;     
           alert("There is a problem for adding,please try again");*/
-          alert("Diso ny NIF nampidirinao!!!")
+          toast.error('Diso ny nif nampidirinao!!!',{
+            position: toast.POSITION.TOP_LEFT,
+            autoClose:2500,
+            // innerWidth: 10
+        })
         }   
  
     });

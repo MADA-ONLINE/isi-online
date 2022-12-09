@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import React, { useState, useEffect } from "react";
+import {toast} from "react-toastify";
 import headImage from '../image/head.png'
 import Saina1 from '../image/saina1.png'
 import DGI from '../image/DGI.jpg'
@@ -52,7 +53,13 @@ export default function Edit(){
         .then((result) => {
         console.log(result);
             if(result.status == 201){
-                alert("tontosa ny fanovana");
+                // alert("tontosa ny fanovana");
+                toast.success('Tontosa ny fanovana nataonao!!!',{
+                    position: toast.POSITION.TOP_LEFT,
+                    autoClose:2500,
+                    // innerWidth: 10
+                })
+                 history(`/List/${infoisi.nif}`);
                 history(`/ListAdmin`);        
             }
             else{   

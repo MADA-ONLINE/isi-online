@@ -2,6 +2,7 @@
 import React, { useState ,useEffect } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
+import {toast} from "react-toastify";
 import headImage from '../image/head.png'
 import Saina1 from '../image/saina1.png'
 import DGI from '../image/DGI.jpg'
@@ -81,7 +82,11 @@ export default function Paiement(){
         .then((result) => {
           console.log(result);
           if(result.status == 201){
-            alert("⚠️ voaloha ny volanao ⚠️");
+            toast.success('Tontosa ny fandoavana ny vola!!!',{
+                position: toast.POSITION.TOP_LEFT,
+                autoClose:2500,
+                // innerWidth: 10
+            })
              history(`/ListAdmin`);            
           }
         else{   

@@ -19,6 +19,8 @@ import Paiement from './Components/Paiement';
 import ListPaiement from './Components/ListPaiement';
 import {AnimatePresence} from 'framer-motion'
 import 'bootstrap/dist/css/bootstrap.css';
+import "react-toastify/dist/ReactToastify.css";
+import {ToastContainer} from "react-toastify";
 import 'aos/dist/aos.css';
 import AOS from 'aos';
 AOS.init()
@@ -27,6 +29,7 @@ AOS.init()
 function App() {
   return (
     <Router>
+      <ToastContainer/>
       {/* <div className='App'>       
       </div> */}
       <AnimatePresence>
