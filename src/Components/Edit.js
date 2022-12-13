@@ -123,6 +123,14 @@ export default function Edit(){
                             </div>
                             <p id='isiOnline3'>isi-online</p>
                         </nav>
+                        <div className="consigne_Edit">
+                            <div data-aos="fade-down" data-aos-duration="2000">
+                                <p>Fanovana</p>
+                            </div>
+                            <div data-aos="flip-left" data-aos-duration="3000">
+                                <hr></hr>
+                            </div>
+                        </div>
                     <section className="get_in_touch">                    
                         <div className="container">
                             <motion.div

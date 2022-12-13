@@ -34,3 +34,23 @@
     font-family: raleway;
     color: #ffffff;
 }
+.consigne_Edit{
+    position: absolute;
+    margin-left: 35%;
+    margin-top: 3%;
+
+}
+.consigne_Edit p{
+    font-family: Spy Agency;
+    font-size: 40px;
+    margin-top: -10%;
+    color:rgba(0, 0, 0, 0.603);
+}
+.consigne_Edit hr{
+    height:1vh;
+    width:13vw;
+    border-width:0;
+    color:#000;
+    background-color:#000;
+    margin-top: -8%;
+}

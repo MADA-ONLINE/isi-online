@@ -35,6 +35,7 @@ export default function Add(){
          isi_aloha : "",
          charge : ""
     })
+
     var deadLine = "01" + "/" + "01" + "/" + "0001"
     const setdate_isi = new Date(infoisi.daty_androany)
     const mois_isi = setdate_isi.getMonth() + 1 
@@ -43,12 +44,11 @@ export default function Add(){
     var Limit_Mouth = setdate_isi.getMonth() + 1
     // var Limit_Year = setdate_isi.getFullYear()
     console.log(Limit_Year)
-    var deadLine = "01" + "/" + "01" + "/" + "0001"
+    // var deadLine = "01" + "/" + "01" + "/" + "0001"
     console.log(setdate_isi.getDate())
 
     if(mois_isi == 12 ){
        var Limit_Date = 31
-
        var Limit_Year = setdate_isi.getFullYear()
         deadLine = Limit_Date + "/" + Limit_Mouth + "/"+ Limit_Year
     } else{
@@ -56,8 +56,12 @@ export default function Add(){
         var Limit_Mouth = setdate_isi.getMonth() + 2
         var Limit_Year = setdate_isi.getFullYear()
         deadLine = Limit_Date + "/" + Limit_Mouth + "/"+ Limit_Year
-
     }
+
+
+
+    // ************calcule 1er jour *******************
+
 
     // if(infoisi.daty_androany){
     //     if(mois_isi == 12){

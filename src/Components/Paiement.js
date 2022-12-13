@@ -113,7 +113,8 @@ export default function Paiement(){
 
     console.log(jour_limit + "/" + Limit_mois_isi + "/" + Limit_annee_isi + ": io ny daty limit ISI")
    
-    var jour_pay = setdate_pay.getDate() + 1
+    var jour_pay = setdate_pay.getDate() 
+    console.log(jour_pay)
     var mois_pay = setdate_pay.getMonth() + 1
     var annee_pay = setdate_pay.getFullYear()
 
@@ -125,37 +126,40 @@ export default function Paiement(){
     console.log("resultats:"+ result)
     console.log(jour_pay + "/" + mois_pay + "/" + annee_pay + ": io ny daty PAY")
     console.log(typeof(infoisi.vola_aloa))
+
       if(mois_isi == 12){
-         message = "Tsy misy sazy0"
+         message = "Tsy misy sazy"
          penalite_retard = 0
          net_a_payer = (Number(infoisi.vola_aloa) + penalite_retard)
     }
     else{
         
         if(result == 0){
-            message ="Tsy misy sazy1"
+            message ="Tsy misy sazy"
             penalite_retard = 0
             net_a_payer = (Number(infoisi.vola_aloa) + penalite_retard)
         }
         else if(result == 1 && jour_pay <= 15){
+
              message ="tsy misy sazy"
              penalite_retard = 0
              net_a_payer = (Number(infoisi.vola_aloa) + penalite_retard)
+  
         }
         else{
-             message = "misy sazy"
+
+             
              if(result == 1 && jour_pay > 15){
+                    message = "misy sazy2" + " " + result + "%"
                     penalite_retard = (result*infoisi.vola_aloa)/100
                     net_a_payer = (Number(infoisi.vola_aloa) + penalite_retard)                
 
-                }else{
-                    penalite_retard = ((result-1)*(infoisi.vola_aloa))/100
+            }else{  
+                    result = result-1
+                    message = "misy sazy" + " " + result + "%" 
+                    penalite_retard = ((result)*(infoisi.vola_aloa))/100
                     net_a_payer = (Number(infoisi.vola_aloa) + penalite_retard)
-                }
-             
-
-             
-
+                }          
         }
     }
     // if(mois_isi == 12){
