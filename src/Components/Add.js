@@ -36,20 +36,43 @@ export default function Add(){
          charge : ""
     })
     const setdate_isi = new Date(infoisi.daty_androany)
-    const mois_isi = setdate_isi.getMonth() + 1   
+    const jour_isi = setdate_isi.getDate()
+    const mois_isi = setdate_isi.getMonth() + 1  
+    const jour_isi_1 = setdate_isi.getDate() - (setdate_isi.getDate() - 1)
+    // const mois_isi_1 = 
+    const mois_isi_2 = setdate_isi.getMonth() + 2  
     var Limit_Date = 15
     var Limit_Mouth = setdate_isi.getMonth() + 2
     var Limit_Year = setdate_isi.getFullYear()
+
     var deadLine = "01" + "/" + "01" + "/" + "0001"
+    console.log(jour_isi + " " + mois_isi)
+    // console.log(setdate_isi)$
+
+    // ************calcule 1er jour *******************
     if(infoisi.daty_androany){
-        if(mois_isi == 12){
-            Limit_Date = 31
-            Limit_Mouth = setdate_isi.getMonth()+1
-            Limit_Year = setdate_isi.getFullYear()
-            deadLine = Limit_Date + "/" + Limit_Mouth + "/" + Limit_Year
-        }else{
-            deadLine = Limit_Date + "/" + Limit_Mouth + "/" + Limit_Year
-        }
+            if(jour_isi == 31 || jour_isi == 30){
+                if(mois_isi < 12 && mois_isi == 11){
+                    Limit_Mouth = mois_isi_2
+                    Limit_Date = 31                
+                    deadLine = Limit_Date + "/" + Limit_Mouth + "/1/" + Limit_Year
+                }
+                else{
+                    Limit_Mouth = setdate_isi.getMonth() + 3           
+                    deadLine = Limit_Date + "/" + Limit_Mouth + "/2/" + Limit_Year
+                }
+            }
+            else{
+                if(mois_isi_2 > 12){
+                    Limit_Mouth = mois_isi 
+                    Limit_Date = 31                
+                    deadLine = Limit_Date + "/" + Limit_Mouth + "/3/" + Limit_Year
+                }
+                else{
+                    Limit_Mouth = setdate_isi.getMonth() + 2           
+                    deadLine = Limit_Date + "/" + Limit_Mouth + "/4/" + Limit_Year
+                }
+            }
     }
     //**************** CALCULE ISI ********************************* */
     var Net_a_payer = 0

@@ -120,45 +120,62 @@ export default function Paiement(){
     var net_a_payer = 0
     console.log(jour_pay + "/" + mois_pay + "/" + annee_pay + ": io ny daty PAY")
     console.log(typeof(infoisi.vola_aloa))
+    var result = mois_pay - mois_isi
     if(mois_isi == 12){
-        Limit_Mouth = 1
-        Limit_Year = Limit_Year + 1
-        if(annee_pay < Limit_Year){
-            var msg = "Tsy misy sazy"
-            penalite_retard = 0
-            net_a_payer = (Number(infoisi.vola_aloa) + penalite_retard)
-        }else if(annee_pay == Limit_Year && mois_pay == Limit_Mouth && jour_pay <= Limit_Date){
-            msg = "Tsy misy sazy"
+        Limit_Mouth = 12
+        if(annee_pay == Limit_Year && mois_pay == Limit_Mouth && jour_pay <= 31){
+            msg = "Tsy misy sazy 3"
             penalite_retard = 0
             net_a_payer = (Number(infoisi.vola_aloa) + penalite_retard)
         }else{
-            msg = "Misy sazy 10%"
-            var sazy = 10
+            msg = "Tara ny fandoavanao vola"
+            var sazy = 0
             penalite_retard = (infoisi.vola_aloa*sazy)/100
             net_a_payer = (Number(infoisi.vola_aloa) + penalite_retard)
         }
     }
-    else if(mois_isi < 12){
-        if(mois_pay < Limit_Mouth && annee_pay <= Limit_Year){
-            if(jour_pay < 31){
-                msg = "Tsy misy sazy"
-                penalite_retard = 0
-                net_a_payer = (Number(infoisi.vola_aloa) + penalite_retard)
-            }
-        }else if(mois_pay == Limit_Mouth && annee_pay <= Limit_Year){
-            if(jour_pay < 15){
-                msg = "Tsy misy sazy"
-                penalite_retard = 0
-                net_a_payer = (Number(infoisi.vola_aloa) + penalite_retard)
-            }else{
-                msg = "Misy sazy 10%"
-                var sazy = 10
-                penalite_retard = (infoisi.vola_aloa*sazy)/100
-                net_a_payer = (Number(infoisi.vola_aloa) + penalite_retard)
-            }
-        }else{
-            msg = "Misy sazy 10%"
-            var sazy = 10
+    else{
+        if(result == 0){
+            msg = "Tsy misy sazy 1"
+            penalite_retard = 0
+            net_a_payer = (Number(infoisi.vola_aloa) + penalite_retard)
+            // if(mois_pay <= Limit_Mouth && annee_pay == Limit_Year){
+            //     if(jour_pay <= 31){
+            //         msg = "Tsy misy sazy"
+            //         penalite_retard = 0
+            //         net_a_payer = (Number(infoisi.vola_aloa) + penalite_retard)
+            //     }
+            //     else{
+            //         msg = "Misy sazy 10%"
+            //         var sazy = 10
+            //         penalite_retard = (infoisi.vola_aloa*sazy)/100
+            //         net_a_payer = (Number(infoisi.vola_aloa) + penalite_retard)
+            //     } 
+            // }
+            // else{
+            //     msg = "Misy sazy 10%"
+            //     var sazy = 10
+            //     penalite_retard = (infoisi.vola_aloa*sazy)/100
+            //     net_a_payer = (Number(infoisi.vola_aloa)+penalite_retard)
+            // }
+        }
+        else if(result == 1){
+            msg = "Tsy misy sazy 2"
+            penalite_retard = 0
+            net_a_payer = (Number(infoisi.vola_aloa) + penalite_retard)
+            console.log(Limit_Date)
+        }
+        else if(result > 1){
+            msg = "Tara" + " " + result + " " + "volana" + ", " + "sazy " + result + "%" + "/else 1"
+            penalite_retard = 0
+            var sazy = result
+            penalite_retard = (infoisi.vola_aloa*sazy)/100
+            net_a_payer = (Number(infoisi.vola_aloa)+penalite_retard)
+        }
+        else{
+            msg = "Tara" + " " + result + " " + "volana" + ", " + "sazy " + result + "%" + "/else 2"
+            penalite_retard = 0
+            var sazy = result
             penalite_retard = (infoisi.vola_aloa*sazy)/100
             net_a_payer = (Number(infoisi.vola_aloa)+penalite_retard)
         }

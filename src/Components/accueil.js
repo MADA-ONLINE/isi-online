@@ -3,6 +3,7 @@ import headImage from '../image/head.png'
 // import sarykely from '../image/sarykely.png'
 import DGI from '../image/DGI.jpg'
 import backG from '../image/backG.jpg'
+import Fondu from '../image/fondu.png'
 import maison from '../image/maison.png'
 import loginImg from '../image/loginImg.png'
 import Saina from '../image/saina.png'
@@ -10,6 +11,8 @@ import Facebook from '../image/facebook.png'
 import Email from '../image/email.png'
 import Google from '../image/google_plus.png'
 import Twitter from '../image/Twitter.png'
+import TeleDec from '../image/TeleDec.png'
+import Comm from '../image/Comm.png'
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion'
 // import 'bootstrap/dist/css/bootstrap.css';
@@ -58,7 +61,8 @@ export default function Accueil(){
                 variants={PageTransition}
             >
                 <body className="bodyAccueil">
-                    <img src={backG} id="background"/>                   
+                    <img src={backG} id="background"/>                  
+                    <div className="fondu"></div>               
                     <div className='content'>
                         <nav className='navv'>
                             <div className='sary floatinge1'>
@@ -112,77 +116,89 @@ export default function Accueil(){
                         {/* **************************** */}
                         <div className="containerbox">
                             <div className="boxfirst">
-                                <div className=" roww boxwelcome" data-aos="zoom-in" data-aos-duration="2000">
-                                    <article className="text-centerr">
-                                        <p></p>
-                                        <h4 id="h4">Bienvenue sur "ISI-ONLINE"</h4>
-                                        Ce site regroupe en un seul espace les
-                                        différentes fonctionnalités (Télédéclaration,
-                                        Paiement virtuel, Consultation
-                                        de situation fiscale).
-                                        <p></p>
-                                    </article>
+                                <div className=" rowwWELC boxwelcome" data-aos="zoom-in" data-aos-duration="2000">
+                                    <div>
+                                        <article className="text-centerr">
+                                            <p></p>
+                                            <h4 id="h4">Bienvenue sur "ISI-ONLINE"</h4>
+                                            Ce site regroupe en un seul espace les
+                                            différentes fonctionnalités (Télédéclaration,
+                                            Paiement virtuel, Consultation
+                                            de situation fiscale).
+                                            <p></p>
+                                        </article>
+                                    </div>
                                 </div>
                                 <div className="box_debut">
                                     <div className="roww" data-aos="fade-up"
                                         data-aos-anchor-placement="bottom-bottom"
                                         data-aos-duration="1500"
                                     >
-                                        <article className="col-md-8 col-md-offset-2">
-                                            <hr></hr>
-                                            <h4>
-                                                <span className="fa fa-clipboard">
-                                                </span>
-                                                Droit de communication
-                                            </h4>
-                                            <p>Le droit de communication est le droit reconnu à l'administration 
-                                                fiscale de prendre connaissance et, au besoin,
-                                                copie de documents détenus par des tiers 
-                                                (entreprises privées, administrations, etc...).
-                                                Les renseignements recueillis à cette occasion peuvent être 
-                                                utilisés pour l'assiette et le contrôle de tous impôts et taxes 
-                                                à la charge, soit de la personne physique ou morale auprès de laquelle
-                                                il est exercé, soit de tiers à cette personne.
-                                            </p>
-                                            <ul className="list-inline">
-                                                <li>
-                                                    <a href="https://entreprises.impots.mg/dconline/">
-                                                        <span className="glyphicon glyphicon-edit"></span>
-                                                        Acceder au service
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </article>
+                                        <div className="comm" data-aos="zoom-out-right" data-aos-duration="3000">
+                                            <img src={Comm} id="comm"/>
+                                        </div>
+                                        <div className="article">
+                                            <article className="col-md-8 col-md-offset-2">
+                                                <hr></hr>
+                                                <h4>
+                                                    <span className="fa fa-clipboard">
+                                                    </span>
+                                                    Droit de communication
+                                                </h4>
+                                                <p>Le droit de communication est le droit reconnu à l'administration 
+                                                    fiscale de prendre connaissance et, au besoin,
+                                                    copie de documents détenus par des tiers 
+                                                    (entreprises privées, administrations, etc...).
+                                                    Les renseignements recueillis à cette occasion peuvent être 
+                                                    utilisés pour l'assiette et le contrôle de tous impôts et taxes 
+                                                    à la charge, soit de la personne physique ou morale auprès de laquelle
+                                                    il est exercé, soit de tiers à cette personne.
+                                                </p>
+                                                <ul className="list-inline">
+                                                    <li>
+                                                        <a href="https://entreprises.impots.mg/dconline/">
+                                                            <span className="glyphicon glyphicon-edit"></span>
+                                                            Acceder au service
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </article>
+                                        </div>                                        
                                     </div>
-                                    <div className="roww" data-aos="fade-up"
-                                    data-aos-anchor-placement="bottom-bottom"
-                                    data-aos-duration="1500">
-                                        <article className="col-md-8 col-md-offset-2">
-                                            <hr></hr>
-                                            <h4>
-                                                <span className="fa fa-clipboard">
-                                                </span>
-                                                Télédeclaration
-                                            </h4>
-                                            <p>Ce service permet aux contribuables adhérents
-                                                 de liquider et de payer leurs impôts à partir
-                                                  de leur poste de travail en se connectant sur INTERNET.
-                                                   Il permet de liquider et de payer les déclarations
-                                                    mensuelles d’impôts ainsi que les déclarations annuelles:
-                                                    dépôt et paiement des déclarations de l'Impôt sur le Revenu (IR),
-                                                    de l'Impôt Synthétique (IS), de l'Impôt Synthétique Intermittent(ISI), 
-                                                    de la Taxe sur la Valeur Ajoutée (TVA),
-                                                    de l'Impôt sur les Revenus Salariaux et Assimilés (IRSA).
-                                            </p>
-                                            <ul className="list-inline">
-                                                <li>
-                                                    <a href="https://entreprises.impots.mg/dconline/">
-                                                        <span className="glyphicon glyphicon-edit"></span>
-                                                        Acceder au service
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </article>
+                                    <div className="roww1" data-aos="fade-up"
+                                        data-aos-anchor-placement="bottom-bottom"
+                                        data-aos-duration="1500">
+                                        <div>
+                                            <article className="col-md-8 col-md-offset-2">
+                                                <hr></hr>
+                                                <h4>
+                                                    <span className="fa fa-clipboard">
+                                                    </span>
+                                                    Télédeclaration
+                                                </h4>
+                                                <p>Ce service permet aux contribuables adhérents
+                                                    de liquider et de payer leurs impôts à partir
+                                                    de leur poste de travail en se connectant sur INTERNET.
+                                                    Il permet de liquider et de payer les déclarations
+                                                        mensuelles d’impôts ainsi que les déclarations annuelles:
+                                                        dépôt et paiement des déclarations de l'Impôt sur le Revenu (IR),
+                                                        de l'Impôt Synthétique (IS), de l'Impôt Synthétique Intermittent(ISI), 
+                                                        de la Taxe sur la Valeur Ajoutée (TVA),
+                                                        de l'Impôt sur les Revenus Salariaux et Assimilés (IRSA).
+                                                </p>
+                                                <ul className="list-inline">
+                                                    <li>
+                                                        <a href="https://entreprises.impots.mg/dconline/">
+                                                            <span className="glyphicon glyphicon-edit"></span>
+                                                            Acceder au service
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </article>
+                                        </div>
+                                        <div className="teledec" data-aos="zoom-out-left" data-aos-duration="3000">
+                                            <img src={TeleDec} id="teledec"/>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

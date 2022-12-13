@@ -73,26 +73,26 @@ export default function LoginAdmin(){
         },
         out: {
             opacity: 0,
-            y: "110%"
+            y: "150%"
         }
     }
     const PageVariants_1 = {
         in_1: {
             opacity: 1,
-            y: 0
+            x: 0
         },
         out_1: {
             opacity: 0,
-            y: "-300%"
+            x: "100%"
         }
     }
     const PageTransition = {
         type: "spring",
-        stiffness: 90
+        stiffness: 20
     }
     const PageTransition_1 = {
         type: "spring",
-        stiffness: 30
+        stiffness: 23
     }
     function return_home() {
         navigate('/')
@@ -128,38 +128,48 @@ export default function LoginAdmin(){
                     transition={PageTransition_1}
                 >               
                     <div className="form-Bg_login">
-                    <form className="form-header_login" onSubmit={submitForm}>
-                        <div className="ravinala">
-                            <img src={Ravinala} id="Ravina"/>
+                        <div className="tongasoa" data-aos="zoom-out-left" data-aos-duration="3000">
+                            <p id="tonga">TONGASOA!!<br></br><br></br></p>
+                            <div data-aos="flip-right" data-aos-duration="3000">
+                                <hr></hr>
+                            </div>
+                            <p id="ampidiro">    
+                                AMPIDIRO NY TAREHI-MARIKAO 
+                                SY NY KAODY MIAFINA
+                            </p>
                         </div>
-                        <div className="isionline">
-                            <p>isi-online</p>
+                        <form className="form-header_login" onSubmit={submitForm}>
+                            <div className="ravinala">
+                                <img src={Ravinala} id="Ravina"/>
+                            </div>
+                            <div className="isionline">
+                                <p>isi-online</p>
+                            </div>
+                            <div className="form-group_login">
+                                <input type="text" placeholder="Tarehi-marika" required name="Matricule"
+                                    value={Matricule} onChange = {e => handleChange(e) }
+                                />
+                            </div>
+                            <div className="form-group_login">
+                                <input type="password" placeholder="Kaody miafina" required name="password"
+                                    value={password} onChange = {e => handleChange(e) }
+                                />
+                            </div>
+                            <div className="form-group_login">
+                                <button type="submit" className='btn3 btn1'><b>Tsindrio</b></button>
+                            </div>
+                        </form>
+                        <div className="courtephrase">
+                            <p>
+                                "Raiso ny adidinao, aloavy ny hetra"
+                            </p>
                         </div>
-                        <div className="form-group_login">
-                            <input type="text" placeholder="Tarehi-marika" required name="Matricule"
-                                value={Matricule} onChange = {e => handleChange(e) }
-                            />
-                        </div>
-                        <div className="form-group_login">
-                            <input type="password" placeholder="Kaody miafina" required name="password"
-                                value={password} onChange = {e => handleChange(e) }
-                            />
-                        </div>
-                        <div className="form-group_login">
-                            <button type="submit" className='btn3 btn1'><b>Tsindrio</b></button>
-                        </div>
-                    </form>
-                    <div className="courtephrase">
-                        <p>
-                            "Raiso ny adidinao, aloavy ny hetra"
-                        </p>
+                        <footer className="footer1">
+                            <div className="copyLogo1">
+                                <p id="copyright1">Copyright 2022 by Mirantsoa & Rija Andria</p>
+                            </div>
+                        </footer>
                     </div>
-                    <footer className="footer1">
-                        <div className="copyLogo1">
-                            <p id="copyright1">Copyright 2022 by Mirantsoa & Rija Andria</p>
-                        </div>
-                    </footer>
-                </div>
                 </motion.div>
             </motion.div>    
         </>
