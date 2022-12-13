@@ -35,22 +35,49 @@ export default function Add(){
          isi_aloha : "",
          charge : ""
     })
-    const setdate_isi = new Date(infoisi.daty_androany)
-    const mois_isi = setdate_isi.getMonth() + 1   
-    var Limit_Date = 15
-    var Limit_Mouth = setdate_isi.getMonth() + 2
-    var Limit_Year = setdate_isi.getFullYear()
     var deadLine = "01" + "/" + "01" + "/" + "0001"
-    if(infoisi.daty_androany){
-        if(mois_isi == 12){
-            Limit_Date = 31
-            Limit_Mouth = setdate_isi.getMonth()+1
-            Limit_Year = setdate_isi.getFullYear()
-            deadLine = Limit_Date + "/" + Limit_Mouth + "/" + Limit_Year
-        }else{
-            deadLine = Limit_Date + "/" + Limit_Mouth + "/" + Limit_Year
-        }
+    const setdate_isi = new Date(infoisi.daty_androany)
+    const mois_isi = setdate_isi.getMonth() + 1 
+    console.log(mois_isi)  
+    // var Limit_Date = 15
+    var Limit_Mouth = setdate_isi.getMonth() + 1
+    // var Limit_Year = setdate_isi.getFullYear()
+    console.log(Limit_Year)
+    var deadLine = "01" + "/" + "01" + "/" + "0001"
+    console.log(setdate_isi.getDate())
+
+    if(mois_isi == 12 ){
+       var Limit_Date = 31
+
+       var Limit_Year = setdate_isi.getFullYear()
+        deadLine = Limit_Date + "/" + Limit_Mouth + "/"+ Limit_Year
+    } else{
+        var Limit_Date = 15
+        var Limit_Mouth = setdate_isi.getMonth() + 2
+        var Limit_Year = setdate_isi.getFullYear()
+        deadLine = Limit_Date + "/" + Limit_Mouth + "/"+ Limit_Year
+
     }
+
+    // if(infoisi.daty_androany){
+    //     if(mois_isi == 12){
+    //         Limit_Date = 31
+    //         Limit_Mouth = setdate_isi.getMonth()+1
+    //         Limit_Year = setdate_isi.getFullYear()
+       
+    //     }
+    // }
+    
+    // var Limit_Year = setdate_isi.getFullYear()
+    // const setdate_isi = new Date(infoisi.date_androany)
+    // const mois_isi = setdate_isi.getMonth()+1
+    // console.log(mois_isi)
+    // var date_isi = setdate_isi.getDate()
+    // console.log(date_isi)
+    // var Year_isi = setdate_isi.getFullYear()
+    // console.log(Year_isi)
+    // var deadLine = "01" + "/" + "01" + "/" + "0001"
+
     //**************** CALCULE ISI ********************************* */
     var Net_a_payer = 0
     var Totaly_volanao = 0
@@ -290,7 +317,7 @@ export default function Add(){
                                         <tbody>
                                             <tr>
                                                 <td>{Net_a_payer}</td>
-                                                <td>{deadLine}</td>
+                                                <td>/{deadLine}</td>
                                             </tr>
                                         </tbody>
                                     </table>

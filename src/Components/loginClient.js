@@ -54,7 +54,7 @@ export default function LoginClient(){
                 window.localStorage.setItem('nif', result.data.nif)
                 // window.localStorage.setItem('first_name', (result.data.first_name+ ' ' +result.data.first_name))
                 navigate(`/List/${user.nif}`)
-                toast.error(' Tongasoa',{
+                toast.success(' Tongasoa',{
                     position: toast.POSITION.TOP_CENTER,
                     autoClose:2500,
                     // innerWidth: 10
