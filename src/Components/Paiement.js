@@ -119,7 +119,7 @@ export default function Paiement(){
     var annee_pay = setdate_pay.getFullYear()
 
     // ***********CONDITION SAZY + CALCULE SAZY******************************************************************
-    var message = " 0misy sazy"
+    var message = "Misy sazy"
     var penalite_retard = 0
     var net_a_payer = 0
     var result = mois_pay - mois_isi
@@ -150,13 +150,13 @@ export default function Paiement(){
 
              
              if(result == 1 && jour_pay > 15){
-                    message = "misy sazy2" + " " + result + "%"
+                    message = "Tara" + " " + result + " volana" + ", " + " misy sazy" + " " + result + "%"
                     penalite_retard = (result*infoisi.vola_aloa)/100
                     net_a_payer = (Number(infoisi.vola_aloa) + penalite_retard)                
 
             }else{  
                     result = result-1
-                    message = "misy sazy" + " " + result + "%" 
+                    message = "Tara" + " " + result + " volana" + ", " + " misy sazy" + " " + result + "%" 
                     penalite_retard = ((result)*(infoisi.vola_aloa))/100
                     net_a_payer = (Number(infoisi.vola_aloa) + penalite_retard)
                 }          

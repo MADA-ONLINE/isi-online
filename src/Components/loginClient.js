@@ -132,9 +132,9 @@ export default function LoginClient(){
                 transition={PageTransition_1}
             >                        
                 <div className="form-Bg_login">
-                    <div data-aos="flip-right" data-aos-duration="3000">
+                    {/* <div data-aos="flip-right" data-aos-duration="3000">
                         <hr></hr>
-                    </div>
+                    </div> */}
                     <div className="tongasoa" data-aos="zoom-out-left" data-aos-duration="3000">
                         <p id="tonga">TONGASOA!!<br></br><br></br></p>
                         <div data-aos="flip-right" data-aos-duration="3000">

@@ -120,11 +120,11 @@ export default function Accueil(){
                                     <div>
                                         <article className="text-centerr">
                                             <p></p>
-                                            <h4 id="h4">Bienvenue sur "ISI-ONLINE"</h4>
-                                            Ce site regroupe en un seul espace les
-                                            différentes fonctionnalités (Télédéclaration,
-                                            Paiement virtuel, Consultation
-                                            de situation fiscale).
+                                            <h4 id="h4">Tongasoa eto amin'ny "ISI-ONLINE"</h4>
+                                            Ity tranonkala ity dia mitondra miaraka amin'ny habaka tokana ny
+                                            fampiasa samihafa (Teledeclaration,
+                                            Fandoavana virtoaly, fifampidinihana
+                                            sata hetra).
                                             <p></p>
                                         </article>
                                     </div>
@@ -143,22 +143,26 @@ export default function Accueil(){
                                                 <h4>
                                                     <span className="fa fa-clipboard">
                                                     </span>
-                                                    Droit de communication
+                                                    Lalàm-pifandraisana
                                                 </h4>
-                                                <p>Le droit de communication est le droit reconnu à l'administration 
-                                                    fiscale de prendre connaissance et, au besoin,
-                                                    copie de documents détenus par des tiers 
-                                                    (entreprises privées, administrations, etc...).
-                                                    Les renseignements recueillis à cette occasion peuvent être 
-                                                    utilisés pour l'assiette et le contrôle de tous impôts et taxes 
-                                                    à la charge, soit de la personne physique ou morale auprès de laquelle
-                                                    il est exercé, soit de tiers à cette personne.
+                                                <p>Ny lalàm-pifandraisana dia lalàna
+                                                    eken'ny mpitantana ny hetra
+                                                    hamaky sy, raha ilaina, kopia 
+                                                    ny antontan-taratasy tazonin'ny 
+                                                    antoko fahatelo (orinasa tsy miankina, 
+                                                    fitantanana, sns.). Ny fampahalalana 
+                                                    voaangona amin'io fotoana io dia azo 
+                                                    ampiasaina amin'ny fanombanana sy 
+                                                    fanaraha-maso ny hetra rehetra sy 
+                                                    ny hetra aloa na amin'ny olon-tokana 
+                                                    na fikambanana izay ampiasana izany, 
+                                                    na amin'ny olon-kafa amin'io olona io.
                                                 </p>
                                                 <ul className="list-inline">
                                                     <li>
                                                         <a href="https://entreprises.impots.mg/dconline/">
                                                             <span className="glyphicon glyphicon-edit"></span>
-                                                            Acceder au service
+                                                            Miditra amin'ny serivisy
                                                         </a>
                                                     </li>
                                                 </ul>
@@ -176,21 +180,22 @@ export default function Accueil(){
                                                     </span>
                                                     Télédeclaration
                                                 </h4>
-                                                <p>Ce service permet aux contribuables adhérents
-                                                    de liquider et de payer leurs impôts à partir
-                                                    de leur poste de travail en se connectant sur INTERNET.
-                                                    Il permet de liquider et de payer les déclarations
-                                                        mensuelles d’impôts ainsi que les déclarations annuelles:
-                                                        dépôt et paiement des déclarations de l'Impôt sur le Revenu (IR),
-                                                        de l'Impôt Synthétique (IS), de l'Impôt Synthétique Intermittent(ISI), 
-                                                        de la Taxe sur la Valeur Ajoutée (TVA),
-                                                        de l'Impôt sur les Revenus Salariaux et Assimilés (IRSA).
+                                                <p>Ity serivisy ity dia ahafahan'ny mpandoa 
+                                                    hetra mpikambana manombana sy mandoa ny hetrany 
+                                                    avy amin'ny toeram-piasany amin'ny alàlan'ny 
+                                                    fifandraisana amin'ny INTERNET. Izy io dia 
+                                                    ahafahana manafoana sy mandoa ny fanambarana 
+                                                    hetra isam-bolana ary koa ny fanambarana isan-taona: 
+                                                    fametrahana sy fandoavana ny fanambarana momba ny 
+                                                    hetra amin'ny fidiram-bola (IR), ny hetra synthetic (IS), 
+                                                    ny hetra synthetic intermittent (ISI), ny hetra fanampiny ( VAT), 
+                                                    hetra amin'ny karama sy ny vola miditra (IRSA).
                                                 </p>
                                                 <ul className="list-inline">
                                                     <li>
                                                         <a href="https://entreprises.impots.mg/dconline/">
                                                             <span className="glyphicon glyphicon-edit"></span>
-                                                            Acceder au service
+                                                            Miditra amin'ny serivisy
                                                         </a>
                                                     </li>
                                                 </ul>
@@ -230,7 +235,7 @@ export default function Accueil(){
                                 </div>
                                 <div className="NOTRE_SITE" data-aos="fade-up"
                                     data-aos-anchor-placement="top-bottom">
-                                    <p><b>NOTRE SITE</b></p>
+                                    <p><b>IREO TRANOKALA</b></p>
                                     <a href="www.impots.mg">www.impots.mg</a>
                                     <p>Nifonline</p>
                                     <a href="nifonline.impots.mg">nifonline.impots.mg</a>
