@@ -2,7 +2,6 @@ import { BrowserRouter as Router, Route, Routes} from 'react-router-dom'
 import './css/accueil.css';
 import './css/login.css';
 import './css/List.css';
-import './css/ListPaiement.css';
 import './css/ListAdmin.css';
 import './css/Add.css';
 import './css/Paiement.css';
@@ -16,7 +15,6 @@ import Add from './Components/Add';
 import ListAdmin from './Components/ListAdmin';
 import Edit from './Components/Edit';
 import Paiement from './Components/Paiement';
-import ListPaiement from './Components/ListPaiement';
 import {AnimatePresence} from 'framer-motion'
 import 'bootstrap/dist/css/bootstrap.css';
 import "react-toastify/dist/ReactToastify.css";
@@ -43,7 +41,6 @@ function App() {
           <Route exact path="/Edit/:laharana" element={ <Edit /> } />
           <Route exact path="/Paiement/:laharana" element={ <Paiement /> } />
           {/* <Route exact path="/:nif/Paiement" element={ <Paiement /> } /> */}
-          <Route exact path="/ListPaiement" element={ <ListPaiement /> } />
         </Routes>
       </AnimatePresence>
     </Router>
