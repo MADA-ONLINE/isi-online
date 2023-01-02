@@ -1,7 +1,11 @@
 import React, { useState, useEffect} from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+
 import {Modal,Button} from "react-bootstrap"
+
+import { CSVLink } from "react-csv";
+
 import axios from "axios";
 import headImage from '../image/head.png'
 import Saina1 from '../image/saina1.png'
@@ -147,6 +151,7 @@ export default function ListAdmin(){
                             <div className="deconnexion_List_Admin">
                                 <img src={Logout} onClick={Logout_List_Admin}/>
                                 <p>Déconnexion</p>
+                                <CSVLink data = {infoisi} className ="btn btn-success mb-3" filename="Isi"> Export</CSVLink>
                             </div>
                             <div className="search_Admin">
                                     <input type="texte" placeholder="Date/Num"
@@ -155,6 +160,7 @@ export default function ListAdmin(){
                                     <img src={Search} />
                             </div>
                         </div>
+                        
                         <motion.div
                             initial="out"
                             animate="in"
@@ -162,6 +168,7 @@ export default function ListAdmin(){
                             variants={PageVariants_1}
                             transition={PageTransition}
                         >
+
                      <Modal show={show} onHide={handleClose} animation={false}>
                         <Modal.Header closeButton>
                              <Modal.Title>Famafana</Modal.Title>
@@ -176,6 +183,9 @@ export default function ListAdmin(){
                               </Button>
                         </Modal.Footer>
                     </Modal>
+
+
+
                             <div className="table_Admin">
                                 <table className="content-tablee_Admin">
                                     <thead>
@@ -189,6 +199,7 @@ export default function ListAdmin(){
                                             <th>Daty nisoratana ISI</th>
                                             <th>Daty nandoavana ISI</th>
                                             <th>Vola haloa (Ariary)</th>
+                                            <th>Sazy (Ariary)</th>
                                             <th>vola voaloha (Ariary) </th>
                                             <th>bordereau</th>
                                             <th>typr de versement</th>
@@ -199,7 +210,7 @@ export default function ListAdmin(){
                 {/* misy link ato************************ */}
                                         {infoisi.filter((infoisi)=>{
                                             return ( infoisi.nif.includes(chercher) || infoisi.anarana_feno.includes(chercher) || infoisi.anarana_entana.includes(chercher) ||
-                                            infoisi.daty_nividianana.includes(chercher) || infoisi.daty_androany.includes(chercher)  )            
+                                            infoisi.daty_nividianana.includes(chercher) || infoisi.daty_androany.includes(chercher) || infoisi.sazy.includes(chercher))            
                                             }).map(infoisi=>{ return ( 
                                                 <tr>
                                                     <td>{infoisi.nif}</td>
@@ -211,6 +222,7 @@ export default function ListAdmin(){
                                                     <td>{infoisi.daty_androany}</td>
                                                     <td>{infoisi.daty_fandoavana}</td>
                                                     <td>{infoisi.vola_aloa}</td> 
+                                                    <td>{infoisi.sazy}</td> 
                                                     <td>{infoisi.vola_voaloha}</td>
                                                     <td>{infoisi.bordereau}</td>
                                                     <td>{infoisi.type}</td>

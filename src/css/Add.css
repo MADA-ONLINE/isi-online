@@ -25,7 +25,7 @@
 #DGI4{
     position: absolute;
     width: 3%;
-    margin-left: 63%;
+    margin-left: 70%;
     margin-top: -3.5%;
     border-radius: 24px;
 }
@@ -192,7 +192,7 @@
 .picture_add .container-give2 #give2{
     /* border: 1px solid black; */
     width: 270px;
-    margin-left: 800px;
+    margin-left: 900px;
     margin-top: 208px;
     filter: drop-shadow(8px 4px 4px rgba(0, 0, 0, 0.1));
 }
@@ -205,7 +205,7 @@
 .picture_add .container-give3 #give3{
     /* border: 1px solid black; */
     width: 110px;
-    margin-left: 950px;
+    margin-left: 1000px;
     margin-top: 40px;
     filter: drop-shadow(8px 4px 4px rgba(0, 0, 0, 0.1));
 }
@@ -279,7 +279,7 @@
     min-width: 400px;
     position: absolute;
     margin-left: 0%;
-    margin-top: 11%;
+    margin-top: 10%;
     font-weight: bold;
 }
 .Vola_aloha thead tr{
@@ -290,7 +290,7 @@
 }
 .Vola_aloha th{
         font-family: Raleway;
-        padding: 12px 45px;
+        padding: 16px 46px;
         text-align: center;
         font-size: 13px;
 }

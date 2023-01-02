@@ -11,12 +11,8 @@ import Give2 from '../image/give2.png'
 import Give3 from '../image/give3.png'
 import Give4 from '../image/give4.png'
 import { motion } from 'framer-motion'
-import Logout from '../image/logout.png'
-// import Trace from '../image/trace.png'
 
 export default function Add(){
-    // const [isi_daty, setIsi_daty] = useState()
-    // const setdate_isi = new Date(isi_daty)
     let navigate= useNavigate();
     function Logout() {
         navigate('/LoginClient')
@@ -41,30 +37,30 @@ export default function Add(){
      const[formerrors,setFormerrors] = useState(false)
 
     var deadLine = "01" + "/" + "01" + "/" + "0001"
+
     const setdate_isi = new Date(infoisi.daty_nividianana)
     const mois_isi = setdate_isi.getMonth() + 1 
     console.log(mois_isi)
     console.log(setdate_isi)  
+
     // var Limit_Date = 15
     var Limit_Mouth = setdate_isi.getMonth() + 1
     // var Limit_Year = setdate_isi.getFullYear()
     console.log(Limit_Year)
     // var deadLine = "01" + "/" + "01" + "/" + "0001"
     console.log(setdate_isi.getDate())
-
-    if(mois_isi == 12 ){
-       var Limit_Date = 31
-       var Limit_Year = setdate_isi.getFullYear()
+    if(infoisi.daty_androany){
+        if(mois_isi == 12 ){
+           var Limit_Date = 31
+           var Limit_Year = setdate_isi.getFullYear()
         deadLine = Limit_Date + "/" + Limit_Mouth + "/"+ Limit_Year
-    } else{
-        var Limit_Date = 15
-        var Limit_Mouth = setdate_isi.getMonth() + 2
-        var Limit_Year = setdate_isi.getFullYear()
-        deadLine = Limit_Date + "/" + Limit_Mouth + "/"+ Limit_Year
+        }else{
+            var Limit_Date = 15
+            var Limit_Mouth = setdate_isi.getMonth() + 2
+            var Limit_Year = setdate_isi.getFullYear()
+            deadLine = Limit_Date + "/" + Limit_Mouth + "/"+ Limit_Year
+        }
     }
-
-
-
     // ************calcule 1er jour *******************
 
 
@@ -375,7 +371,7 @@ export default function Add(){
                                         <tbody>
                                             <tr>
                                                 <td>{Net_a_payer}</td>
-                                                <td>/{deadLine}</td>
+                                                <td>{deadLine}</td>
                                             </tr>
                                         </tbody>
                                     </table>

@@ -17,7 +17,9 @@
     "import": "^0.0.6",
     "jspdf-react": "^1.0.11",
     "react": "^18.2.0",
+
     "react-bootstrap": "^2.7.0",
+
     "react-csv": "^2.2.2",
     "react-dom": "^18.2.0",
     "react-hot-toast": "^2.4.0",
