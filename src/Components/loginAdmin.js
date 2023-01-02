@@ -27,9 +27,16 @@ export default function LoginAdmin(){
     const {Matricule,password}= user
     const handleChange =(e)=>{
         setUser({...user,[e.target.name] : e.target.value})
-    }    
+    } 
+    const [errors,setErrors] = useState(false) 
+    
     const submitForm = (e)=>{
+        
        e.preventDefault();
+       if(user.Matricule.length == 0 || user.password.length == 0){
+        setErrors(true)
+
+       }
        const sendData = {
         Matricule: user.Matricule,
         password: user.password
@@ -54,14 +61,19 @@ export default function LoginAdmin(){
                 })
             }
             else{   
+                if(user.Matricule.length == 0 || user.password.length == 0){
+                    console.log("tokony feenoina ny banga")
+                }else{
+                    toast.error(' Diso ny laharana miafina na ny matricule',{
+                        position: toast.POSITION.TOP_CENTER,
+                        autoClose:2500,
+                        // innerWidth: 10
+                    })
+                }
             /*alert(result.data.status) ;     
             alert("There is a problem for adding,please try again");*/
-            toast.error(' Diso ny laharana miafina na ny matricule',{
-                    position: toast.POSITION.TOP_CENTER,
-                    autoClose:2500,
-                    // innerWidth: 10
-                })
-            navigate(`/LoginAdmin`)
+           
+            // navigate(`/LoginAdmin`)
             // alert("Invalid user")
             }   
         });
@@ -146,14 +158,19 @@ export default function LoginAdmin(){
                                 <p>isi-online</p>
                             </div>
                             <div className="form-group_login">
-                                <input type="text" placeholder="Tarehi-marika" required name="Matricule"
+                                <input type="text" placeholder="Tarehi-marika"  name="Matricule"
                                     value={Matricule} onChange = {e => handleChange(e) }
                                 />
+                                {errors && user.Matricule.length<=0?
+                            <label>fenoy fa tsy misy soratra</label>:""}
                             </div>
                             <div className="form-group_login">
-                                <input type="password" placeholder="Kaody miafina" required name="password"
+                                <input type="password" placeholder="Kaody miafina"  name="password"
                                     value={password} onChange = {e => handleChange(e) }
                                 />
+                                {errors && user.password.length<=0?
+                            <label>fenoy fa tsy misy soratra</label>:""}
+
                             </div>
                             <div className="form-group_login">
                                 <button type="submit" className='btn3 btn1'><b>Tsindrio</b></button>

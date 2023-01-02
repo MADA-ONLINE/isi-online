@@ -205,3 +205,6 @@
     cursor: pointer;
     width: 110%;
 }
+label{
+color: red;
+}

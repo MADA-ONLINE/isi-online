@@ -1,6 +1,7 @@
 import React, { useState, useEffect} from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import {Modal,Button} from "react-bootstrap"
 import axios from "axios";
 import headImage from '../image/head.png'
 import Saina1 from '../image/saina1.png'
@@ -37,6 +38,8 @@ export default function ListAdmin(){
     const [infoisi,setInfoisi] = useState([]);
 //*****************RECHERCHE*****************************************************************************/
     const [chercher,setChercher] = useState("");
+    const [show,setShow] = useState(false);
+    const [deleteId,setDeleteId] = useState("");
     const handleChange =(e)=>{
         //setSear({...sear,[e.target.name] : e.target.value})        
         let value = e.target.value;
@@ -55,15 +58,35 @@ export default function ListAdmin(){
     };
     console.log(infoisi);
 //*************DELETE************************************************************************************/
-    const deleteUser = (laharana) =>{
-        axios.delete("http://localhost/ISI_online/DeleteIsi.php",{ data : { laharana: laharana} })
+    const handleclickdeleteUser = (laharana) =>{
+        console.log(laharana);
+        setDeleteId(laharana);
+        setShow(true)
+        // axios.delete("http://localhost/ISI_online/DeleteIsi.php",{ data : { laharana: laharana} })
+        // .then((result)=>{
+        //     loadUsers();
+        // }).catch(()=>{
+        //     alert('error in the code');
+        // })
+    }
+    const handleClose = () =>{
+        setShow(false)
+      }
+    const handleDelete = () =>{
+        const laharana = deleteId;
+        console.log(laharana);
+         axios.delete("http://localhost/ISI_online/DeleteIsi.php",{ data : { laharana: laharana} })
         .then((result)=>{
             loadUsers();
         }).catch(()=>{
             alert('error in the code');
         })
+        setShow(false);
 
     }
+         
+
+    // }
     const PageVariants = {
         in: {
             opacity: 1,
@@ -88,9 +111,12 @@ export default function ListAdmin(){
         type: "spring",
         stiffness: 30
     }
+   
 
     return(
         <>
+        
+   
             <motion.div
                     initial="out"
                     animate="in"
@@ -136,6 +162,20 @@ export default function ListAdmin(){
                             variants={PageVariants_1}
                             transition={PageTransition}
                         >
+                     <Modal show={show} onHide={handleClose} animation={false}>
+                        <Modal.Header closeButton>
+                             <Modal.Title>Famafana</Modal.Title>
+                        </Modal.Header>
+                        <Modal.Body>tena hamafa ve ianao!</Modal.Body>
+                        <Modal.Footer>
+                            <Button variant="secondary" onClick={handleDelete}>
+                            ENY
+                             </Button>
+                             <Button variant="primary" onClick={handleClose}>
+                            TSIA
+                              </Button>
+                        </Modal.Footer>
+                    </Modal>
                             <div className="table_Admin">
                                 <table className="content-tablee_Admin">
                                     <thead>
@@ -150,6 +190,8 @@ export default function ListAdmin(){
                                             <th>Daty nandoavana ISI</th>
                                             <th>Vola haloa (Ariary)</th>
                                             <th>vola voaloha (Ariary) </th>
+                                            <th>bordereau</th>
+                                            <th>typr de versement</th>
                                             <th>Ampiasao</th>
                                         </tr>
                                     </thead>
@@ -170,6 +212,8 @@ export default function ListAdmin(){
                                                     <td>{infoisi.daty_fandoavana}</td>
                                                     <td>{infoisi.vola_aloa}</td> 
                                                     <td>{infoisi.vola_voaloha}</td>
+                                                    <td>{infoisi.bordereau}</td>
+                                                    <td>{infoisi.type}</td>
 
                                                     <td  id="ovaina">
                                                         <Link className ="Link" to={`/Edit/${infoisi.laharana}`}>
@@ -179,7 +223,7 @@ export default function ListAdmin(){
                                                             <img src={Pay}/>
                                                         </Link>
                                                         <img src={Pdf} onClick={ClickListPaiement}/>
-                                                        <img src={Delete} onClick={() => deleteUser(infoisi.laharana)}/>
+                                                        <img src={Delete} onClick={() => handleclickdeleteUser(infoisi.laharana)}/>
                                                         
 
                                                     </td>

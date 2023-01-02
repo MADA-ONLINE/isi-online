@@ -28,7 +28,8 @@ export default function Paiement(){
         daty_fandoavana:"",
         vola_aloa:"",
         mode_pay_esp:"",       
-        mode_pay_vir:""         
+        mode_pay_vir:"" ,
+        bordereau:""       
     })
     const [Select, setSelect] = useState()
     useEffect(()=>{
@@ -78,7 +79,7 @@ export default function Paiement(){
         e.preventDefault();
         //console.log(student)       
     
-     await axios.put("http://localhost/ISI_online/payement.php",infoisi,Select)
+     await axios.put("http://localhost/ISI_online/payement.php",infoisi)
         .then((result) => {
           console.log(result);
           if(result.status == 201){
@@ -246,6 +247,8 @@ export default function Paiement(){
         type: "spring",
         stiffness: 40
     }
+    console.log(infoisi.bordereau)
+    console.log(infoisi.daty_androany)
     return(
         <>
         <motion.div
@@ -323,11 +326,25 @@ export default function Paiement(){
                                     <div className="form-field_add">
                                         <select name="pets" className="input-text" value={Select} onChange = {e => setSelect(e.target.value)}>
                                             <option></option>
-                                            <option>Espèce</option>
-                                            <option>Virement</option>
+                                            <option value="Espece">Espece</option>
+                                            <option value="Virement">Virement</option>
                                         </select>
                                         <label for="price" className="label_add">Fomba fandoavanao vola</label>
                                     </div>
+
+                                    
+                                    
+                                    {
+                                        Select ==="Virement" &&(
+                                         <div className="form-field_add">
+                                         <input id = "price" className="input-text" required="required" type="text" name="bordereau"
+                                          onChange = {e => handleChange(e)}
+                                        />
+                                        <label for="price" className="label_add">laharany bordereau</label>
+                                        </div>
+                                        )
+                                    }
+                                        
                                     <div className="bouton">
                                         <div className="form-field_add">
                                             <input type="submit" className="btn4" id="btn4" name="submit" value="Aloa"/>

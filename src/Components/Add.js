@@ -35,11 +35,16 @@ export default function Add(){
          isi_aloha : "",
          charge : ""
     })
+    //  const [formErrors,setFormErrors] = useState(false)
+     const [error,setError]= useState(false)
+     const[formerror,setFormerror] = useState(false)
+     const[formerrors,setFormerrors] = useState(false)
 
     var deadLine = "01" + "/" + "01" + "/" + "0001"
-    const setdate_isi = new Date(infoisi.daty_androany)
+    const setdate_isi = new Date(infoisi.daty_nividianana)
     const mois_isi = setdate_isi.getMonth() + 1 
-    console.log(mois_isi)  
+    console.log(mois_isi)
+    console.log(setdate_isi)  
     // var Limit_Date = 15
     var Limit_Mouth = setdate_isi.getMonth() + 1
     // var Limit_Year = setdate_isi.getFullYear()
@@ -103,48 +108,69 @@ export default function Add(){
 
         setInfoisi({...infoisi,[e.target.name] : e.target.value})        
     }
+    
+    console.log("coucou")
+    const regex = /^[0-9\b]+$/;
+    const regex1 = /^[a-zA-Z]+$/;
+    const regex2 =   /^(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d$/;
 
+    
     const submitForm = async(e)=>{
         e.preventDefault();
-        console.log(infoisi)       
-
-
-     await axios.post("http://localhost/ISI_online/AddIsi.php?Nif="+Nif,infoisi)
-        .then((result) => {
-          console.log(result);
-          if(result.status == 201){
-            // alert("Tontosa ny fanambarana ISI nataonao!!!")
-            toast.success('Tontosa ny fanambarana ISI nataonao!!!',{
-                position: toast.POSITION.TOP_LEFT,
-                autoClose:2500,
-                // innerWidth: 10
-            })
-             history(`/List/${infoisi.nif}`);
-             
-          }
-        else{   
-          /*alert(result.data.status) ;     
-          alert("There is a problem for adding,please try again");*/
-          toast.error('Diso ny nif nampidirinao!!!',{
-            position: toast.POSITION.TOP_LEFT,
-            autoClose:2500,
-            // innerWidth: 10
-        })
-        }   
- 
-    });
+        console.log(infoisi)
+        if(infoisi.cin.length == 0){
+            setFormerrors(true)
+        }
+    
+        if( !regex.test(infoisi.vidina_entana) || !regex.test(infoisi.isany) || !regex1.test(infoisi.anarana_entana)){
+            setFormerrors(true)
+        }else{
+            if(infoisi.cin.length < 12){
+                setFormerrors(true)
+            }else{
+                if(infoisi.cin.length > 12){
+                    setFormerrors(true)
+                }else{
+                    if(infoisi.vidina_entana <= 0 || infoisi.isany <= 0 ){
+                        setError(true)
+                    }else{
+                        await axios.post("http://localhost/ISI_online/AddIsi.php?Nif="+Nif,infoisi)
+                        .then((result) => {
+                          console.log(result);
+                          if(result.status == 201){
+                            // alert("Tontosa ny fanambarana ISI nataonao!!!")
+                            toast.success('Tontosa ny fanambarana ISI nataonao!!!',{
+                                position: toast.POSITION.TOP_LEFT,
+                                autoClose:2500,
+                                // innerWidth: 10
+                            })
+                             history(`/List/${infoisi.nif}`);
+                             
+                          }
+                        else{   
+                          /*alert(result.data.status) ;     
+                          alert("There is a problem for adding,please try again");*/
+                          toast.error('Diso ny nif nampidirinao!!!',{
+                            position: toast.POSITION.TOP_LEFT,
+                            autoClose:2500,
+                            // innerWidth: 10
+                        })
+                        }   
+                 
+                    });
+                }
+            } 
+            }
+      
+        }
+  
     }
     // mampiseho n reultats ISI
     useEffect(()=>{
         loadUsers();
     },[]);
 
-    // const loadUsers = async ()=>{
-    //     const result = await axios.get("http://localhost/ISI_online/ListIsi.php");
-    //     //console.log(result.data);
-    //      setInfoisi(result.data); 
-    //      console.log(typeof(result.data));   
-    //    };
+ 
     const loadUsers = async ()=>{
         const result = await axios.get("http://localhost/ISI_online/ViewAdd.php?Nif="+Nif);
          //console.log(result.data);
@@ -188,7 +214,8 @@ export default function Add(){
         type: "spring",
         stiffness: 40
     }
-    return(
+   
+        return(
         <>
             <motion.div
                 initial="out"
@@ -224,52 +251,79 @@ export default function Add(){
                                 <div className="container_add">
                                     <div className="contact-form_add rowww">
                                         <div className="form-field_add">
-                                            <input id = "nif" className="input-text" required="required" type="number" name="nif" 
+                                            <input id = "nif" className="input-text"  type="number" name="nif" 
                                             value={nif} onChange = {e => handleChange(e) }
                                             />
                                             <label for="nif" className="label_add">NIF</label>
+                                           
                                         </div>
                                         <div className="form-field_add">
-                                            <input id = "name1" className="input-text" required="required" type="text" name="anarana_feno"
+                                            <input id = "name1" className="input-text"  type="text" name="anarana_fenos"
                                             value={anarana_feno} onChange = {e => handleChange(e)}
                                             />
                                             <label for="name1" className="label_add">Anarana feno</label>
+                                            
                                         </div>
+                                           
                                         <div className="form-field_add">
-                                            <input id = "cin" className="input-text" required="required" type="number" name="cin"
-                                            value={cin} onChange = {e => handleChange(e)}
+                                            <input id = "cin" className="input-text"  type="text" name="cin" type = "number"
+                                            value={cin} onChange = {e => handleChange(e)} required = "required"
                                             />
                                             <label for="cin" className="label_add">Laharan'ny kara-panondro</label>
+                                            
+                                             {formerrors && infoisi.cin.length < 12?
+                                             <label>tsy ampy ny laharana nampi</label>:""}
+                                             {formerrors && infoisi.cin.length > 12?
+                                             <label> mihoatra ny laharana</label>:""
+                                             } 
+                                            
+
                                         </div>
                                         <div className="form-field_add">
-                                            <input id = "date1" className="input-text" required="required" type="date" name="daty_androany" 
+                                            <input id = "date1" className="input-text"  type="date" name="daty_androany" required ="required"
                                             value={daty_androany} onChange = {e => handleChange(e)}
                                             />
                                             <label for="date1" className="label_add">Daty androany</label>
+                                            {/* {formerrors && !regex2.test(infoisi.daty_androany)?
+                                             <label>tokony ho fenoina</label>:""} */}
+
                                         </div>
                                         <div className="form-field_add">
-                                            <input id = "name2" className="input-text" required="required" type="text" name="anarana_entana"
+                                            <input id = "name2" className="input-text"  type="text" name="anarana_entana"
                                             value={anarana_entana} onChange = {e => handleChange(e)}
                                             />
                                             <label for="name2" className="label_add">Anaran'ny entana novidiana</label>
+                                            {formerrors && !regex1.test(infoisi.anarana_entana)?
+                                             <label>misy tsy mety</label>:""}
                                         </div>
+                                        
                                         <div className="form-field_add">
-                                            <input id = "price" className="input-text" required="required" type="number" name="vidina_entana"
+                                            <input id = "price" className="input-text"  type="text" name="vidina_entana"
                                             value={vidina_entana} onChange = {e => handleChange(e)}
                                             />
                                             <label for="price" className="label_add">Ny vidiny (Ariary)</label>
+                                            {formerrors && !regex.test(infoisi.vidina_entana) ?
+                                            <label>misy tsy mety</label>:"" 
+                                            }
                                         </div>
                                         <div className="form-field_add">
-                                            <input id = "number" className="input-text" required="required" type="number" name="isany"
+                                            <input id = "number" className="input-text"  type="text" name="isany"
                                             value={isany} onChange = {e => handleChange(e)}
                                             />
                                             <label for="price" className="label_add">Ny isany</label>
+                                            {formerrors && !regex.test(infoisi.isany)?
+                                            <label>misy tsy mety</label>:"" 
+                                            }
+                                           
                                         </div>
                                         <div className="form-field_add">
-                                            <input id = "date2" className="input-text" required="required" type="date" name="daty_nividianana"
-                                            value={daty_nividianana} onChange = {e => handleChange(e)}
+                                            <input id = "date2" className="input-text"  type="date" name="daty_nividianana"
+                                            value={daty_nividianana} onChange = {e => handleChange(e)} required ="required"
                                             />
                                             <label for="date2" className="label_add">Daty nividianana ny entana</label>
+                                            {/* {formerrors && !regex2.test(infoisi.daty_nividianana)?
+                                             <label>tokony ho fenoina</label>:""} */}
+
                                         </div>
                                         <div className="form-field_add">
                                             <input type="submit" className="btn4" name="submit" value="Add"/>

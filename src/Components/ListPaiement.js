@@ -81,6 +81,8 @@ import DGI from '../image/DGI.jpg'
                                     <th>Daty nandoavam-bola</th>
                                     <th>Vola haloa (Ariary)</th>
                                     <th>Vola voaloa (Ariary)</th>
+                                    <th>fomba nandoavana</th>
+                                    
                                 </tr>
                             </thead>
                             <tbody>                           

@@ -28,7 +28,8 @@ export default function LoginClient(){
     const [user,setUser] = useState({
         nif:"",
         password:""
-    })
+    })    
+    const [errors,setErrors] = useState(false)
    
     const {nif,password}= user
     const handleChange =(e)=>{
@@ -37,6 +38,11 @@ export default function LoginClient(){
     
     const submitForm = (e)=>{
        e.preventDefault();
+       if(user.nif.length == 0 || user.password.length == 0){
+        setErrors(true)
+
+       }
+
        const sendData = {
         nif: user.nif,
         password: user.password
@@ -60,15 +66,21 @@ export default function LoginClient(){
                     // innerWidth: 10
                 })
             } 
-            else{   
+            else{
+                if(user.nif.length == 0 || user.password.length == 0){
+                    console.log("tokony fenoina")
+                } else{
+                    toast.error(' ⚠️ Diso ny kaody miafina na ny Nif anao ⚠️',{
+                        position: toast.POSITION.TOP_CENTER,
+                        autoClose:4000,
+                        // innerWidth: 100         
+        
+                    })
+
+                }
             /*alert(result.data.status) ;     
             alert("There is a problem for adding,please try again");*/
-            toast.error(' ⚠️ Diso ny kaody miafina na ny Nif anao ⚠️',{
-                position: toast.POSITION.TOP_CENTER,
-                autoClose:4000,
-                // innerWidth: 100         
-
-            })
+           
             // alert("Invalid user")
             }   
         });
@@ -153,14 +165,18 @@ export default function LoginClient(){
                             <p>isi-online</p>
                         </div>
                         <div className="form-group_login">
-                            <input type="text" placeholder="NIF" required name="nif"
+                            <input type="text" placeholder="NIF" name="nif"
                                 value={nif} onChange = {e => handleChange(e) }
                             />
+                            {errors && user.nif.length<=0?
+                            <label>fenoy fa tsy misy soratra</label>:""}
                         </div>
                         <div className="form-group_login">
-                            <input type="password" placeholder="Kaody miafina" required name="password"
+                            <input type="password" placeholder="Kaody miafina" name="password"
                                 value={password} onChange = {e => handleChange(e) }
                             />
+                            {errors && errors && user.password.length<=0?
+                            <label>fenoy fa tsy misy soratra</label>:""}
                         </div>
                         <div className="form-group_login">
                             <button type="submit" className='btn3 btn1'><b>Tsindrio</b></button>

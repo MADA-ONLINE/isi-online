@@ -20,6 +20,7 @@ import ListPaiement from './Components/ListPaiement';
 import {AnimatePresence} from 'framer-motion'
 import 'bootstrap/dist/css/bootstrap.css';
 import "react-toastify/dist/ReactToastify.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import {ToastContainer} from "react-toastify";
 import 'aos/dist/aos.css';
 import AOS from 'aos';
