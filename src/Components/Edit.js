@@ -19,6 +19,10 @@ import { motion } from 'framer-motion'
 export default function Edit(){
     let history = useNavigate();
     const {laharana} =  useParams();
+    const [error,setError]= useState(false)
+    const[formerror,setFormerror] = useState(false)
+    const[formerrors,setFormerrors] = useState(false)
+
      
     const [infoisi,setInfoisi] = useState( {      
         nif:"",
@@ -48,26 +52,50 @@ export default function Edit(){
    /*************update******************** */
     const updateForm = async(e)=>{
         e.preventDefault();
-        //console.log(student)       
-        await axios.put("http://localhost/ISI_online/UpdateIsi.php",infoisi)
-        .then((result) => {
-        console.log(result);
-            if(result.status == 201){
-                // alert("tontosa ny fanovana");
-                toast.success('Tontosa ny fanovana nataonao!!!',{
-                    position: toast.POSITION.TOP_LEFT,
-                    autoClose:2500,
-                    // innerWidth: 10
-                })
-                 history(`/List/${infoisi.nif}`);
-                history(`/ListAdmin`);        
-            }
-            else{   
-                
-            alert("jereo tsara fa misi olana");
-            }   
-        })
+        //console.log(student)
+        if(infoisi.cin.length == 0){
+            setFormerrors(true)
+        }
+        if( !regex.test(infoisi.vidina_entana) || !regex.test(infoisi.isany) || !regex1.test(infoisi.anarana_entana)){
+            setFormerrors(true)
+        }else{
+            if(infoisi.cin.length < 12){
+                setFormerrors(true)
+            }else{
+                if(infoisi.cin.length > 12){
+                    setFormerrors(true)
+                }else{
+                    if(infoisi.vidina_entana <= 0 || infoisi.isany <= 0 ){
+                        setError(true)
+                    }else{
+               
+                        await axios.put("http://localhost/ISI_online/UpdateIsi.php",infoisi)
+                        .then((result) => {
+                        console.log(result);
+                            if(result.status == 201){
+                                // alert("tontosa ny fanovana");
+                                toast.success('Tontosa ny fanovana nataonao!!!',{
+                                    position: toast.POSITION.TOP_LEFT,
+                                    autoClose:2500,
+                                    // innerWidth: 10
+                                })
+                                history(`/List/${infoisi.nif}`);
+                                history(`/ListAdmin`);        
+                            }
+                            else{   
+                                
+                            alert("jereo tsara fa misi olana");
+                            }   
+                        })
+        
+    } 
+}
+
+}
+
+}
     }
+    
     const PageVariants = {
         in: {
             opacity: 1,
@@ -104,6 +132,9 @@ export default function Edit(){
         type: "spring",
         stiffness: 40
     }
+    const regex = /^[0-9\b]+$/;
+    const regex1 = /^[a-zA-Z]+$/;
+    const regex2 =   /^(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d$/;
     return(
         <motion.div
                 initial="out"
@@ -152,7 +183,7 @@ export default function Edit(){
                                         </div>
                                         <div className="form-field_add">
 
-                                            <input id = "name1" className="input-text" type="text" name="anarana_feno"
+                                            <input id = "name1" className="input-text" type="text" name="anarana_fenos"
                                             value={infoisi.anarana_feno} onChange = {e => handleChange(e)}
                                             />
                                             <label for="name1" className="label_add">Anarana feno</label>
@@ -160,10 +191,15 @@ export default function Edit(){
                                         </div>
                                         <div className="form-field_add">
 
-                                            <input id = "cin" className="input-text" type="text" name="cin"
+                                            <input id = "cin" className="input-text" type="text" name="cin" type = "number"
                                             value={infoisi.cin} onChange = {e => handleChange(e)}
                                             />
                                             <label for="cin" className="label_add">Laharan'ny kara-panondro</label>
+                                            {formerrors && infoisi.cin.length < 12?
+                                             <label>tsy ampy ny laharana nampi</label>:""}
+                                             {formerrors && infoisi.cin.length > 12?
+                                             <label> mihoatra ny laharana</label>:""
+                                             } 
 
                                         </div>
                                         <div className="form-field_add">
@@ -179,8 +215,9 @@ export default function Edit(){
                                             <input id = "name2" className="input-text" type="text" name="anarana_entana"
                                             value={infoisi.anarana_entana} onChange = {e => handleChange(e)}
                                             />
-                                            <label for="name2" className="label_add">Anaran'ny entana novidiana</label>
-
+                                             <label for="name2" className="label_add">Anaran'ny entana novidiana</label>
+                                            {formerrors && !regex1.test(infoisi.anarana_entana)?
+                                             <label>misy tsy mety</label>:""}
                                         </div>
                                         <div className="form-field_add">
 
@@ -188,6 +225,9 @@ export default function Edit(){
                                             value={infoisi.vidina_entana} onChange = {e => handleChange(e)}
                                             />
                                             <label for="price" className="label_add">Ny vidiny (Ariary)</label>
+                                            {formerrors && !regex.test(infoisi.vidina_entana) ?
+                                            <label>misy tsy mety</label>:"" 
+                                            }
 
                                         </div>
                                         <div className="form-field_add">
@@ -204,6 +244,10 @@ export default function Edit(){
                                             value={infoisi.isany} onChange = {e => handleChange(e)}
                                             />
                                             <label for="date2" className="label_add">isan'ny entana</label>
+                                            {formerrors && !regex.test(infoisi.isany)?
+                                            <label>misy tsy mety</label>:"" 
+                                            }
+                                           
 
                                         </div>
                                         <div className="form-field_add">

@@ -324,7 +324,7 @@ export default function Paiement(){
                                         <label for="price" className="label_add">Vola ISI (Ariary)</label>
                                     </div>
                                     <div className="form-field_add">
-                                        <select name="pets" className="input-text" value={Select} onChange = {e => setSelect(e.target.value)}>
+                                        <select name="pets" className="input-text" value={Select} onChange = {e => setSelect(e.target.value)} required = "required">
                                             <option></option>
                                             <option value="Espece">Espece</option>
                                             <option value="Virement">Virement</option>
