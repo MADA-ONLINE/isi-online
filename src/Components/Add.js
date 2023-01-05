@@ -118,7 +118,7 @@ export default function Add(){
             setFormerrors(true)
         }
     
-        if( !regex.test(infoisi.vidina_entana) || !regex.test(infoisi.isany) || !regex1.test(infoisi.anarana_entana)){
+        if( !regex.test(infoisi.vidina_entana) || !regex.test(infoisi.isany)){
             setFormerrors(true)
         }else{
             if(infoisi.cin.length < 12){
@@ -133,20 +133,20 @@ export default function Add(){
                         await axios.post("http://localhost/ISI_online/AddIsi.php?Nif="+Nif,infoisi)
                         .then((result) => {
                           console.log(result);
-                          if(result.status == 201){
-                            // alert("Tontosa ny fanambarana ISI nataonao!!!")
-                            toast.success('Tontosa ny fanambarana ISI nataonao!!!',{
-                                position: toast.POSITION.TOP_LEFT,
-                                autoClose:2500,
-                                // innerWidth: 10
-                            })
-                             history(`/List/${infoisi.nif}`);
-                             
-                          }
+                        if(result.status == 201){
+                        // alert("Tontosa ny fanambarana ISI nataonao!!!")
+                        toast.success('Tontosa ny fanambarana ISI nataonao!!!',{
+                            position: toast.POSITION.TOP_LEFT,
+                            autoClose:2500,
+                            // innerWidth: 10
+                        })
+                            history(`/List/${infoisi.nif}`);
+                            
+                        }
                         else{   
-                          /*alert(result.data.status) ;     
-                          alert("There is a problem for adding,please try again");*/
-                          toast.error('Diso ny nif nampidirinao!!!',{
+                        /*alert(result.data.status) ;     
+                        alert("There is a problem for adding,please try again");*/
+                        toast.error('Diso ny nif nampidirinao!!!',{
                             position: toast.POSITION.TOP_LEFT,
                             autoClose:2500,
                             // innerWidth: 10
@@ -262,35 +262,27 @@ export default function Add(){
                                         </div>
                                            
                                         <div className="form-field_add">
-                                            <input id = "cin" className="input-text"  type="text" name="cin" type = "number"
+                                            <input id = "cin" className="input-text"  type="text" name="cin"
                                             value={cin} onChange = {e => handleChange(e)} required = "required"
                                             />
                                             <label for="cin" className="label_add">Laharan'ny kara-panondro</label>
                                             
                                              {formerrors && infoisi.cin.length < 12?
-                                             <label>tsy ampy ny laharana nampi</label>:""}
+                                             <label>tsy ampy ny laharana</label>:""}
                                              {formerrors && infoisi.cin.length > 12?
                                              <label> mihoatra ny laharana</label>:""
                                              } 
                                             
 
                                         </div>
-                                        <div className="form-field_add">
-                                            <input id = "date1" className="input-text"  type="date" name="daty_androany" required ="required"
-                                            value={daty_androany} onChange = {e => handleChange(e)}
-                                            />
-                                            <label for="date1" className="label_add">Daty androany</label>
-                                            {/* {formerrors && !regex2.test(infoisi.daty_androany)?
-                                             <label>tokony ho fenoina</label>:""} */}
-
-                                        </div>
+                                        
                                         <div className="form-field_add">
                                             <input id = "name2" className="input-text"  type="text" name="anarana_entana"
                                             value={anarana_entana} onChange = {e => handleChange(e)}
                                             />
                                             <label for="name2" className="label_add">Anaran'ny entana novidiana</label>
-                                            {formerrors && !regex1.test(infoisi.anarana_entana)?
-                                             <label>misy tsy mety</label>:""}
+                                            {/* {formerrors && !regex1.test(infoisi.anarana_entana)?
+                                             <label>Misy tsy mety</label>:""} */}
                                         </div>
                                         
                                         <div className="form-field_add">
@@ -299,7 +291,7 @@ export default function Add(){
                                             />
                                             <label for="price" className="label_add">Ny vidiny (Ariary)</label>
                                             {formerrors && !regex.test(infoisi.vidina_entana) ?
-                                            <label>misy tsy mety</label>:"" 
+                                            <label>Misy tsy mety</label>:"" 
                                             }
                                         </div>
                                         <div className="form-field_add">
@@ -318,6 +310,15 @@ export default function Add(){
                                             />
                                             <label for="date2" className="label_add">Daty nividianana ny entana</label>
                                             {/* {formerrors && !regex2.test(infoisi.daty_nividianana)?
+                                             <label>tokony ho fenoina</label>:""} */}
+
+                                        </div>
+                                        <div className="form-field_add">
+                                            <input id = "date1" className="input-text"  type="date" name="daty_androany" required ="required"
+                                            value={daty_androany} onChange = {e => handleChange(e)}
+                                            />
+                                            <label for="date1" className="label_add">Daty androany</label>
+                                            {/* {formerrors && !regex2.test(infoisi.daty_androany)?
                                              <label>tokony ho fenoina</label>:""} */}
 
                                         </div>

@@ -122,7 +122,7 @@ import Back from '../image/back.jpg'
                                 <div className="infoname">
                                     <p id="nif">NIF: <b>{infoisi_1.nif}</b></p>
                                     {/* <hr></hr> */}
-                                    <p id="anarana">Anarana feno:<b> {infoisi_1.anarana_feno}</b></p>
+                                    <p id="anarana">Anarana feno:<b>{infoisi_1.anarana_feno}</b></p>
                                 </div>
                             </div>
                             {/* )})} */}
@@ -131,7 +131,7 @@ import Back from '../image/back.jpg'
                                     <p>Déconnexion</p>
                             </div>
                             <div className="search_list">
-                                <input type="texte" placeholder="Date"
+                                <input type="texte" placeholder="Tadiavo"
                                 onChange = {handleChange}
                                 />
                                 <img src={Search} />
@@ -154,6 +154,7 @@ import Back from '../image/back.jpg'
                                             <th>Ny isany</th>
                                             <th>Daty novidianana azy</th>
                                             <th>Daty nisoratana ISI</th>
+                                            <th>Daty nandoavam-bola</th>
                                             <th>Vola aloha (Ariary)</th>
                                             <th>sazy</th>
                                             <th>Fanamarihana</th>
@@ -162,7 +163,7 @@ import Back from '../image/back.jpg'
                                     <tbody>
                                         {infoisi.filter((infoisi)=>{
                                             return (infoisi.anarana_entana.includes(chercher) ||
-                                            infoisi.daty_nividianana.includes(chercher) || infoisi.daty_androany.includes(chercher)  )            
+                                            infoisi.daty_nividianana.includes(chercher) || infoisi.daty_androany.includes(chercher) || infoisi.daty_fandoavana.includes(chercher))            
                                             }).map(infoisi=>{ return (                           
                                             <tr>
                                                 <td>{infoisi.laharana}</td>
@@ -171,6 +172,7 @@ import Back from '../image/back.jpg'
                                                 <td>{infoisi.isany}</td>
                                                 <td>{infoisi.daty_nividianana}</td>
                                                 <td>{infoisi.daty_androany}</td>
+                                                <td>{infoisi.daty_fandoavana}</td>
                                                 <td>{infoisi.vola_aloa}</td>
                                                 <td>{infoisi.sazy}</td>
                                                 <td>{infoisi.fanamarihana}</td>

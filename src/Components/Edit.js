@@ -191,7 +191,7 @@ export default function Edit(){
                                         </div>
                                         <div className="form-field_add">
 
-                                            <input id = "cin" className="input-text" type="text" name="cin" type = "number"
+                                            <input id = "cin" className="input-text" type="text" name="cin"
                                             value={infoisi.cin} onChange = {e => handleChange(e)}
                                             />
                                             <label for="cin" className="label_add">Laharan'ny kara-panondro</label>
@@ -202,14 +202,7 @@ export default function Edit(){
                                              } 
 
                                         </div>
-                                        <div className="form-field_add">
-
-                                            <input id = "date1" className="input-text" type="date" name="daty_androany"
-                                            value={infoisi.daty_androany} onChange = {e => handleChange(e)}
-                                            />
-                                            <label for="date1" className="label_add">Daty androany</label>
-
-                                        </div>
+                                        
                                         <div className="form-field_add">
 
                                             <input id = "name2" className="input-text" type="text" name="anarana_entana"
@@ -231,6 +224,15 @@ export default function Edit(){
 
                                         </div>
                                         <div className="form-field_add">
+                                            <input id = "date2" className="input-text" type="texte" name="isany"
+                                            value={infoisi.isany} onChange = {e => handleChange(e)}
+                                            />
+                                            <label for="date2" className="label_add">isan'ny entana</label>
+                                            {formerrors && !regex.test(infoisi.isany)?
+                                            <label>misy tsy mety</label>:"" 
+                                            }
+                                        </div>
+                                        <div className="form-field_add">
 
                                             <input id = "date2" className="input-text" type="date" name="daty_nividianana"
                                             value={infoisi.daty_nividianana} onChange = {e => handleChange(e)}
@@ -240,16 +242,13 @@ export default function Edit(){
                                         </div>
                                         <div className="form-field_add">
 
-                                            <input id = "date2" className="input-text" type="texte" name="isany"
-                                            value={infoisi.isany} onChange = {e => handleChange(e)}
+                                            <input id = "date1" className="input-text" type="date" name="daty_androany"
+                                            value={infoisi.daty_androany} onChange = {e => handleChange(e)}
                                             />
-                                            <label for="date2" className="label_add">isan'ny entana</label>
-                                            {formerrors && !regex.test(infoisi.isany)?
-                                            <label>misy tsy mety</label>:"" 
-                                            }
-                                           
+                                            <label for="date1" className="label_add">Daty androany</label>
 
                                         </div>
+                                        
                                         <div className="form-field_add">
                                             <button type="submit" className='btn4' ><b>Tsindrio</b></button>
                                         </div>

@@ -14,7 +14,6 @@ import Search from '../image/search.png'
 import Pay from '../image/Pay.png'
 import Edit from '../image/Edit.png'
 import Delete from '../image/Delete.png'
-import Pdf from '../image/Pdf.png'
 import Facebook from '../image/facebook.png'
 import Email from '../image/email.png'
 import Google from '../image/google_plus.png'
@@ -119,8 +118,6 @@ export default function ListAdmin(){
 
     return(
         <>
-        
-   
             <motion.div
                     initial="out"
                     animate="in"
@@ -151,13 +148,13 @@ export default function ListAdmin(){
                             <div className="deconnexion_List_Admin">
                                 <img src={Logout} onClick={Logout_List_Admin}/>
                                 <p>Déconnexion</p>
-                                <CSVLink data = {infoisi} className ="btn btn-success mb-3" filename="Isi"> Export</CSVLink>
+                                <CSVLink data = {infoisi} className ="btn btn-success mb-3" filename="Isi">Export</CSVLink>
                             </div>
                             <div className="search_Admin">
-                                    <input type="texte" placeholder="Date/Num"
-                                        onChange = {handleChange}
-                                        />
-                                    <img src={Search} />
+                                <input type="texte" placeholder="Tadiavo"
+                                    onChange = {handleChange}
+                                />
+                                <img src={Search} />
                             </div>
                         </div>
                         
@@ -173,19 +170,16 @@ export default function ListAdmin(){
                         <Modal.Header closeButton>
                              <Modal.Title>Famafana</Modal.Title>
                         </Modal.Header>
-                        <Modal.Body>tena hamafa ve ianao!</Modal.Body>
+                        <Modal.Body>⚠️Tena hamafa ve ianao!?⚠️</Modal.Body>
                         <Modal.Footer>
                             <Button variant="secondary" onClick={handleDelete}>
-                            ENY
-                             </Button>
+                                ENY
+                            </Button>
                              <Button variant="primary" onClick={handleClose}>
-                            TSIA
-                              </Button>
+                                TSIA
+                            </Button>
                         </Modal.Footer>
                     </Modal>
-
-
-
                             <div className="table_Admin">
                                 <table className="content-tablee_Admin">
                                     <thead>
@@ -201,8 +195,8 @@ export default function ListAdmin(){
                                             <th>Vola haloa (Ariary)</th>
                                             <th>Sazy (Ariary)</th>
                                             <th>vola voaloha (Ariary) </th>
-                                            <th>bordereau</th>
-                                            <th>typr de versement</th>
+                                            <th>Laharan'ny rosia</th>
+                                            <th>Fomba andoavam-bola</th>
                                             <th>Ampiasao</th>
                                         </tr>
                                     </thead>
@@ -210,7 +204,7 @@ export default function ListAdmin(){
                 {/* misy link ato************************ */}
                                         {infoisi.filter((infoisi)=>{
                                             return ( infoisi.nif.includes(chercher) || infoisi.anarana_feno.includes(chercher) || infoisi.anarana_entana.includes(chercher) ||
-                                            infoisi.daty_nividianana.includes(chercher) || infoisi.daty_androany.includes(chercher) || infoisi.sazy.includes(chercher))            
+                                            infoisi.daty_nividianana.includes(chercher) || infoisi.daty_androany.includes(chercher))            
                                             }).map(infoisi=>{ return ( 
                                                 <tr>
                                                     <td>{infoisi.nif}</td>
@@ -234,10 +228,7 @@ export default function ListAdmin(){
                                                         <Link className ="Link" to={`/Paiement/${infoisi.laharana}`}>
                                                             <img src={Pay}/>
                                                         </Link>
-                                                        <img src={Pdf} onClick={ClickListPaiement}/>
                                                         <img src={Delete} onClick={() => handleclickdeleteUser(infoisi.laharana)}/>
-                                                        
-
                                                     </td>
                                                 </tr>
                                             )
