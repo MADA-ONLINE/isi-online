@@ -49,7 +49,7 @@ export default function Add(){
     console.log(Limit_Year)
     // var deadLine = "01" + "/" + "01" + "/" + "0001"
     console.log(setdate_isi.getDate())
-    if(infoisi.daty_androany){
+    if(infoisi.daty_nividianana){
         if(mois_isi == 12 ){
            var Limit_Date = 31
            var Limit_Year = setdate_isi.getFullYear()

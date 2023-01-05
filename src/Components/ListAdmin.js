@@ -170,7 +170,9 @@ export default function ListAdmin(){
                         <Modal.Header closeButton>
                              <Modal.Title>Famafana</Modal.Title>
                         </Modal.Header>
-                        <Modal.Body>⚠️Tena hamafa ve ianao!?⚠️</Modal.Body>
+
+                        <Modal.Body>⚠️Vonona ny hamafa ve ianao!?⚠️</Modal.Body>
+
                         <Modal.Footer>
                             <Button variant="secondary" onClick={handleDelete}>
                                 ENY
