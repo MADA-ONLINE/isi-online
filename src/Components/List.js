@@ -162,8 +162,8 @@ import Back from '../image/back.jpg'
                                     </thead>
                                     <tbody>
                                         {infoisi.filter((infoisi)=>{
-                                            return (infoisi.anarana_entana.includes(chercher) ||
-                                            infoisi.daty_nividianana.includes(chercher) || infoisi.daty_androany.includes(chercher) || infoisi.daty_fandoavana.includes(chercher))            
+                                            return (infoisi.anarana_entana.toLowerCase().includes(chercher) ||
+                                            infoisi.daty_nividianana.includes(chercher) || infoisi.daty_androany.includes(chercher) || infoisi.daty_fandoavana.includes(chercher) || infoisi.fanamarihana.toLowerCase().includes(chercher))            
                                             }).map(infoisi=>{ return (                           
                                             <tr>
                                                 <td>{infoisi.laharana}</td>
@@ -205,7 +205,7 @@ import Back from '../image/back.jpg'
                                     <p>E-mail: <a href="impot.ssif.hotline@gmail.com">impot.ssif.hotline@gmail.com</a></p>
                                 </div>
                                 <div className="NOTRE_SITE">
-                                    <p><b>NOTRE SITE</b></p>
+                                    <p><b>IREO TRANOKALA</b></p>
                                     <a href="www.impots.mg">www.impots.mg</a>
                                     <p>Nifonline</p>
                                     <a href="nifonline.impots.mg">nifonline.impots.mg</a>
@@ -214,10 +214,11 @@ import Back from '../image/back.jpg'
                             <div className="social">
                                 <p>SOCIAL</p>
                                 <div className="icone-social">
-                                    <img src={Facebook}></img>
-                                    <img src={Twitter}></img>
-                                    <img src={Google}></img>
-                                    <img src={Email}></img>
+                                <a href="https://www.facebook.com/profile.php?id=100010857341632"><img src={Facebook}></img></a>
+                                    <a href="https://twitter.com/impotsmada?lang=fr"><img src={Twitter}></img></a>
+                                    <a href="http://www.impots.mg/"><img src={Google}></img></a>
+                                    <a href="mailto:impot.ssif.hotline@gmail.com"><img src={Email}></img></a>
+                              
                                 </div>
                             </div>
                         </div>

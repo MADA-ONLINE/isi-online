@@ -38,6 +38,7 @@ export default function ListAdmin(){
     function ClickListPaiement() {
         navigate('/ListPaiement')
     }
+    
     const [infoisi,setInfoisi] = useState([]);
 //*****************RECHERCHE*****************************************************************************/
     const [chercher,setChercher] = useState("");
@@ -195,18 +196,18 @@ export default function ListAdmin(){
                                             <th>Daty nisoratana ISI</th>
                                             <th>Daty nandoavana ISI</th>
                                             <th>Vola haloa (Ariary)</th>
-                                            <th>Sazy (Ariary)</th>
+                                            {/* <th>Sazy (Ariary)</th>
                                             <th>vola voaloha (Ariary) </th>
                                             <th>Laharan'ny rosia</th>
-                                            <th>Fomba andoavam-bola</th>
+                                            <th>Fomba andoavam-bola</th> */}
                                             <th>Ampiasao</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                 {/* misy link ato************************ */}
                                         {infoisi.filter((infoisi)=>{
-                                            return ( infoisi.nif.includes(chercher) || infoisi.anarana_feno.includes(chercher) || infoisi.anarana_entana.includes(chercher) ||
-                                            infoisi.daty_nividianana.includes(chercher) || infoisi.daty_androany.includes(chercher))            
+                                            return ( infoisi.nif.includes(chercher) || infoisi.anarana_feno.toLowerCase().includes(chercher) || infoisi.anarana_entana.toLowerCase().includes(chercher) ||
+                                            infoisi.daty_nividianana.includes(chercher) || infoisi.daty_androany.includes(chercher) || infoisi.daty_fandoavana.includes(chercher) || infoisi.type.toLowerCase().includes(chercher))            
                                             }).map(infoisi=>{ return ( 
                                                 <tr>
                                                     <td>{infoisi.nif}</td>
@@ -218,17 +219,16 @@ export default function ListAdmin(){
                                                     <td>{infoisi.daty_androany}</td>
                                                     <td>{infoisi.daty_fandoavana}</td>
                                                     <td>{infoisi.vola_aloa}</td> 
-                                                    <td>{infoisi.sazy}</td> 
+                                                    {/* <td>{infoisi.sazy}</td> 
                                                     <td>{infoisi.vola_voaloha}</td>
                                                     <td>{infoisi.bordereau}</td>
-                                                    <td>{infoisi.type}</td>
-
+                                                    <td>{infoisi.type}</td> */}
                                                     <td  id="ovaina">
+                                                    <Link className ="Link" to={`/Paiement/${infoisi.laharana}`}>
+                                                            <img src={Pay}/>
+                                                        </Link>
                                                         <Link className ="Link" to={`/Edit/${infoisi.laharana}`}>
                                                             <img src={Edit}/>
-                                                        </Link>
-                                                        <Link className ="Link" to={`/Paiement/${infoisi.laharana}`}>
-                                                            <img src={Pay}/>
                                                         </Link>
                                                         <img src={Delete} onClick={() => handleclickdeleteUser(infoisi.laharana)}/>
                                                     </td>
@@ -238,8 +238,10 @@ export default function ListAdmin(){
                                     </tbody>
                                 </table>
                             </div>
-                        </motion.div>
-                        
+                            <div className="lisitra" onClick={ClickListPaiement}>
+                                <p className ="lisitra_voaloa">Lisitr'ireo nandoa vola rehetra >>></p>
+                            </div>
+                        </motion.div>            
                         <div className="contact_admin" data-aos="fade-up"
                             data-aos-anchor-placement="center-bottom"
                             data-aos-duration="2000">
@@ -263,7 +265,7 @@ export default function ListAdmin(){
                                     <p>E-mail: <a href="impot.ssif.hotline@gmail.com">impot.ssif.hotline@gmail.com</a></p>
                                 </div>
                                 <div className="NOTRE_SITE">
-                                    <p><b>NOTRE SITE</b></p>
+                                    <p><b>IREO TRANOKALA</b></p>
                                     <a href="www.impots.mg">www.impots.mg</a>
                                     <p>Nifonline</p>
                                     <a href="nifonline.impots.mg">nifonline.impots.mg</a>
@@ -272,10 +274,10 @@ export default function ListAdmin(){
                             <div className="social">
                                 <p>SOCIAL</p>
                                 <div className="icone-social">
-                                    <img src={Facebook}></img>
-                                    <img src={Twitter}></img>
-                                    <img src={Google}></img>
-                                    <img src={Email}></img>
+                                    <a href="https://www.facebook.com/profile.php?id=100010857341632"><img src={Facebook}></img></a>
+                                    <a href="https://twitter.com/impotsmada?lang=fr"><img src={Twitter}></img></a>
+                                    <a href="http://www.impots.mg/"><img src={Google}></img></a>
+                                    <a href="mailto:impot.ssif.hotline@gmail.com"><img src={Email}></img></a>
                                 </div>
                             </div>
                         </div>

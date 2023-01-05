@@ -244,10 +244,11 @@ export default function Accueil(){
                             <div className="social">
                                 <p>SOCIAL</p>
                                 <div className="icone-social">
-                                    <img src={Facebook}></img>
-                                    <img src={Twitter}></img>
-                                    <img src={Google}></img>
-                                    <img src={Email}></img>
+                                <a href="https://www.facebook.com/profile.php?id=100010857341632"><img src={Facebook}></img></a>
+                                    <a href="https://twitter.com/impotsmada?lang=fr"><img src={Twitter}></img></a>
+                                    <a href="http://www.impots.mg/"><img src={Google}></img></a>
+                                    <a href="mailto:impot.ssif.hotline@gmail.com"><img src={Email}></img></a>
+                              
                                 </div>
                             </div>
                         </div>

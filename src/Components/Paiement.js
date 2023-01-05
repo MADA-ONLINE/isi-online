@@ -10,10 +10,6 @@ import Give1 from '../image/give1.png'
 import Give2 from '../image/give2.png'
 import Give3 from '../image/give3.png'
 import Give4 from '../image/give4.png'
-import Facebook from '../image/facebook.png'
-import Email from '../image/email.png'
-import Google from '../image/google_plus.png'
-import Twitter from '../image/Twitter.png'
 import { motion } from 'framer-motion'
 
 export default function Paiement(){
@@ -93,7 +89,7 @@ export default function Paiement(){
                         autoClose:2500,
                         // innerWidth: 10
                     })
-                     history(`/ListAdmin`);            
+                     history(`/ListPaiement`);            
                   }
                 else{   
                       
@@ -111,7 +107,7 @@ export default function Paiement(){
                     autoClose:2500,
                     // innerWidth: 10
                 })
-                 history(`/ListAdmin`);            
+                 history(`/ListPaiement`);            
               }
             else{   
                   
@@ -334,7 +330,7 @@ export default function Paiement(){
                                         <input id = "date1" className="input-text" required="required" type="date" name="daty_androanys"
                                             value={daty_nividianana} onChange = {e => handleChange(e)}
                                         />
-                                        <label for="date1" className="label_add">Daty nisoratana ISI</label>
+                                        <label for="date1" className="label_add">Daty nividianana entana</label>
                                     </div>
                                     <div className="form-field_add">
 

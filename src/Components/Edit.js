@@ -191,7 +191,7 @@ export default function Edit(){
                                         </div>
                                         <div className="form-field_add">
 
-                                            <input id = "cin" className="input-text" type="text" name="cin"
+                                            <input id = "cin" className="input-text" type="text" name="cinS"
                                             value={infoisi.cin} onChange = {e => handleChange(e)}
                                             />
                                             <label for="cin" className="label_add">Laharan'ny kara-panondro</label>

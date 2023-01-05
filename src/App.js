@@ -15,6 +15,7 @@ import Add from './Components/Add';
 import ListAdmin from './Components/ListAdmin';
 import Edit from './Components/Edit';
 import Paiement from './Components/Paiement';
+import ListPaiement from './Components/ListPaiement';
 import {AnimatePresence} from 'framer-motion'
 import 'bootstrap/dist/css/bootstrap.css';
 import "react-toastify/dist/ReactToastify.css";
@@ -39,6 +40,7 @@ function App() {
           <Route exact path="/List/:nif" element={ <List /> } />
           <Route exact path="/Add/:Nif" element={ <Add /> } />
           <Route exact path="/ListAdmin" element={ <ListAdmin /> } />
+          <Route exact path="/ListPaiement" element={ <ListPaiement /> } />
           <Route exact path="/Edit/:laharana" element={ <Edit /> } />
           <Route exact path="/Paiement/:laharana" element={ <Paiement /> } />
           {/* <Route exact path="/:nif/Paiement" element={ <Paiement /> } /> */}

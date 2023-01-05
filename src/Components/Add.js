@@ -262,7 +262,7 @@ export default function Add(){
                                         </div>
                                            
                                         <div className="form-field_add">
-                                            <input id = "cin" className="input-text"  type="text" name="cin"
+                                            <input id = "cin" className="input-text"  type="text" name="cinS"
                                             value={cin} onChange = {e => handleChange(e)} required = "required"
                                             />
                                             <label for="cin" className="label_add">Laharan'ny kara-panondro</label>
