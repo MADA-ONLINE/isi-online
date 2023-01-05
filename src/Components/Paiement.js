@@ -20,12 +20,14 @@ export default function Paiement(){
 
     let history = useNavigate();
     const {laharana} =  useParams();
-     
+    const[formerrors,setFormerrors] = useState(false)
+    const regex = /^[0-9\b]+$/;
     const [infoisi,setInfoisi] = useState({      
         nif:"",
         anarana_entana:"",
+        daty_nividianana:"",
         daty_androany:"",
-        daty_fandoavana:"",
+        daty_fandoavana:"",       
         vola_aloa:"",
         mode_pay_esp:"",       
         mode_pay_vir:"" ,
@@ -36,7 +38,7 @@ export default function Paiement(){
     loadUsers();
     },[])
 
-    const {nif,anarana_entana,daty_androany,daty_fandoavana,vola_aloa,mode_pay_esp,mode_pay_vir}= infoisi
+    const {nif,anarana_entana,daty_nividianana,daty_androany,daty_fandoavana,vola_aloa,mode_pay_esp,mode_pay_vir}= infoisi
     const handleChange =(e)=>{
         setInfoisi({...infoisi,[e.target.name] : e.target.value})
         // console.log(infoisi.mode_pay_esp)      
@@ -77,31 +79,56 @@ export default function Paiement(){
     //     }
     const updateForm = async(e)=>{
         e.preventDefault();
-        //console.log(student)       
-    
-     await axios.put("http://localhost/ISI_online/payement.php",infoisi)
-        .then((result) => {
-          console.log(result);
-          if(result.status == 201){
-            toast.success('Tontosa ny fandoavana ny vola!!!',{
-                position: toast.POSITION.TOP_LEFT,
-                autoClose:2500,
-                // innerWidth: 10
+        //console.log(student)   
+        if(infoisi.bordereau){
+            if( !regex.test(infoisi.bordereau)){
+                setFormerrors(true)
+            }else{
+                await axios.put("http://localhost/ISI_online/payement.php",infoisi)
+                .then((result) => {
+                  console.log(result);
+                  if(result.status == 201){
+                    toast.success('Tontosa ny fandoavana ny vola!!!',{
+                        position: toast.POSITION.TOP_LEFT,
+                        autoClose:2500,
+                        // innerWidth: 10
+                    })
+                     history(`/ListAdmin`);            
+                  }
+                else{   
+                      
+                  alert("There is a problem for adding,please try again");
+                }   
             })
-             history(`/ListAdmin`);            
-          }
-        else{   
-              
-          alert("There is a problem for adding,please try again");
-        }   
-    })
+            } 
+        }else{
+            await axios.put("http://localhost/ISI_online/payement.php",infoisi)
+            .then((result) => {
+              console.log(result);
+              if(result.status == 201){
+                toast.success('Tontosa ny fandoavana ny vola!!!',{
+                    position: toast.POSITION.TOP_LEFT,
+                    autoClose:2500,
+                    // innerWidth: 10
+                })
+                 history(`/ListAdmin`);            
+              }
+            else{   
+                  
+              alert("There is a problem for adding,please try again");
+            }   
+        })
+        }
+        
+    
+   
 }
     
     // const [isi_daty, setIsi_daty] = useState()
     // const [pay_daty, setPay_daty] = useState()
     // const [isi_vola, setIsi_vola] = useState()
 
-    const setdate_isi = new Date(infoisi.daty_androany)
+    const setdate_isi = new Date(infoisi.daty_nividianana)
     const setdate_pay = new Date(infoisi.daty_fandoavana)
 
     const jour_isi = setdate_isi.getDate()
@@ -305,7 +332,7 @@ export default function Paiement(){
                                     <div className="form-field_add">
 
                                         <input id = "date1" className="input-text" required="required" type="date" name="daty_androanys"
-                                            value={daty_androany} onChange = {e => handleChange(e)}
+                                            value={daty_nividianana} onChange = {e => handleChange(e)}
                                         />
                                         <label for="date1" className="label_add">Daty nisoratana ISI</label>
                                     </div>
@@ -341,6 +368,8 @@ export default function Paiement(){
                                           onChange = {e => handleChange(e)}
                                         />
                                         <label for="price" className="label_add">laharany bordereau</label>
+                                        {formerrors && !regex.test(infoisi.bordereau)?
+                                             <label>tsy ampy ny laharana nampi</label>:""}
                                         </div>
                                         )
                                     }
