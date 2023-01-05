@@ -239,7 +239,7 @@ export default function ListAdmin(){
                                 </table>
                             </div>
                             <div className="lisitra" onClick={ClickListPaiement}>
-                                <p className ="lisitra_voaloa">Lisitr'ireo nandoa vola rehetra >>></p>
+                                <p className ="lisitra_voaloa">Lisitr'ireo nandoa vola rehetra </p>
                             </div>
                         </motion.div>            
                         <div className="contact_admin" data-aos="fade-up"

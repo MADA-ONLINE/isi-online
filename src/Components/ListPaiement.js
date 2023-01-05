@@ -49,7 +49,7 @@ export default function ListPaiement(){
     },[]);
 
      const loadUsers = async ()=>{
-     const result = await axios.get("http://localhost/ISI_online/Listadmin.php");
+     const result = await axios.get("http://localhost/ISI_online/ListPayement.php");
      //console.log(result.data);
       setInfoisi(result.data); 
       console.log(typeof(result.data));   
@@ -223,7 +223,7 @@ export default function ListPaiement(){
                                 </table>
                             </div>
                             <div className="lisitra" onClick={ClickListAdmin}>
-                                <p className="lisitra_voaloa_1">Lisitr'ireo tsy nandoa vola rehetra >>></p>
+                                <p className="lisitra_voaloa_1">Lisitr'ireo tsy nandoa vola rehetra</p>
                             </div>
                         </motion.div>
                         
